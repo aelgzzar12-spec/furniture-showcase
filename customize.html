@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customize — Royal Furniture</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f0e8;
+  color:#171717;
+}
+header{
+  padding:20px 6%;
+  background:#171717;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-family:Georgia,serif;
+  font-size:25px;
+}
+header a{
+  color:white;
+  text-decoration:none;
+}
+.container{
+  width:min(1100px,90%);
+  margin:auto;
+  padding:60px 0;
+}
+h1{
+  font-family:Georgia,serif;
+  font-size:55px;
+  font-weight:500;
+}
+.intro{
+  color:#666;
+  max-width:650px;
+  line-height:1.7;
+}
+.editor{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin-top:45px;
+}
+.panel,.preview{
+  background:white;
+  padding:30px;
+}
+label{
+  display:block;
+  margin-bottom:20px;
+  font-weight:bold;
+}
+input,textarea{
+  width:100%;
+  margin-top:8px;
+  padding:13px;
+  border:1px solid #ccc;
+  font:inherit;
+}
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+input[type="color"]{
+  height:50px;
+  padding:3px;
+}
+button{
+  border:0;
+  padding:14px 22px;
+  background:#171717;
+  color:white;
+  cursor:pointer;
+  margin-right:8px;
+}
+button.reset{
+  background:#888;
+}
+.preview{
+  background:#e8e1d6;
+  min-height:400px;
+}
+.preview small{
+  letter-spacing:3px;
+  color:#8b7760;
+}
+.preview h2{
+  font-family:Georgia,serif;
+  font-size:45px;
+  font-weight:500;
+}
+.preview p{
+  line-height:1.7;
+  color:#666;
+}
+@media(max-width:750px){
+  .editor{grid-template-columns:1fr}
+  h1{font-size:43px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Royal Furniture</div>
+  <a href="index.html">← View Website</a>
+</header>
+
+<main class="container">
+
+  <small>ROYAL FURNITURE TEMPLATE</small>
+
+  <h1>Customize your website.</h1>
+
+  <p class="intro">
+    Change your brand name, hero headline, description and accent color.
+    Your settings are saved in this browser.
+  </p>
+
+  <div class="editor">
+
+    <div class="panel">
+
+      <label>
+        Brand Name
+        <input id="brand" type="text" value="Royal Furniture">
+      </label>
+
+      <label>
+        Hero Headline
+        <input
+          id="headline"
+          type="text"
+          value="Furniture with a sense of place."
+        >
+      </label>
+
+      <label>
+        Hero Description
+        <textarea id="description">Discover refined furniture designed around comfort, character and timeless modern interiors.</textarea>
+      </label>
+
+      <label>
+        Accent Color
+        <input id="accent" type="color" value="#8b7760">
+      </label>
+
+      <button onclick="saveSettings()">Save Changes</button>
+
+      <button class="reset" onclick="resetSettings()">Reset</button>
+
+    </div>
+
+    <div class="preview">
+
+      <small>LIVE PREVIEW</small>
+
+      <h2 id="previewBrand">
+        Royal Furniture
+      </h2>
+
+      <h3 id="previewHeadline">
+        Furniture with a sense of place.
+      </h3>
+
+      <p id="previewDescription">
+        Discover refined furniture designed around comfort,
+        character and timeless modern interiors.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+
+const brand = document.getElementById("brand");
+const headline = document.getElementById("headline");
+const description = document.getElementById("description");
+const accent = document.getElementById("accent");
+
+const previewBrand = document.getElementById("previewBrand");
+const previewHeadline = document.getElementById("previewHeadline");
+const previewDescription = document.getElementById("previewDescription");
+
+function updatePreview(){
+
+  previewBrand.textContent = brand.value;
+
+  previewHeadline.textContent = headline.value;
+
+  previewDescription.textContent = description.value;
+
+  previewBrand.style.color = accent.value;
+
+}
+
+brand.addEventListener("input",updatePreview);
+headline.addEventListener("input",updatePreview);
+description.addEventListener("input",updatePreview);
+accent.addEventListener("input",updatePreview);
+
+function saveSettings(){
+
+  localStorage.setItem("rf_brand",brand.value);
+  localStorage.setItem("rf_headline",headline.value);
+  localStorage.setItem("rf_description",description.value);
+  localStorage.setItem("rf_accent",accent.value);
+
+  alert("Changes saved successfully.");
+
+}
+
+function resetSettings(){
+
+  localStorage.removeItem("rf_brand");
+  localStorage.removeItem("rf_headline");
+  localStorage.removeItem("rf_description");
+  localStorage.removeItem("rf_accent");
+
+  brand.value="Royal Furniture";
+  headline.value="Furniture with a sense of place.";
+  description.value="Discover refined furniture designed around comfort, character and timeless modern interiors.";
+  accent.value="#8b7760";
+
+  updatePreview();
+
+}
+
+function loadSettings(){
+
+  brand.value=localStorage.getItem("rf_brand") || brand.value;
+  headline.value=localStorage.getItem("rf_headline") || headline.value;
+  description.value=localStorage.getItem("rf_description") || description.value;
+  accent.value=localStorage.getItem("rf_accent") || accent.value;
+
+  updatePreview();
+
+}
+
+loadSettings();
+
+</script>
+
+</body>
+</html>
