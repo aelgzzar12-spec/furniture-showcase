@@ -370,6 +370,78 @@
       font-size: 13px;
     }
 
+
+    /* REAL DEMO SCREENSHOTS */
+    .shot-image, .hero-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-shot {
+      min-height: 520px;
+      padding: 18px;
+      background: #e9e2d8;
+      box-shadow: 0 24px 70px rgba(23,21,19,.10);
+    }
+
+    .hero-image {
+      object-fit: contain;
+      object-position: top center;
+      border-radius: 18px;
+      background: #f6f3ee;
+    }
+
+    .shot {
+      min-height: 0;
+      padding: 0;
+      background: #e9e2d8;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 50px rgba(23,21,19,.07);
+    }
+
+    .shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .shot.mobile-shot {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .shot-label {
+      padding: 15px 18px;
+      background: rgba(255,255,255,.94);
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: .02em;
+    }
+
+    .shot-label strong {
+      color: var(--dark);
+      margin-right: 7px;
+    }
+
+    .proof-strip {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .proof-pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
     /* MOBILE */
 
     @media (max-width: 800px) {
@@ -473,14 +545,17 @@
             View Live Demo
           </a>
         </div>
+
+        <div class="proof-strip" aria-label="Template highlights">
+          <span class="proof-pill">Responsive layout</span>
+          <span class="proof-pill">Product customization</span>
+          <span class="proof-pill">Clean HTML/CSS/JS</span>
+        </div>
       </div>
 
-      <!-- IMAGE 01 -->
+      <!-- REAL DEMO SCREENSHOT -->
       <div class="hero-shot">
-        <div class="placeholder">
-          <strong>Demo Hero Screenshot</strong>
-          <span>Place your 01-hero screenshot here</span>
-        </div>
+        <img class="hero-image" src="assets/sales/01-hero.jpg" alt="Royal Furniture live demo screenshot" loading="eager">
       </div>
 
     </div>
@@ -521,10 +596,10 @@
 
         <article class="feature">
           <div class="feature-number">03</div>
-          <h3>Product Customization</h3>
+          <h3>Website Customization</h3>
           <p>
-            Includes a dedicated customization experience for managing
-            furniture content and product presentation.
+            Includes a dedicated interface for changing branding, hero content,
+            product names, prices and image URLs without editing the main site.
           </p>
         </article>
 
@@ -547,39 +622,32 @@
 
       <div class="showcase">
 
-        <!-- IMAGE 02 -->
         <div class="shot">
-          <div class="placeholder">
-            <strong>Products / Collection</strong>
-            <span>Place your 02-products screenshot here</span>
+          <img src="assets/sales/02-collection.jpg" alt="Royal Furniture collection and product grid" loading="lazy">
+          <div class="shot-label"><strong>01</strong> Collection & product grid</div>
+        </div>
+
+        <div class="shot-grid">
+          <div class="shot mobile-shot">
+            <img src="assets/sales/03-product-mobile.jpg" alt="Royal Furniture mobile product experience" loading="lazy">
+            <div class="shot-label"><strong>02</strong> Mobile product experience</div>
+          </div>
+
+          <div class="shot">
+            <img src="assets/sales/04-story.jpg" alt="Royal Furniture story and philosophy section" loading="lazy">
+            <div class="shot-label"><strong>03</strong> Story & brand presentation</div>
           </div>
         </div>
 
         <div class="shot-grid">
-
-          <!-- IMAGE 03 -->
-          <div class="shot small">
-            <div class="placeholder">
-              <strong>Spaces / Story</strong>
-              <span>Place your 03-spaces screenshot here</span>
-            </div>
+          <div class="shot">
+            <img src="assets/sales/05-spaces.jpg" alt="Royal Furniture spaces section" loading="lazy">
+            <div class="shot-label"><strong>04</strong> Living, dining & bedroom spaces</div>
           </div>
 
-          <!-- IMAGE 04 -->
-          <div class="shot small">
-            <div class="placeholder">
-              <strong>Mobile Customize</strong>
-              <span>Place your 04-mobile-customize screenshot here</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- IMAGE 05 -->
-        <div class="shot">
-          <div class="placeholder">
-            <strong>Product Manager</strong>
-            <span>Place your 05-product-manager screenshot here</span>
+          <div class="shot">
+            <img src="assets/sales/06-customize.jpg" alt="Royal Furniture customization and product manager interface" loading="lazy">
+            <div class="shot-label"><strong>05</strong> Customize website & products</div>
           </div>
         </div>
 
@@ -698,8 +766,8 @@
         <details>
           <summary>Can I replace the furniture images?</summary>
           <p>
-            Yes. The template is intended to be customized with your own
-            product images and content.
+            Yes. The customization page lets you replace product image URLs
+            and update the product content for your own brand.
           </p>
         </details>
 
