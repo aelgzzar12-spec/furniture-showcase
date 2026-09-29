@@ -7,12 +7,14 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:#f4f0e8;
   color:#171717;
 }
+
 header{
   padding:20px 6%;
   background:#171717;
@@ -21,44 +23,56 @@ header{
   justify-content:space-between;
   align-items:center;
 }
+
 .logo{
   font-family:Georgia,serif;
   font-size:25px;
 }
+
 header a{
   color:white;
   text-decoration:none;
 }
+
 .container{
-  width:min(1100px,90%);
+  width:min(1200px,90%);
   margin:auto;
-  padding:60px 0;
+  padding:55px 0;
 }
+
 h1{
   font-family:Georgia,serif;
   font-size:55px;
   font-weight:500;
+  margin-bottom:15px;
 }
+
 .intro{
   color:#666;
-  max-width:650px;
+  max-width:700px;
   line-height:1.7;
 }
-.editor{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  margin-top:45px;
+
+.section-title{
+  margin-top:55px;
+  margin-bottom:20px;
+  font-family:Georgia,serif;
+  font-size:32px;
+  font-weight:500;
 }
-.panel,.preview{
+
+.panel{
   background:white;
   padding:30px;
+  margin-bottom:30px;
 }
+
 label{
   display:block;
   margin-bottom:20px;
   font-weight:bold;
 }
+
 input,textarea{
   width:100%;
   margin-top:8px;
@@ -66,14 +80,17 @@ input,textarea{
   border:1px solid #ccc;
   font:inherit;
 }
+
 textarea{
   min-height:120px;
   resize:vertical;
 }
+
 input[type="color"]{
   height:50px;
   padding:3px;
 }
+
 button{
   border:0;
   padding:14px 22px;
@@ -82,29 +99,81 @@ button{
   cursor:pointer;
   margin-right:8px;
 }
+
 button.reset{
   background:#888;
 }
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.product{
+  border:1px solid #ddd;
+  padding:22px;
+  background:#fafafa;
+}
+
+.product h3{
+  font-family:Georgia,serif;
+  font-size:24px;
+  margin-top:0;
+}
+
+.product-image{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+  margin-bottom:20px;
+  background:#ddd;
+}
+
 .preview{
   background:#e8e1d6;
-  min-height:400px;
+  padding:30px;
+  margin-top:30px;
 }
+
 .preview small{
   letter-spacing:3px;
   color:#8b7760;
 }
+
 .preview h2{
   font-family:Georgia,serif;
   font-size:45px;
   font-weight:500;
 }
+
 .preview p{
   line-height:1.7;
   color:#666;
 }
+
+.notice{
+  background:#eee7dc;
+  padding:18px;
+  margin-top:25px;
+  line-height:1.6;
+  color:#555;
+}
+
 @media(max-width:750px){
-  .editor{grid-template-columns:1fr}
-  h1{font-size:43px}
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  h1{
+    font-size:43px;
+  }
+
+  header{
+    gap:20px;
+  }
 }
 </style>
 </head>
@@ -112,8 +181,11 @@ button.reset{
 <body>
 
 <header>
+
   <div class="logo">Royal Furniture</div>
+
   <a href="index.html">← View Website</a>
+
 </header>
 
 <main class="container">
@@ -123,66 +195,357 @@ button.reset{
   <h1>Customize your website.</h1>
 
   <p class="intro">
-    Change your brand name, hero headline, description and accent color.
-    Your settings are saved in this browser.
+    Personalize your furniture website without editing the code.
+    Change your brand, hero section and product information.
   </p>
 
-  <div class="editor">
 
-    <div class="panel">
+  <!-- BRAND SETTINGS -->
 
-      <label>
-        Brand Name
-        <input id="brand" type="text" value="Royal Furniture">
-      </label>
+  <div class="section-title">
+    Brand & Website
+  </div>
 
-      <label>
-        Hero Headline
-        <input
-          id="headline"
-          type="text"
-          value="Furniture with a sense of place."
-        >
-      </label>
+  <div class="panel">
 
-      <label>
-        Hero Description
-        <textarea id="description">Discover refined furniture designed around comfort, character and timeless modern interiors.</textarea>
-      </label>
+    <label>
+      Brand Name
+      <input id="brand" type="text" value="Royal Furniture">
+    </label>
 
-      <label>
-        Accent Color
-        <input id="accent" type="color" value="#8b7760">
-      </label>
+    <label>
+      Hero Headline
+      <input
+        id="headline"
+        type="text"
+        value="Furniture with a sense of place."
+      >
+    </label>
 
-      <button onclick="saveSettings()">Save Changes</button>
+    <label>
+      Hero Description
+      <textarea id="description">Discover refined furniture designed around comfort, character and timeless modern interiors.</textarea>
+    </label>
 
-      <button class="reset" onclick="resetSettings()">Reset</button>
-
-    </div>
-
-    <div class="preview">
-
-      <small>LIVE PREVIEW</small>
-
-      <h2 id="previewBrand">
-        Royal Furniture
-      </h2>
-
-      <h3 id="previewHeadline">
-        Furniture with a sense of place.
-      </h3>
-
-      <p id="previewDescription">
-        Discover refined furniture designed around comfort,
-        character and timeless modern interiors.
-      </p>
-
-    </div>
+    <label>
+      Accent Color
+      <input id="accent" type="color" value="#8b7760">
+    </label>
 
   </div>
 
+
+  <!-- PRODUCTS -->
+
+  <div class="section-title">
+    Product Manager
+  </div>
+
+  <div class="panel">
+
+    <div class="notice">
+      Edit the product name, price and image URL below.
+      Your changes will be saved in this browser.
+    </div>
+
+    <div class="products">
+
+
+      <!-- PRODUCT 1 -->
+
+      <div class="product">
+
+        <img
+          id="imagePreview1"
+          class="product-image"
+          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
+          alt=""
+        >
+
+        <h3>Product 1</h3>
+
+        <label>
+          Product Name
+          <input
+            id="productName1"
+            type="text"
+            value="Luna Modular Sofa"
+          >
+        </label>
+
+        <label>
+          Price
+          <input
+            id="productPrice1"
+            type="text"
+            value="$2,450"
+          >
+        </label>
+
+        <label>
+          Image URL
+          <input
+            id="productImage1"
+            type="url"
+            value="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
+          >
+        </label>
+
+      </div>
+
+
+      <!-- PRODUCT 2 -->
+
+      <div class="product">
+
+        <img
+          id="imagePreview2"
+          class="product-image"
+          src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80"
+          alt=""
+        >
+
+        <h3>Product 2</h3>
+
+        <label>
+          Product Name
+          <input
+            id="productName2"
+            type="text"
+            value="Aria Lounge Chair"
+          >
+        </label>
+
+        <label>
+          Price
+          <input
+            id="productPrice2"
+            type="text"
+            value="$890"
+          >
+        </label>
+
+        <label>
+          Image URL
+          <input
+            id="productImage2"
+            type="url"
+            value="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80"
+          >
+        </label>
+
+      </div>
+
+
+      <!-- PRODUCT 3 -->
+
+      <div class="product">
+
+        <img
+          id="imagePreview3"
+          class="product-image"
+          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80"
+          alt=""
+        >
+
+        <h3>Product 3</h3>
+
+        <label>
+          Product Name
+          <input
+            id="productName3"
+            type="text"
+            value="Noir Dining Table"
+          >
+        </label>
+
+        <label>
+          Price
+          <input
+            id="productPrice3"
+            type="text"
+            value="$1,680"
+          >
+        </label>
+
+        <label>
+          Image URL
+          <input
+            id="productImage3"
+            type="url"
+            value="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80"
+          >
+        </label>
+
+      </div>
+
+
+      <!-- PRODUCT 4 -->
+
+      <div class="product">
+
+       <h3>Product 4</h3>
+
+<label>
+  Product Name
+  <input
+    id="productName4"
+    type="text"
+    value="Siena Upholstered Bed"
+  >
+</label>
+
+<label>
+  Price
+  <input
+    id="productPrice4"
+    type="text"
+    value="$1,920"
+  >
+</label>
+
+<label>
+  Image URL
+  <input
+    id="productImage4"
+    type="url"
+    value="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+  >
+</label>
+
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div class="product">
+
+<img
+  id="imagePreview5"
+  class="product-image"
+  src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80"
+  alt=""
+>
+
+<h3>Product 5</h3>
+
+<label>
+  Product Name
+  <input
+    id="productName5"
+    type="text"
+    value="Milo Dining Chair"
+  >
+</label>
+
+<label>
+  Price
+  <input
+    id="productPrice5"
+    type="text"
+    value="$420"
+  >
+</label>
+
+<label>
+  Image URL
+  <input
+    id="productImage5"
+    type="url"
+    value="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80"
+  >
+</label>
+
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div class="product">
+
+<img
+  id="imagePreview6"
+  class="product-image"
+  src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
+  alt=""
+>
+
+<h3>Product 6</h3>
+
+<label>
+  Product Name
+  <input
+    id="productName6"
+    type="text"
+    value="Vale Side Table"
+  >
+</label>
+
+<label>
+  Price
+  <input
+    id="productPrice6"
+    type="text"
+    value="$560"
+  >
+</label>
+
+<label>
+  Image URL
+  <input
+    id="productImage6"
+    type="url"
+    value="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
+  >
+</label>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LIVE PREVIEW -->
+
+<div class="section-title">
+  Live Preview
+</div>
+
+<div class="preview">
+
+<small>LIVE PREVIEW</small>
+
+<h2 id="previewBrand">
+  Royal Furniture
+</h2>
+
+<h3 id="previewHeadline">
+  Furniture with a sense of place.
+</h3>
+
+<p id="previewDescription">
+  Discover refined furniture designed around comfort,
+  character and timeless modern interiors.
+</p>
+
+</div>
+
+
+<div class="panel">
+
+<button onclick="saveSettings()">
+  Save Changes
+</button>
+
+<button class="reset" onclick="resetSettings()">
+  Reset
+</button>
+
+</div>
+
 </main>
+
 
 <script>
 
@@ -195,60 +558,133 @@ const previewBrand = document.getElementById("previewBrand");
 const previewHeadline = document.getElementById("previewHeadline");
 const previewDescription = document.getElementById("previewDescription");
 
+
 function updatePreview(){
 
   previewBrand.textContent = brand.value;
-
   previewHeadline.textContent = headline.value;
-
   previewDescription.textContent = description.value;
-
   previewBrand.style.color = accent.value;
 
 }
 
-brand.addEventListener("input",updatePreview);
-headline.addEventListener("input",updatePreview);
-description.addEventListener("input",updatePreview);
-accent.addEventListener("input",updatePreview);
+
+function updateImagePreview(number){
+
+  const input = document.getElementById("productImage" + number);
+  const preview = document.getElementById("imagePreview" + number);
+
+  preview.src = input.value;
+
+}
+
+
+brand.addEventListener("input", updatePreview);
+headline.addEventListener("input", updatePreview);
+description.addEventListener("input", updatePreview);
+accent.addEventListener("input", updatePreview);
+
+
+for(let i = 1; i <= 6; i++){
+
+  document
+    .getElementById("productImage" + i)
+    .addEventListener("input", function(){
+
+      updateImagePreview(i);
+
+    });
+
+}
+
 
 function saveSettings(){
 
-  localStorage.setItem("rf_brand",brand.value);
-  localStorage.setItem("rf_headline",headline.value);
-  localStorage.setItem("rf_description",description.value);
-  localStorage.setItem("rf_accent",accent.value);
+  localStorage.setItem("rf_brand", brand.value);
+  localStorage.setItem("rf_headline", headline.value);
+  localStorage.setItem("rf_description", description.value);
+  localStorage.setItem("rf_accent", accent.value);
+
+
+  for(let i = 1; i <= 6; i++){
+
+    localStorage.setItem(
+      "rf_product_name_" + i,
+      document.getElementById("productName" + i).value
+    );
+
+    localStorage.setItem(
+      "rf_product_price_" + i,
+      document.getElementById("productPrice" + i).value
+    );
+
+    localStorage.setItem(
+      "rf_product_image_" + i,
+      document.getElementById("productImage" + i).value
+    );
+
+  }
 
   alert("Changes saved successfully.");
 
 }
 
+
 function resetSettings(){
 
-  localStorage.removeItem("rf_brand");
-  localStorage.removeItem("rf_headline");
-  localStorage.removeItem("rf_description");
-  localStorage.removeItem("rf_accent");
-
-  brand.value="Royal Furniture";
-  headline.value="Furniture with a sense of place.";
-  description.value="Discover refined furniture designed around comfort, character and timeless modern interiors.";
-  accent.value="#8b7760";
-
-  updatePreview();
+  localStorage.clear();
+  location.reload();
 
 }
+
 
 function loadSettings(){
 
-  brand.value=localStorage.getItem("rf_brand") || brand.value;
-  headline.value=localStorage.getItem("rf_headline") || headline.value;
-  description.value=localStorage.getItem("rf_description") || description.value;
-  accent.value=localStorage.getItem("rf_accent") || accent.value;
+  brand.value =
+    localStorage.getItem("rf_brand") || brand.value;
+
+  headline.value =
+    localStorage.getItem("rf_headline") || headline.value;
+
+  description.value =
+    localStorage.getItem("rf_description") || description.value;
+
+  accent.value =
+    localStorage.getItem("rf_accent") || accent.value;
+
+
+  for(let i = 1; i <= 6; i++){
+
+    const name =
+      localStorage.getItem("rf_product_name_" + i);
+
+    const price =
+      localStorage.getItem("rf_product_price_" + i);
+
+    const image =
+      localStorage.getItem("rf_product_image_" + i);
+
+
+    if(name){
+      document.getElementById("productName" + i).value = name;
+    }
+
+    if(price){
+      document.getElementById("productPrice" + i).value = price;
+    }
+
+    if(image){
+      document.getElementById("productImage" + i).value = image;
+    }
+
+    updateImagePreview(i);
+
+  }
 
   updatePreview();
 
 }
+
 
 loadSettings();
 
