@@ -2178,6 +2178,48 @@ this.reset();
 });
 
 </script>
+<script>
+(function () {
 
+  const brand = localStorage.getItem("rf_brand");
+  const headline = localStorage.getItem("rf_headline");
+  const description = localStorage.getItem("rf_description");
+  const accent = localStorage.getItem("rf_accent");
+
+  if (brand) {
+    document.querySelectorAll(".logo").forEach(el => {
+      el.textContent = brand;
+    });
+
+    document.title = brand;
+  }
+
+  if (headline) {
+    const heroTitle = document.querySelector(".hero h1");
+    if (heroTitle) {
+      heroTitle.textContent = headline;
+    }
+  }
+
+  if (description) {
+    const heroDescription = document.querySelector(".hero p");
+    if (heroDescription) {
+      heroDescription.textContent = description;
+    }
+  }
+
+  if (accent) {
+    document.documentElement.style.setProperty(
+      "--accent",
+      accent
+    );
+
+    document.querySelectorAll(".eyebrow, .section-label").forEach(el => {
+      el.style.color = accent;
+    });
+  }
+
+})();
+</script>
 </body>
   </html>
