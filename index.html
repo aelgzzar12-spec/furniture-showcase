@@ -1,1749 +1,2179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Royal Furniture — Timeless Designs</title>
-
-  <meta
-    name="description"
-    content="Royal Furniture — timeless furniture and refined interiors designed for modern living."
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-    :root {
-      --cream: #f5f1e9;
-      --cream-dark: #ebe4d8;
-      --white: #fffdf9;
-      --ink: #1b1a17;
-      --muted: #716c64;
-      --line: rgba(27,26,23,.12);
-      --brown: #8a684d;
-      --accent: #8a684d;
-      --dark: #20201d;
-      --radius: 24px;
-      --container: 1240px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "DM Sans", sans-serif;
-      color: var(--ink);
-      background: var(--cream);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    .container {
-      width: min(var(--container), calc(100% - 40px));
-      margin: auto;
-    }
-
-    /* =========================
-       HEADER
-    ========================== */
-
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      padding: 22px 0;
-      color: white;
-    }
-
-    .nav {
-      width: min(var(--container), calc(100% - 40px));
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font-family: "Playfair Display", serif;
-      font-size: 28px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      font-size: 14px;
-    }
-
-    .nav-links a {
-      opacity: .9;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 1px;
-      background: white;
-      transition: .3s;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .customize-btn {
-      padding: 10px 18px;
-      border: 1px solid rgba(255,255,255,.65);
-      border-radius: 999px;
-      font-size: 13px;
-      background: rgba(255,255,255,.08);
-      backdrop-filter: blur(8px);
-      transition: .3s;
-    }
-
-    .customize-btn:hover {
-      background: white;
-      color: var(--ink);
-    }
-
-    .nav-icon {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      font-size: 20px;
-      transition: .3s;
-    }
-
-    .nav-icon:hover {
-      background: rgba(255,255,255,.12);
-    }
-
-    .menu-btn {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 0;
-      background: transparent;
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    /* =========================
-       MOBILE MENU
-    ========================== */
-
-    .mobile-menu-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 80;
-      background: rgba(0,0,0,.5);
-      opacity: 0;
-      visibility: hidden;
-      transition: .35s ease;
-      backdrop-filter: blur(3px);
-    }
-
-    .mobile-menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      z-index: 90;
-      width: min(340px, 88%);
-      height: 100vh;
-      padding: 100px 30px 30px;
-      background: var(--white);
-      color: var(--ink);
-      box-shadow: -15px 0 45px rgba(0,0,0,.2);
-      transition: right .4s cubic-bezier(.22,1,.36,1);
-      overflow-y: auto;
-    }
-
-    .mobile-menu.active {
-      right: 0;
-    }
-
-    .mobile-menu-close {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: transparent;
-      color: var(--ink);
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .mobile-brand {
-      font-family: "Playfair Display", serif;
-      font-size: 27px;
-      font-weight: 700;
-      margin-bottom: 25px;
-    }
-
-    .mobile-menu a {
-      display: block;
-      padding: 17px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 16px;
-      transition: .25s;
-    }
-
-    .mobile-menu a:hover {
-      color: var(--brown);
-      padding-left: 7px;
-    }
-
-    .mobile-menu .mobile-customize {
-      margin-top: 28px;
-      padding: 14px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      text-align: center;
-    }
-
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero {
-      min-height: 720px;
-      height: 82vh;
-      max-height: 820px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      color: white;
-      background: #222;
-    }
-
-    .hero-slides {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      background-position: center;
-      background-size: cover;
-      opacity: 0;
-      transform: scale(1.08);
-      animation: heroSlide 18s infinite;
-    }
-
-    .hero-slide:nth-child(1) {
-      background-image:
-        url("https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2200&q=90");
-      animation-delay: 0s;
-    }
-
-    .hero-slide:nth-child(2) {
-      background-image:
-        url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=90");
-      animation-delay: 6s;
-    }
-
-    .hero-slide:nth-child(3) {
-      background-image:
-        url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2200&q=90");
-      animation-delay: 12s;
-    }
-
-    @keyframes heroSlide {
-      0% {
-        opacity: 0;
-        transform: scale(1.08);
-      }
-
-      8% {
-        opacity: 1;
-      }
-
-      30% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      38% {
-        opacity: 0;
-        transform: scale(1);
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(10,10,8,.8) 0%,
-          rgba(10,10,8,.48) 48%,
-          rgba(10,10,8,.22) 100%
-        );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      width: min(var(--container), calc(100% - 40px));
-      margin: auto;
-      padding-top: 55px;
-    }
-
-    .hero-eyebrow {
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      max-width: 850px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(48px, 6.5vw, 88px);
-      line-height: .98;
-      font-weight: 600;
-      letter-spacing: -2px;
-    }
-
-    .hero-text {
-      max-width: 570px;
-      margin-top: 25px;
-      color: rgba(255,255,255,.86);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 25px;
-      border-radius: 999px;
-      font-size: 14px;
-      transition: .3s;
-    }
-
-    .btn-light {
-      background: white;
-      color: var(--ink);
-    }
-
-    .btn-light:hover {
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,.7);
-      color: white;
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(8px);
-    }
-
-    .btn-outline:hover {
-      background: white;
-      color: var(--ink);
-    }
-
-    /* =========================
-       SECTIONS
-    ========================== */
-
-    section {
-      padding: 105px 0;
-    }
-
-    .eyebrow {
-      color: var(--brown);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 30px;
-      margin-bottom: 42px;
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(38px, 5vw, 62px);
-      line-height: 1.05;
-      font-weight: 600;
-    }
-
-    .section-description {
-      max-width: 480px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    /* =========================
-       CATEGORIES
-    ========================== */
-
-    .categories {
-      background: var(--cream);
-    }
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-    }
-
-    .category-card {
-      position: relative;
-      height: 340px;
-      overflow: hidden;
-      border-radius: var(--radius);
-      color: white;
-      background: #333;
-    }
-
-    .category-card img {
-      height: 100%;
-      object-fit: cover;
-      transition: transform .8s ease;
-    }
-
-    .category-card:hover img {
-      transform: scale(1.07);
-    }
-
-    .category-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        transparent 30%,
-        rgba(0,0,0,.7)
-      );
-    }
-
-    .category-name {
-      position: absolute;
-      z-index: 2;
-      bottom: 23px;
-      left: 22px;
-      font-family: "Playfair Display", serif;
-      font-size: 25px;
-    }
-
-    /* =========================
-       STORY
-    ========================== */
-
-    .story {
-      background: var(--white);
-    }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .story-image {
-      height: 650px;
-      overflow: hidden;
-      border-radius: 30px;
-    }
-
-    .story-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: transform 1s ease;
-    }
-
-    .story-image:hover img {
-      transform: scale(1.04);
-    }
-
-    .story-content h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(42px, 5vw, 68px);
-      line-height: 1.05;
-      margin-bottom: 25px;
-    }
-
-    .story-content p {
-      max-width: 560px;
-      color: var(--muted);
-      line-height: 1.9;
-      margin-bottom: 18px;
-    }
-
-    .text-link {
-      display: inline-block;
-      margin-top: 18px;
-      padding-bottom: 5px;
-      border-bottom: 1px solid var(--ink);
-      font-size: 14px;
-    }
-
-    /* =========================
-       PRODUCTS
-    ========================== */
-
-    .products {
-      background: var(--cream);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px 18px;
-    }
-
-    .product-card {
-      position: relative;
-      min-width: 0;
-    }
-
-    .product-image {
-      position: relative;
-      height: 420px;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: var(--cream-dark);
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .7s ease;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.05);
-    }
-
-    .favorite-btn {
-      position: absolute;
-      z-index: 3;
-      top: 15px;
-      right: 15px;
-      width: 42px;
-      height: 42px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(255,255,255,.9);
-      cursor: pointer;
-      font-size: 21px;
-    }
-
-    .product-info {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 17px 3px;
-    }
-
-    .product-name {
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-    }
-
-    .product-price {
-      color: var(--muted);
-      white-space: nowrap;
-      font-size: 14px;
-    }
-
-    /* =========================
-       SERVICES
-    ========================== */
-
-    .services {
-      background: var(--dark);
-      color: white;
-    }
-
-    .services .eyebrow {
-      color: #c9a98c;
-    }
-
-    .services .section-description {
-      color: rgba(255,255,255,.62);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.12);
-    }
-
-    .service {
-      padding: 45px 35px;
-      background: var(--dark);
-    }
-
-    .service-number {
-      font-family: "Playfair Display", serif;
-      font-size: 18px;
-      color: #c9a98c;
-      margin-bottom: 35px;
-    }
-
-    .service h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
-
-    .service p {
-      color: rgba(255,255,255,.62);
-      line-height: 1.8;
-    }
-
-    /* =========================
-       CTA
-    ========================== */
-
-    .cta {
-      background: var(--cream-dark);
-    }
-
-    .cta-box {
-      position: relative;
-      overflow: hidden;
-      min-height: 450px;
-      display: flex;
-      align-items: center;
-      border-radius: 32px;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(20,18,15,.82),
-          rgba(20,18,15,.3)
-        ),
-        url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=90")
-        center/cover;
-      color: white;
-    }
-
-    .cta-content {
-      width: min(600px, 90%);
-      padding: 60px;
-    }
-
-    .cta-content h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(40px, 5vw, 65px);
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .cta-content p {
-      color: rgba(255,255,255,.8);
-      margin-bottom: 28px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      padding: 55px 0 25px;
-      background: var(--white);
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      padding-bottom: 40px;
-    }
-
-    .footer-brand {
-      max-width: 350px;
-    }
-
-    .footer-brand .logo {
-      color: var(--ink);
-      display: block;
-      margin-bottom: 15px;
-    }
-
-    .footer-brand p {
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 70px;
-    }
-
-    .footer-column h4 {
-      margin-bottom: 15px;
-      font-size: 14px;
-    }
-
-    .footer-column a {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-column a:hover {
-      color: var(--ink);
-    }
-
-    .footer-bottom {
-      padding-top: 25px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* =========================
-       TABLET
-    ========================== */
-
-    @media (max-width: 1000px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-actions .nav-icon {
-        display: none;
-      }
-
-      .customize-btn {
-        display: inline-flex;
-      }
-
-      .menu-btn {
-        display: grid;
-        place-items: center;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .story-grid {
-        gap: 40px;
-      }
-
-      .story-image {
-        height: 550px;
-      }
-    }
-
-    /* =========================
-       MOBILE
-    ========================== */
-
-    @media (max-width: 720px) {
-
-      .container,
-      .nav,
-      .hero-content {
-        width: min(100% - 30px, var(--container));
-      }
-
-      header {
-        padding: 17px 0;
-      }
-
-      .logo {
-        font-size: 24px;
-      }
-
-      .customize-btn {
-        display: none;
-      }
-
-      .hero {
-        min-height: 620px;
-        height: 78vh;
-        max-height: 700px;
-      }
-
-      .hero-content {
-        padding-top: 55px;
-      }
-
-      .hero h1 {
-        font-size: clamp(44px, 13vw, 68px);
-      }
-
-      .hero-text {
-        font-size: 15px;
-        margin-top: 20px;
-      }
-
-      .hero-buttons {
-        margin-top: 25px;
-      }
-
-      section {
-        padding: 75px 0;
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-description {
-        margin-top: 18px;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .category-card {
-        height: 280px;
-      }
-
-      .story-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .story-image {
-        height: 450px;
-      }
-
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .product-image {
-        height: 430px;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-top {
-        display: block;
-      }
-
-      .footer-links {
-        margin-top: 40px;
-        gap: 45px;
-      }
-
-      .cta-content {
-        padding: 35px;
-      }
-    }
-
-    @media (max-width: 430px) {
-
-      .category-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .category-card {
-        height: 330px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .footer-links {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Royal Furniture</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --cream:#f5f1e9;
+  --paper:#fffdf9;
+  --dark:#171715;
+  --text:#1d1b18;
+  --muted:#777067;
+  --gold:#b58c5b;
+  --line:#ddd7ce;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"DM Sans",sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  font-family:inherit;
+  border:0;
+  cursor:pointer;
+}
+
+
+/* =========================
+   SIDE NAVIGATION
+========================= */
+
+.side-nav{
+  position:fixed;
+  left:0;
+  top:0;
+  width:115px;
+  height:100vh;
+  background:var(--dark);
+  color:#fff;
+  z-index:100;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:26px 12px;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:27px;
+  line-height:1;
+  text-align:center;
+}
+
+.logo:before{
+  content:"♛";
+  display:block;
+  color:#d9b77d;
+  font-size:20px;
+  margin-bottom:6px;
+}
+
+.logo small{
+  display:block;
+  font-family:"DM Sans",sans-serif;
+  font-size:7px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-top:8px;
+}
+
+.side-links{
+  width:100%;
+  margin-top:70px;
+  display:grid;
+  gap:25px;
+}
+
+.side-links a{
+  color:#ddd;
+  text-align:center;
+  font-size:11px;
+  display:grid;
+  gap:5px;
+  transition:.25s;
+}
+
+.side-links a span{
+  font-size:18px;
+}
+
+.side-links a:hover{
+  color:#dfbd82;
+}
+
+.side-bottom{
+  margin-top:auto;
+  display:grid;
+  gap:18px;
+}
+
+.side-bottom button{
+  background:transparent;
+  color:white;
+  font-size:20px;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.main{
+  margin-left:115px;
+}
+
+.topbar{
+  position:absolute;
+  z-index:20;
+  top:0;
+  left:115px;
+  right:0;
+  padding:24px 0;
+  color:#fff;
+}
+
+.topbar-inner{
+  width:min(1180px,calc(100% - 48px));
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+.top-links{
+  display:flex;
+  gap:32px;
+  font-size:12px;
+}
+
+.top-links a:hover{
+  color:#e0bd82;
+}
+
+.top-actions{
+  position:absolute;
+  right:0;
+  display:flex;
+  gap:17px;
+}
+
+.top-actions button{
+  background:transparent;
+  color:#fff;
+  font-size:21px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  height:76vh;
+  min-height:600px;
+  max-height:790px;
+  position:relative;
+  overflow:hidden;
+  color:white;
+}
+
+.hero-background{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  animation:heroSlides 18s infinite;
+}
+
+.hero-background:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+    90deg,
+    rgba(15,13,11,.82),
+    rgba(15,13,11,.40) 50%,
+    rgba(15,13,11,.08)
+  );
+}
+
+@keyframes heroSlides{
+
+  0%,30%{
+    background-image:url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=88");
+  }
+
+  33%,63%{
+    background-image:url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=2000&q=88");
+  }
+
+  66%,96%{
+    background-image:url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2000&q=88");
+  }
+
+  100%{
+    background-image:url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=88");
+  }
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  width:min(1180px,calc(100% - 48px));
+  margin:auto;
+  display:flex;
+  align-items:center;
+}
+
+.hero-copy{
+  max-width:610px;
+  padding-top:50px;
+}
+
+.eyebrow{
+  color:#dfbd82;
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(48px,6vw,82px);
+  font-weight:500;
+  line-height:.98;
+  letter-spacing:-3px;
+  margin:18px 0;
+}
+
+.hero h1 em{
+  display:block;
+  color:#dfbd82;
+}
+
+.hero p{
+  max-width:470px;
+  color:#eee;
+  font-size:14px;
+  margin-bottom:28px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:22px;
+  padding:14px 22px;
+  background:#d2aa70;
+  color:#171511;
+  font-size:12px;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  background:#e2bd83;
+}
+
+.hero-bottom{
+  position:absolute;
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:28px;
+}
+
+.hero-numbers{
+  width:min(1180px,calc(100% - 48px));
+  margin:auto;
+  font-size:10px;
+  display:flex;
+  gap:14px;
+  color:#aaa;
+}
+
+.hero-numbers strong{
+  color:white;
+}
+
+.watch-video{
+  position:absolute;
+  right:5%;
+  bottom:33px;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:11px;
+}
+
+.play{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#151515;
+  display:grid;
+  place-items:center;
+}
+
+.play:after{
+  content:"";
+  border-left:8px solid white;
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+  margin-left:2px;
+}
+
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefits{
+  background:var(--paper);
+  padding:31px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.benefit-grid{
+  width:min(1180px,calc(100% - 48px));
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.benefit{
+  display:flex;
+  justify-content:center;
+  gap:13px;
+  padding:7px 15px;
+  border-right:1px solid var(--line);
+}
+
+.benefit:last-child{
+  border-right:0;
+}
+
+.benefit-icon{
+  font-size:22px;
+}
+
+.benefit strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:15px;
+  font-weight:500;
+}
+
+.benefit small{
+  color:var(--muted);
+  font-size:10px;
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section{
+  padding:90px 0;
+}
+
+.container{
+  width:min(1180px,calc(100% - 48px));
+  margin:auto;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:36px;
+}
+
+.kicker{
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.section h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,4vw,55px);
+  line-height:1.05;
+  font-weight:500;
+}
+
+.section-intro{
+  max-width:440px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+
+/* =========================
+   COLLECTIONS
+========================= */
+
+.collections{
+  background:var(--paper);
+}
+
+.collection-layout{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:38px;
+  align-items:center;
+}
+
+.collection-copy p{
+  margin-top:15px;
+}
+
+.collection-copy .btn{
+  margin-top:24px;
+  background:transparent;
+  border:1px solid var(--text);
+}
+
+.collection-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+
+.collection-card img{
+  width:100%;
+  height:245px;
+  object-fit:cover;
+  display:block;
+}
+
+.collection-card h3{
+  font-family:"Playfair Display",serif;
+  font-size:17px;
+  font-weight:500;
+  margin-top:10px;
+}
+
+.collection-card p{
+  color:var(--muted);
+  font-size:10px;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+  background:var(--cream);
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.product-image{
+  height:270px;
+  background:#e9e4db;
+  position:relative;
+  overflow:hidden;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.45s;
+}
+
+.product-card:hover img{
+  transform:scale(1.035);
+}
+
+.favorite{
+  position:absolute;
+  right:12px;
+  top:12px;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:white;
+  font-size:18px;
+}
+
+.favorite.active{
+  color:#b47757;
+}
+
+.product-info{
+  padding:11px 2px;
+}
+
+.product-info h3{
+  font-family:"Playfair Display",serif;
+  font-size:17px;
+  font-weight:500;
+}
+
+.product-info p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.stars{
+  color:#b58c5b;
+  font-size:10px;
+  margin-top:5px;
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story{
+  background:var(--paper);
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:70px;
+  align-items:center;
+}
+
+.story-image{
+  height:530px;
+}
+
+.story-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.story-copy p{
+  max-width:480px;
+  color:var(--muted);
+  font-size:14px;
+  margin:20px 0;
+}
+
+.signature{
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+  font-style:italic;
+}
+
+
+/* =========================
+   SPACES
+========================= */
+
+.spaces{
+  background:#25241f;
+  color:white;
+}
+
+.spaces .section-intro{
+  color:#c9c3ba;
+}
+
+.space-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:12px;
+}
+
+.space{
+  height:300px;
+  position:relative;
+  overflow:hidden;
+}
+
+.space:first-child{
+  height:612px;
+  grid-row:span 2;
+}
+
+.space img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.45s;
+}
+
+.space:hover img{
+  transform:scale(1.04);
+}
+
+.space:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    transparent 45%,
+    rgba(0,0,0,.75)
+  );
+}
+
+.space-label{
+  position:absolute;
+  z-index:2;
+  left:20px;
+  bottom:17px;
+}
+
+.space-label strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+  font-weight:500;
+}
+
+.space-label small{
+  font-size:10px;
+  color:#ddd;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+  text-align:center;
+  padding:90px 0;
+}
+
+.cta h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(40px,5vw,64px);
+  line-height:1.05;
+  font-weight:500;
+}
+
+.cta p{
+  max-width:520px;
+  margin:16px auto 25px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  background:var(--dark);
+  color:white;
+  padding:60px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-about{
+  color:#aaa39a;
+  font-size:12px;
+  max-width:300px;
+  margin-top:18px;
+}
+
+.footer h4{
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.footer a,
+.footer p{
+  display:block;
+  color:#aaa39a;
+  font-size:12px;
+  margin:8px 0;
+}
+
+.footer a:hover{
+  color:white;
+}
+
+.copyright{
+  border-top:1px solid #333;
+  margin-top:40px;
+  padding-top:18px;
+  color:#777;
+  font-size:10px;
+  display:flex;
+  justify-content:space-between;
+}
+
+
+/* =========================
+   CUSTOMIZE BUTTON
+========================= */
+
+.customize-float{
+  position:fixed;
+  z-index:40;
+  right:0;
+  top:52%;
+  background:#171715;
+  color:white;
+  padding:13px 8px;
+  border-radius:7px 0 0 7px;
+}
+
+.customize-float span{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:9px;
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+  display:none;
+}
+
+.mobile-overlay{
+  display:none;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1050px){
+
+  .side-nav{
+    width:88px;
+  }
+
+  .main{
+    margin-left:88px;
+  }
+
+  .topbar{
+    left:88px;
+  }
+
+  .collection-layout{
+    grid-template-columns:1fr;
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:760px){
+
+  .side-nav{
+    display:none;
+  }
+
+  .main{
+    margin-left:0;
+  }
+
+  .topbar{
+    left:0;
+    padding:17px 14px;
+  }
+
+  .topbar-inner{
+    width:calc(100% - 28px);
+    justify-content:flex-start;
+  }
+
+  .top-links{
+    display:none;
+  }
+
+  .mobile-menu-button{
+    display:block;
+    background:transparent;
+    color:white;
+    font-size:25px;
+  }
+
+  .top-actions{
+    right:0;
+  }
+
+  .hero{
+    height:76vh;
+    min-height:570px;
+  }
+
+  .hero-content{
+    width:calc(100% - 28px);
+  }
+
+  .hero h1{
+    font-size:48px;
+    letter-spacing:-2px;
+  }
+
+  .watch-video{
+    display:none;
+  }
+
+  .benefit-grid{
+    width:calc(100% - 28px);
+    grid-template-columns:1fr 1fr;
+  }
+
+  .benefit{
+    border-bottom:1px solid var(--line);
+    padding:13px 5px;
+  }
+
+  .benefit:nth-child(2),
+  .benefit:nth-child(4){
+    border-right:0;
+  }
+
+  .section{
+    padding:65px 0;
+  }
+
+  .container{
+    width:calc(100% - 28px);
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .collection-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .collection-card img{
+    height:190px;
+  }
+
+  .product-grid{
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+  }
+
+  .product-image{
+    height:220px;
+  }
+
+  .story-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .story-image{
+    height:390px;
+  }
+
+  .space-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .space:first-child{
+    grid-column:span 2;
+    grid-row:auto;
+    height:330px;
+  }
+
+  .space{
+    height:230px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-brand{
+    grid-column:span 2;
+  }
+
+  .customize-float{
+    display:none;
+  }
+
+  /* DRAWER */
+
+  .mobile-menu{
+    display:flex;
+    position:fixed;
+    z-index:90;
+    right:0;
+    top:0;
+    width:min(310px,82vw);
+    height:100vh;
+    background:#171715;
+    color:white;
+    transform:translateX(100%);
+    transition:.3s;
+    padding:25px;
+    flex-direction:column;
+  }
+
+  .mobile-menu.open{
+    transform:translateX(0);
+  }
+
+  .mobile-close{
+    background:transparent;
+    color:white;
+    font-size:28px;
+    align-self:flex-end;
+  }
+
+  .mobile-logo{
+    font-family:"Playfair Display",serif;
+    font-size:29px;
+    margin:20px 0 35px;
+  }
+
+  .mobile-links{
+    display:grid;
+    gap:20px;
+  }
+
+  .mobile-links a{
+    color:#ddd;
+    font-size:14px;
+  }
+
+  .mobile-customize{
+    margin-top:28px;
+    background:#d2aa70;
+    color:#171715;
+    padding:13px;
+    text-align:center;
+    font-size:12px;
+  }
+
+  .mobile-overlay{
+    display:block;
+    position:fixed;
+    z-index:80;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+  }
+
+  .mobile-overlay.open{
+    opacity:1;
+    pointer-events:auto;
+  }
+
+}
+
+
+/* SMALL PHONES */
+
+@media(max-width:480px){
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .collection-card img{
+    height:165px;
+  }
+
+  .product-image{
+    height:195px;
+  }
+
+  .space-grid{
+    grid-template-columns:1fr;
+  }
+
+  .space:first-child{
+    grid-column:auto;
+    height:290px;
+  }
+
+  .space{
+    height:220px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-brand{
+    grid-column:auto;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- HEADER -->
 
-  <header>
+<!-- =========================
+     DESKTOP SIDE MENU
+========================= -->
 
-    <nav class="nav">
+<aside class="side-nav">
 
-      <a href="#home" class="logo">
-        Royal Furniture
-      </a>
+  <a href="#home" class="logo">
+    Royal
+    <small>Furniture</small>
+  </a>
 
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#shop">Shop</a>
-        <a href="#about">About</a>
-        <a href="#inspiration">Inspiration</a>
-        <a href="#contact">Contact</a>
+  <nav class="side-links">
+
+    <a href="#home">
+      <span>⌂</span>
+      Home
+    </a>
+
+    <a href="#shop">
+      <span>▣</span>
+      Shop
+    </a>
+
+    <a href="#collections">
+      <span>◈</span>
+      Collections
+    </a>
+
+    <a href="#story">
+      <span>♙</span>
+      About
+    </a>
+
+    <a href="#spaces">
+      <span>▤</span>
+      Inspiration
+    </a>
+
+    <a href="#contact">
+      <span>✉</span>
+      Contact
+    </a>
+
+  </nav>
+
+  <div class="side-bottom">
+    <button>♡</button>
+    <button>♙</button>
+  </div>
+
+</aside>
+
+
+<!-- =========================
+     MOBILE DRAWER
+========================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+  <button class="mobile-close" onclick="closeMenu()">×</button>
+
+  <div class="mobile-logo">
+    Royal Furniture
+  </div>
+
+  <nav class="mobile-links">
+
+    <a href="#home" onclick="closeMenu()">Home</a>
+
+    <a href="#shop" onclick="closeMenu()">Shop</a>
+
+    <a href="#collections" onclick="closeMenu()">Collections</a>
+
+    <a href="#story" onclick="closeMenu()">About</a>
+
+    <a href="#spaces" onclick="closeMenu()">Inspiration</a>
+
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+
+  </nav>
+
+  <a href="customize.html" class="mobile-customize">
+    Customize Website
+  </a>
+
+</div>
+
+<div
+  class="mobile-overlay"
+  id="mobileOverlay"
+  onclick="closeMenu()">
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="main">
+
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+  <div class="topbar-inner">
+
+    <button
+      class="mobile-menu-button"
+      onclick="openMenu()">
+      ☰
+    </button>
+
+    <nav class="top-links">
+
+      <a href="#home">Home</a>
+
+      <a href="#shop">Shop</a>
+
+      <a href="#collections">Collections</a>
+
+      <a href="#story">About</a>
+
+      <a href="#spaces">Blog</a>
+
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+    <div class="top-actions">
+
+      <button onclick="showMessage('Search will be added soon.')">
+        ⌕
+      </button>
+
+      <button onclick="showMessage('Favorites are saved on this device.')">
+        ♡
+      </button>
+
+      <button onclick="showMessage('Shopping cart coming soon.')">
+        🛒
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+  <div class="hero-background"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-copy">
+
+      <div class="eyebrow">
+        Luxury furniture for modern living
       </div>
 
-      <div class="nav-actions">
+      <h1 id="heroTitle">
+        Make Your Home
+        <em>More Beautiful</em>
+      </h1>
 
-        <!-- CUSTOMIZE محفوظ -->
-        <a href="customize.html" class="customize-btn">
-          Customize
+      <p id="heroDescription">
+        Discover premium furniture that combines
+        comfort, elegance and timeless design.
+      </p>
+
+      <a href="#shop" class="btn">
+        Explore Collection
+        <span>→</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-bottom">
+
+    <div class="hero-numbers">
+      <strong>01</strong>
+      <span>—</span>
+      <span>02</span>
+      <span>—</span>
+      <span>03</span>
+    </div>
+
+  </div>
+
+  <div class="watch-video">
+
+    <span class="play"></span>
+
+    <span>
+      Watch Video
+    </span>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     BENEFITS
+========================= -->
+
+<section class="benefits">
+
+  <div class="benefit-grid">
+
+    <div class="benefit">
+
+      <div class="benefit-icon">▱</div>
+
+      <div>
+        <strong>Free Shipping</strong>
+        <small>On orders over $500</small>
+      </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <div class="benefit-icon">♢</div>
+
+      <div>
+        <strong>Secure Payment</strong>
+        <small>100% safe & secure</small>
+      </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <div class="benefit-icon">♧</div>
+
+      <div>
+        <strong>24/7 Support</strong>
+        <small>We're here to help</small>
+      </div>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <div class="benefit-icon">✧</div>
+
+      <div>
+        <strong>Premium Quality</strong>
+        <small>Only the best materials</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     COLLECTIONS
+========================= -->
+
+<section
+  class="section collections"
+  id="collections">
+
+  <div class="container">
+
+    <div class="collection-layout">
+
+      <div class="collection-copy">
+
+        <div class="kicker">
+          Our Collections
+        </div>
+
+        <h2>
+          Shop By Room
+        </h2>
+
+        <p class="section-intro">
+          Find the perfect pieces for every space
+          in your home. From cozy living rooms
+          to elegant bedrooms.
+        </p>
+
+        <a href="#shop" class="btn">
+          View All Collections →
         </a>
 
-        <a href="#" class="nav-icon" aria-label="Search">
-          ⌕
+      </div>
+
+
+      <div class="collection-grid">
+
+
+        <a href="#shop" class="collection-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85"
+            alt="Living Room">
+
+          <h3>
+            Living Room
+          </h3>
+
+          <p>
+            12 Products →
+          </p>
+
         </a>
 
-        <a href="#" class="nav-icon" aria-label="Wishlist">
-          ♡
+
+        <a href="#shop" class="collection-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85"
+            alt="Bedroom">
+
+          <h3>
+            Bedroom
+          </h3>
+
+          <p>
+            10 Products →
+          </p>
+
         </a>
 
-        <a href="#" class="nav-icon" aria-label="Cart">
-          🛒
+
+        <a href="#shop" class="collection-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=85"
+            alt="Dining Room">
+
+          <h3>
+            Dining Room
+          </h3>
+
+          <p>
+            8 Products →
+          </p>
+
         </a>
+
+
+        <a href="#shop" class="collection-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85"
+            alt="Office">
+
+          <h3>
+            Office
+          </h3>
+
+          <p>
+            6 Products →
+          </p>
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section
+  class="section products"
+  id="shop">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="kicker">
+          Featured Products
+        </div>
+
+        <h2>
+          Our Best Sellers
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="product-grid"
+      id="productsGrid">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     STORY
+========================= -->
+
+<section
+  class="section story"
+  id="story">
+
+  <div class="container story-grid">
+
+    <div class="story-image">
+
+      <img
+        src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=88"
+        alt="Royal Furniture interior">
+
+    </div>
+
+
+    <div class="story-copy">
+
+      <div class="kicker">
+        The Royal Story
+      </div>
+
+      <h2>
+        Beauty lives in the details.
+      </h2>
+
+      <p>
+        We believe great furniture should feel
+        as good as it looks. Every piece is chosen
+        for its balance of form, function, comfort
+        and timeless character.
+      </p>
+
+      <p>
+        Royal Furniture brings a refined collection
+        of modern pieces together in one calm,
+        inspiring space.
+      </p>
+
+      <div class="signature">
+        Designed for living.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SPACES
+========================= -->
+
+<section
+  class="section spaces"
+  id="spaces">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="kicker">
+          Inspiration
+        </div>
+
+        <h2>
+          Designed for Every Space
+        </h2>
+
+      </div>
+
+      <p class="section-intro">
+        Explore warm interiors, modern textures
+        and timeless furniture arrangements.
+      </p>
+
+    </div>
+
+
+    <div class="space-grid">
+
+
+      <a href="#shop" class="space">
+
+        <img
+          src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=1200&q=85"
+          alt="Living">
+
+        <div class="space-label">
+
+          <strong>
+            Living
+          </strong>
+
+          <small>
+            Warm & inviting
+          </small>
+
+        </div>
+
+      </a>
+
+
+      <a href="#shop" class="space">
+
+        <img
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
+          alt="Bedroom">
+
+        <div class="space-label">
+
+          <strong>
+            Bedroom
+          </strong>
+
+          <small>
+            Calm & refined
+          </small>
+
+        </div>
+
+      </a>
+
+
+      <a href="#shop" class="space">
+
+        <img
+          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85"
+          alt="Dining">
+
+        <div class="space-label">
+
+          <strong>
+            Dining
+          </strong>
+
+          <small>
+            Gather beautifully
+          </small>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <div class="kicker">
+      Make It Yours
+    </div>
+
+    <h2>
+      Build a home you
+      <br>
+      love coming back to.
+    </h2>
+
+    <p>
+      Discover furniture that brings comfort,
+      character and timeless elegance
+      to everyday living.
+    </p>
+
+    <a href="#shop" class="btn">
+      Explore Collection →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer
+  class="footer"
+  id="contact">
+
+  <div class="container footer-grid">
+
+
+    <div>
+
+      <div class="logo">
+        Royal
+        <small>Furniture</small>
+      </div>
+
+      <p class="footer-about">
+        A refined furniture showroom template
+        for modern brands, stores and interior studios.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        Explore
+      </h4>
+
+      <a href="#shop">Shop</a>
+
+      <a href="#collections">
+        Collections
+      </a>
+
+      <a href="#story">
+        About
+      </a>
+
+      <a href="#spaces">
+        Inspiration
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        Support
+      </h4>
+
+      <a href="customize.html">
+        Customize Website
+      </a>
+
+      <a href="#">
+        Shipping
+      </a>
+
+      <a href="#">
+        Returns
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        Contact
+      </h4>
+
+      <p>
+        hello@royalfurniture.com
+      </p>
+
+      <p>
+        Mon — Sat / 9AM — 6PM
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="container copyright">
+
+    <span>
+      © <span id="year"></span>
+      Royal Furniture.
+      All rights reserved.
+    </span>
+
+    <span>
+      Premium Furniture Website Template
+    </span>
+
+  </div>
+
+</footer>
+
+</div>
+
+
+<!-- CUSTOMIZE BUTTON -->
+
+<a
+  href="customize.html"
+  class="customize-float">
+
+  <span>
+    ⚙ Customize
+  </span>
+
+</a>
+
+
+<!-- MESSAGE -->
+
+<div
+  id="messageBox"
+  style="
+  position:fixed;
+  z-index:200;
+  left:50%;
+  bottom:22px;
+  transform:translate(-50%,20px);
+  opacity:0;
+  background:#171715;
+  color:#fff;
+  padding:11px 18px;
+  border-radius:4px;
+  font-size:12px;
+  transition:.25s;
+  pointer-events:none;
+  ">
+</div>
+
+
+<script>
+
+/* =========================
+   DEFAULT PRODUCTS
+========================= */
+
+const defaultProducts = [
+
+  {
+    name:"Modern Sofa",
+    price:"$1,299",
+    image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
+  },
+
+  {
+    name:"Accent Chair",
+    price:"$499",
+    image:"https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=85"
+  },
+
+  {
+    name:"Dining Table",
+    price:"$899",
+    image:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=85"
+  },
+
+  {
+    name:"Bed Frame",
+    price:"$1,099",
+    image:"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
+  },
+
+  {
+    name:"Milo Chair",
+    price:"$420",
+    image:"https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=85"
+  },
+
+  {
+    name:"Vale Side Table",
+    price:"$560",
+    image:"https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=85"
+  }
+
+];
+
+
+/* =========================
+   SAFE HTML
+========================= */
+
+function escapeHTML(value){
+
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+function renderProducts(products){
+
+  const grid =
+    document.getElementById("productsGrid");
+
+  grid.innerHTML = "";
+
+  products.forEach(function(product){
+
+    const card =
+      document.createElement("article");
+
+    card.className =
+      "product-card";
+
+    const image =
+      product.image ||
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85";
+
+    card.innerHTML = `
+
+      <div class="product-image">
+
+        <img
+          src="${escapeHTML(image)}"
+          alt="${escapeHTML(product.name || "Furniture")}"
+          onerror="this.style.display='none';"
+        >
 
         <button
-          class="menu-btn"
-          type="button"
-          aria-label="Open menu"
-          onclick="toggleMenu()"
-        >
-          ☰
+          class="favorite"
+          onclick="toggleFavorite(this)"
+          aria-label="Favorite">
+
+          ♡
+
         </button>
 
       </div>
 
-    </nav>
 
-  </header>
+      <div class="product-info">
 
-  <!-- MOBILE SIDEBAR -->
+        <h3>
+          ${escapeHTML(product.name || "Product")}
+        </h3>
 
-  <div
-    class="mobile-menu-overlay"
-    id="mobileMenuOverlay"
-    onclick="closeMenu()"
-  ></div>
-
-  <aside
-    class="mobile-menu"
-    id="mobileMenu"
-    aria-label="Mobile navigation"
-  >
-
-    <button
-      class="mobile-menu-close"
-      type="button"
-      aria-label="Close menu"
-      onclick="closeMenu()"
-    >
-      ×
-    </button>
-
-    <div class="mobile-brand">
-      Royal Furniture
-    </div>
-
-    <a href="#home" onclick="closeMenu()">Home</a>
-    <a href="#shop" onclick="closeMenu()">Shop</a>
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#inspiration" onclick="closeMenu()">Inspiration</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
-
-    <a
-      href="customize.html"
-      class="mobile-customize"
-      onclick="closeMenu()"
-    >
-      Customize
-    </a>
-
-  </aside>
-
-  <!-- HERO -->
-
-  <main>
-
-    <section class="hero" id="home">
-
-      <div class="hero-slides">
-
-        <div class="hero-slide"></div>
-        <div class="hero-slide"></div>
-        <div class="hero-slide"></div>
-
-      </div>
-
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-
-        <div class="hero-eyebrow">
-          Royal Furniture
-        </div>
-
-        <h1>
-          Timeless furniture for modern living.
-        </h1>
-
-        <p class="hero-text">
-          Discover refined furniture and carefully designed interiors
-          created to bring warmth, character and timeless elegance
-          into every space.
+        <p>
+          ${escapeHTML(product.price || "")}
         </p>
 
-        <div class="hero-buttons">
-
-          <a href="#shop" class="btn btn-light">
-            Explore Collection
-          </a>
-
-          <a href="customize.html" class="btn btn-outline">
-            Customize Website
-          </a>
-
+        <div class="stars">
+          ★★★★★
         </div>
 
       </div>
 
-    </section>
+    `;
 
-    <!-- CATEGORIES -->
+    grid.appendChild(card);
 
-    <section class="categories" id="inspiration">
+  });
 
-      <div class="container">
+}
 
-        <div class="section-head">
 
-          <div>
+/* =========================
+   FAVORITE
+========================= */
 
-            <div class="eyebrow">
-              Explore
-            </div>
+function toggleFavorite(button){
 
-            <h2 class="section-title">
-              Designed for every room.
-            </h2>
+  button.classList.toggle("active");
 
-          </div>
+  if(button.classList.contains("active")){
 
-          <p class="section-description">
-            Thoughtfully selected pieces that combine comfort,
-            craftsmanship and contemporary design.
-          </p>
+    button.textContent = "♥";
 
-        </div>
+  }else{
 
-        <div class="category-grid">
+    button.textContent = "♡";
 
-          <a href="#shop" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=85"
-              alt="Sofas"
-            >
-            <div class="category-name">Sofas</div>
-          </a>
+  }
 
-          <a href="#shop" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=85"
-              alt="Chairs"
-            >
-            <div class="category-name">Chairs</div>
-          </a>
+}
 
-          <a href="#shop" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1000&q=85"
-              alt="Tables"
-            >
-            <div class="category-name">Tables</div>
-          </a>
 
-          <a href="#shop" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=85"
-              alt="Beds"
-            >
-            <div class="category-name">Beds</div>
-          </a>
+/* =========================
+   MOBILE MENU
+========================= */
 
-          <a href="#shop" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=85"
-              alt="Storage"
-            >
-            <div class="category-name">Storage</div>
-          </a>
+function openMenu(){
 
-        </div>
+  document
+    .getElementById("mobileMenu")
+    .classList.add("open");
 
-      </div>
+  document
+    .getElementById("mobileOverlay")
+    .classList.add("open");
 
-    </section>
+  document.body.style.overflow = "hidden";
 
-    <!-- STORY -->
+}
 
-    <section class="story" id="about">
 
-      <div class="container">
+function closeMenu(){
 
-        <div class="story-grid">
+  document
+    .getElementById("mobileMenu")
+    .classList.remove("open");
 
-          <div class="story-image">
+  document
+    .getElementById("mobileOverlay")
+    .classList.remove("open");
 
-            <img
-              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90"
-              alt="Elegant interior"
-            >
+  document.body.style.overflow = "";
 
-          </div>
+}
 
-          <div class="story-content">
 
-            <div class="eyebrow">
-              Our Philosophy
-            </div>
+/* =========================
+   MESSAGE
+========================= */
 
-            <h2>
-              Beauty lives in the details.
-            </h2>
+function showMessage(message){
 
-            <p>
-              Royal Furniture is built around a simple idea:
-              furniture should feel beautiful today and remain
-              relevant for years to come.
-            </p>
+  const box =
+    document.getElementById("messageBox");
 
-            <p>
-              From natural materials to carefully considered
-              proportions, every piece is selected to create spaces
-              that feel comfortable, elegant and personal.
-            </p>
+  box.textContent = message;
 
-            <a href="#contact" class="text-link">
-              Discover our story →
-            </a>
+  box.style.opacity = "1";
 
-          </div>
+  box.style.transform =
+    "translate(-50%,0)";
 
-        </div>
+  clearTimeout(window.messageTimer);
 
-      </div>
+  window.messageTimer =
+    setTimeout(function(){
 
-    </section>
+      box.style.opacity = "0";
 
-    <!-- PRODUCTS -->
+      box.style.transform =
+        "translate(-50%,20px)";
 
-    <section class="products" id="shop">
+    },2200);
 
-      <div class="container">
+}
 
-        <div class="section-head">
 
-          <div>
+/* =========================
+   CUSTOMIZE CONNECTION
+========================= */
 
-            <div class="eyebrow">
-              Collection
-            </div>
+function loadCustomization(){
 
-            <h2 class="section-title">
-              Featured pieces.
-            </h2>
+  let settings = null;
 
-          </div>
+  try{
 
-          <p class="section-description">
-            Explore a curated selection of furniture designed
-            for modern interiors.
-          </p>
-
-        </div>
-
-        <div
-          class="products-grid"
-          id="productsGrid"
-        ></div>
-
-      </div>
-
-    </section>
-
-    <!-- SERVICES -->
-
-    <section class="services">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="eyebrow">
-              Why Royal
-            </div>
-
-            <h2 class="section-title">
-              Made for better spaces.
-            </h2>
-
-          </div>
-
-          <p class="section-description">
-            A refined approach to furniture, design and everyday living.
-          </p>
-
-        </div>
-
-        <div class="services-grid">
-
-          <div class="service">
-
-            <div class="service-number">
-              01
-            </div>
-
-            <h3>
-              Timeless Design
-            </h3>
-
-            <p>
-              Elegant silhouettes and carefully selected materials
-              designed to stay beautiful beyond trends.
-            </p>
-
-          </div>
-
-          <div class="service">
-
-            <div class="service-number">
-              02
-            </div>
-
-            <h3>
-              Crafted Quality
-            </h3>
-
-            <p>
-              Every detail is considered to create furniture that
-              balances comfort, durability and character.
-            </p>
-
-          </div>
-
-          <div class="service">
-
-            <div class="service-number">
-              03
-            </div>
-
-            <h3>
-              Personal Spaces
-            </h3>
-
-            <p>
-              Pieces that work together naturally and allow every
-              interior to reflect its owner's personality.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- CTA -->
-
-    <section class="cta" id="contact">
-
-      <div class="container">
-
-        <div class="cta-box">
-
-          <div class="cta-content">
-
-            <div
-              class="eyebrow"
-              style="color:#d6b89a;"
-            >
-              Create your space
-            </div>
-
-            <h2>
-              Bring your vision home.
-            </h2>
-
-            <p>
-              Discover furniture designed to make your home
-              feel unmistakably yours.
-            </p>
-
-            <a href="#shop" class="btn btn-light">
-              Explore Collection
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-top">
-
-        <div class="footer-brand">
-
-          <a href="#home" class="logo">
-            Royal Furniture
-          </a>
-
-          <p>
-            Timeless furniture and refined interiors
-            designed for modern living.
-          </p>
-
-        </div>
-
-        <div class="footer-links">
-
-          <div class="footer-column">
-
-            <h4>Explore</h4>
-
-            <a href="#home">Home</a>
-            <a href="#shop">Shop</a>
-            <a href="#about">About</a>
-            <a href="#inspiration">Inspiration</a>
-
-          </div>
-
-          <div class="footer-column">
-
-            <h4>Website</h4>
-
-            <a href="customize.html">
-              Customize
-            </a>
-
-            <a href="#contact">
-              Contact
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-
-        © <span id="year"></span>
-        Royal Furniture. All rights reserved.
-
-      </div>
-
-    </div>
-
-  </footer>
-
-  <script>
-
-    /* =========================
-       MOBILE MENU
-    ========================== */
-
-    function toggleMenu() {
-
-      const menu =
-        document.getElementById("mobileMenu");
-
-      const overlay =
-        document.getElementById("mobileMenuOverlay");
-
-      const isOpen =
-        menu.classList.toggle("active");
-
-      overlay.classList.toggle(
-        "active",
-        isOpen
+    settings =
+      JSON.parse(
+        localStorage.getItem(
+          "royalFurnitureSettings"
+        ) || "null"
       );
 
-      document.body.classList.toggle(
-        "menu-open",
-        isOpen
+  }catch(error){
+
+    settings = null;
+
+  }
+
+
+  if(!settings){
+
+    renderProducts(defaultProducts);
+
+    return;
+
+  }
+
+
+  /* ACCENT COLOR */
+
+  if(settings.accent){
+
+    document.documentElement
+      .style
+      .setProperty(
+        "--gold",
+        settings.accent
       );
-    }
 
-    function closeMenu() {
+  }
 
-      const menu =
-        document.getElementById("mobileMenu");
 
-      const overlay =
-        document.getElementById("mobileMenuOverlay");
+  /* BRAND */
 
-      menu.classList.remove("active");
+  if(settings.brand){
 
-      overlay.classList.remove("active");
+    document.title =
+      settings.brand;
 
-      document.body.classList.remove(
-        "menu-open"
+  }
+
+
+  /* HERO */
+
+  if(settings.headline){
+
+    const words =
+      settings.headline
+        .trim()
+        .split(" ");
+
+    const middle =
+      Math.max(
+        1,
+        Math.floor(words.length * .6)
       );
-    }
 
-    /* =========================
-       FAVORITES
-    ========================== */
+    const first =
+      words.slice(0,middle).join(" ");
 
-    function favorite(button) {
+    const second =
+      words.slice(middle).join(" ");
 
-      if (
-        button.textContent.trim() === "♡"
-      ) {
+    document.getElementById(
+      "heroTitle"
+    ).innerHTML =
+      escapeHTML(first) +
+      " <em>" +
+      escapeHTML(second) +
+      "</em>";
 
-        button.textContent = "♥";
+  }
 
-      } else {
 
-        button.textContent = "♡";
+  if(settings.description){
 
-      }
+    document.getElementById(
+      "heroDescription"
+    ).textContent =
+      settings.description;
 
-    }
+  }
 
-    /* =========================
-       DEFAULT PRODUCTS
-    ========================== */
 
-    const defaultProducts = [
+  /* PRODUCTS */
 
-      {
-        name: "Cloud Sofa",
-        price: "$1,290",
-        image:
-          "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=85"
-      },
+  if(
+    Array.isArray(settings.products) &&
+    settings.products.length > 0
+  ){
 
-      {
-        name: "Velvet Armchair",
-        price: "$590",
-        image:
-          "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1200&q=85"
-      },
+    renderProducts(
+      settings.products
+    );
 
-      {
-        name: "Oak Coffee Table",
-        price: "$420",
-        image:
-          "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1200&q=85"
-      },
+  }else{
 
-      {
-        name: "Linen Bed",
-        price: "$1,090",
-        image:
-          "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=85"
-      },
+    renderProducts(
+      defaultProducts
+    );
 
-      {
-        name: "Milo Dining Chair",
-        price: "$420",
-        image:
-          "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1200&q=85"
-      },
+  }
 
-      {
-        name: "Vale Side Table",
-        price: "$560",
-        image:
-          "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=85"
-      }
+}
 
-    ];
 
-    /* =========================
-       RENDER PRODUCTS
-    ========================== */
+/* =========================
+   YEAR
+========================= */
 
-    function renderProducts(products) {
+document.getElementById("year")
+  .textContent =
+  new Date().getFullYear();
 
-      const grid =
-        document.getElementById("productsGrid");
 
-      if (!grid) return;
+/* START */
 
-      grid.innerHTML = "";
+loadCustomization();
 
-      products.forEach(function(product) {
-
-        const card =
-          document.createElement("article");
-
-        card.className = "product-card";
-
-        const image =
-          product.image ||
-          "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=85";
-
-        card.innerHTML = `
-
-          <div class="product-image">
-
-            <img
-              src="${image}"
-              alt="${product.name || "Furniture"}"
-              loading="lazy"
-              onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=85'"
-            >
-
-            <button
-              class="favorite-btn"
-              type="button"
-              aria-label="Add to favorites"
-              onclick="favorite(this)"
-            >
-              ♡
-            </button>
-
-          </div>
-
-          <div class="product-info">
-
-            <div class="product-name">
-              ${product.name || "Furniture"}
-            </div>
-
-            <div class="product-price">
-              ${product.price || ""}
-            </div>
-
-          </div>
-
-        `;
-
-        grid.appendChild(card);
-
-      });
-
-    }
-
-    /* =========================
-       CUSTOMIZATION
-    ========================== */
-
-    function loadCustomization() {
-
-      let settings = null;
-
-      try {
-
-        settings =
-          JSON.parse(
-            localStorage.getItem(
-              "royalFurnitureSettings"
-            )
-          );
-
-      } catch (error) {
-
-        settings = null;
-
-      }
-
-      if (!settings) {
-
-        renderProducts(defaultProducts);
-
-        return;
-
-      }
-
-      if (settings.brand) {
-
-        document
-          .querySelectorAll(".logo")
-          .forEach(function(element) {
-
-            element.textContent =
-              settings.brand;
-
-          });
-
-        document.title =
-          settings.brand +
-          " — Timeless Designs";
-
-      }
-
-      if (settings.headline) {
-
-        const heroTitle =
-          document.querySelector(".hero h1");
-
-        if (heroTitle) {
-
-          heroTitle.textContent =
-            settings.headline;
-
-        }
-
-      }
-
-      if (settings.description) {
-
-        const heroText =
-          document.querySelector(".hero-text");
-
-        if (heroText) {
-
-          heroText.textContent =
-            settings.description;
-
-        }
-
-      }
-
-      if (settings.accent) {
-
-        document.documentElement.style.setProperty(
-          "--brown",
-          settings.accent
-        );
-
-        document.documentElement.style.setProperty(
-          "--accent",
-          settings.accent
-        );
-
-      }
-
-      if (
-        Array.isArray(settings.products) &&
-        settings.products.length
-      ) {
-
-        renderProducts(
-          settings.products
-        );
-
-      } else {
-
-        renderProducts(
-          defaultProducts
-        );
-
-      }
-
-    }
-
-    /* YEAR */
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    /* START */
-
-    loadCustomization();
-
-  </script>
+</script>
 
 </body>
-  </html>
+</html>
