@@ -148,32 +148,27 @@
       background: transparent;
     }
 
+    /* HERO IMAGE */
+
     .hero-shot {
-      min-height: 480px;
+      min-height: 520px;
+      padding: 18px;
       border-radius: 28px;
-      background:
-        linear-gradient(135deg, #ddd5ca, #b9aa99);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      background: #e9e2d8;
       border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(23,21,19,.10);
+      overflow: hidden;
     }
 
-    .placeholder {
-      text-align: center;
-      color: #655b50;
-      padding: 30px;
-    }
-
-    .placeholder strong {
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
       display: block;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .placeholder span {
-      font-size: 13px;
+      object-fit: contain;
+      object-position: top center;
+      border-radius: 18px;
+      background: #f6f3ee;
     }
 
     /* SECTIONS */
@@ -238,17 +233,19 @@
     }
 
     .shot {
-      min-height: 420px;
+      min-height: 0;
+      padding: 0;
       border-radius: 25px;
-      background: linear-gradient(135deg, #d9d0c4, #b6a594);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #e9e2d8;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 50px rgba(23,21,19,.07);
       overflow: hidden;
     }
 
-    .shot.small {
-      min-height: 300px;
+    .shot img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .shot-grid {
@@ -257,7 +254,42 @@
       gap: 22px;
     }
 
-    /* WHAT'S INCLUDED */
+    .shot.mobile-shot {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .shot-label {
+      padding: 15px 18px;
+      background: rgba(255,255,255,.94);
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: .02em;
+    }
+
+    .shot-label strong {
+      color: var(--dark);
+      margin-right: 7px;
+    }
+
+    .proof-strip {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .proof-pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* INCLUDED */
 
     .included {
       background: var(--dark);
@@ -370,81 +402,10 @@
       font-size: 13px;
     }
 
-
-    /* REAL DEMO SCREENSHOTS */
-    .shot-image, .hero-image {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    .hero-shot {
-      min-height: 520px;
-      padding: 18px;
-      background: #e9e2d8;
-      box-shadow: 0 24px 70px rgba(23,21,19,.10);
-    }
-
-    .hero-image {
-      object-fit: contain;
-      object-position: top center;
-      border-radius: 18px;
-      background: #f6f3ee;
-    }
-
-    .shot {
-      min-height: 0;
-      padding: 0;
-      background: #e9e2d8;
-      border: 1px solid var(--line);
-      box-shadow: 0 18px 50px rgba(23,21,19,.07);
-    }
-
-    .shot img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .shot.mobile-shot {
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .shot-label {
-      padding: 15px 18px;
-      background: rgba(255,255,255,.94);
-      border-top: 1px solid var(--line);
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: .02em;
-    }
-
-    .shot-label strong {
-      color: var(--dark);
-      margin-right: 7px;
-    }
-
-    .proof-strip {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .proof-pill {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.55);
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
     /* MOBILE */
 
     @media (max-width: 800px) {
+
       .container {
         width: min(100% - 28px, 1180px);
       }
@@ -464,6 +425,11 @@
 
       .hero-shot {
         min-height: 330px;
+        padding: 10px;
+      }
+
+      .hero-image {
+        min-height: 300px;
       }
 
       section {
@@ -476,11 +442,6 @@
 
       .shot-grid {
         grid-template-columns: 1fr;
-      }
-
-      .shot,
-      .shot.small {
-        min-height: 300px;
       }
 
       .included-grid {
@@ -504,6 +465,7 @@
   <!-- NAV -->
   <nav>
     <div class="container nav-inner">
+
       <a href="#" class="logo">ROYAL FURNITURE</a>
 
       <div class="nav-links">
@@ -514,16 +476,21 @@
       </div>
 
       <a href="#buy" class="nav-button">Buy Template</a>
+
     </div>
   </nav>
 
 
   <!-- HERO -->
   <header class="hero">
+
     <div class="container hero-grid">
 
       <div>
-        <span class="eyebrow">Premium Furniture Website Template</span>
+
+        <span class="eyebrow">
+          Premium Furniture Website Template
+        </span>
 
         <h1>
           A refined website for modern furniture brands.
@@ -536,295 +503,537 @@
         </p>
 
         <div class="buttons">
-          <a class="btn btn-primary" href="#buy">Buy Template</a>
 
-          <!-- Replace this URL with your live demo URL if needed -->
-          <a class="btn btn-secondary"
-             href="https://furniture-showcase-theta.vercel.app/"
-             target="_blank">
+          <a class="btn btn-primary" href="#buy">
+            Buy Template
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="https://furniture-showcase-theta.vercel.app/"
+            target="_blank"
+            rel="noopener"
+          >
             View Live Demo
           </a>
+
         </div>
 
-        <div class="proof-strip" aria-label="Template highlights">
-          <span class="proof-pill">Responsive layout</span>
-          <span class="proof-pill">Product customization</span>
-          <span class="proof-pill">Clean HTML/CSS/JS</span>
+        <div class="proof-strip">
+
+          <span class="proof-pill">
+            Responsive layout
+          </span>
+
+          <span class="proof-pill">
+            Product customization
+          </span>
+
+          <span class="proof-pill">
+            Clean HTML/CSS/JS
+          </span>
+
         </div>
+
       </div>
 
-      <!-- REAL DEMO SCREENSHOT -->
+
+      <!-- REAL HERO SCREENSHOT -->
+
       <div class="hero-shot">
-        <img class="hero-image</div>
 
-<img class="hero-image" src="assets/sales/01-hero.jpg" alt="Royal Furniture live demo screenshot"
+        <img
+          class="hero-image"
+          src="assets/01-hero.jpg"
+          alt="Royal Furniture live demo screenshot"
+          loading="eager"
+        >
 
-loading="eager alt="Royal Furniture live demo screenshot" loading="eager">
       </div>
 
     </div>
+
   </header>
 
 
   <!-- FEATURES -->
+
   <section id="features">
+
     <div class="container">
 
       <div class="section-head">
-        <span class="eyebrow">Built for presentation</span>
-        <h2>Everything a modern furniture website needs.</h2>
+
+        <span class="eyebrow">
+          Built for presentation
+        </span>
+
+        <h2>
+          Everything a modern furniture website needs.
+        </h2>
+
         <p>
           A clean visual system, responsive layouts and a dedicated
           customization experience designed around furniture products.
         </p>
+
       </div>
+
 
       <div class="features">
 
         <article class="feature">
-          <div class="feature-number">01</div>
-          <h3>Premium Visual Design</h3>
+
+          <div class="feature-number">
+            01
+          </div>
+
+          <h3>
+            Premium Visual Design
+          </h3>
+
           <p>
             A polished editorial-style layout designed to make furniture
             photography and products stand out.
           </p>
+
         </article>
 
+
         <article class="feature">
-          <div class="feature-number">02</div>
-          <h3>Responsive Experience</h3>
+
+          <div class="feature-number">
+            02
+          </div>
+
+          <h3>
+            Responsive Experience
+          </h3>
+
           <p>
             Designed to work across desktop, tablet and mobile screens.
           </p>
+
         </article>
 
+
         <article class="feature">
-          <div class="feature-number">03</div>
-          <h3>Website Customization</h3>
+
+          <div class="feature-number">
+            03
+          </div>
+
+          <h3>
+            Website Customization
+          </h3>
+
           <p>
             Includes a dedicated interface for changing branding, hero content,
             product names, prices and image URLs without editing the main site.
           </p>
+
         </article>
 
       </div>
+
     </div>
+
   </section>
 
 
   <!-- SHOWCASE -->
+
   <section id="showcase">
+
     <div class="container">
 
       <div class="section-head">
-        <span class="eyebrow">Inside the template</span>
-        <h2>See the design in action.</h2>
+
+        <span class="eyebrow">
+          Inside the template
+        </span>
+
+        <h2>
+          See the design in action.
+        </h2>
+
         <p>
           Real screenshots from the Royal Furniture demo.
         </p>
+
       </div>
+
 
       <div class="showcase">
 
+
+        <!-- IMAGE 02 -->
+
         <div class="shot">
-          <img src="assets/sales/02-collection.jpg" alt="Royal Furniture collection and product grid" loading="lazy">
-          <div class="shot-label"><strong>01</strong> Collection & product grid</div>
+
+          <img
+            src="assets/02-collection.jpg"
+            alt="Royal Furniture collection and product grid"
+            loading="lazy"
+          >
+
+          <div class="shot-label">
+            <strong>01</strong>
+            Collection & product grid
+          </div>
+
         </div>
 
+
+        <!-- IMAGES 03 + 04 -->
+
         <div class="shot-grid">
+
           <div class="shot mobile-shot">
-            <img src="assets/sales/03-product-mobile.jpg" alt="Royal Furniture mobile product experience" loading="lazy">
-            <div class="shot-label"><strong>02</strong> Mobile product experience</div>
+
+            <img
+              src="assets/03-product-mobile.jpg"
+              alt="Royal Furniture mobile product experience"
+              loading="lazy"
+            >
+
+            <div class="shot-label">
+              <strong>02</strong>
+              Mobile product experience
+            </div>
+
           </div>
 
+
           <div class="shot">
-            <img src="assets/sales/04-story.jpg" alt="Royal Furniture story and philosophy section" loading="lazy">
-            <div class="shot-label"><strong>03</strong> Story & brand presentation</div>
+
+            <img
+              src="assets/04-story.jpg"
+              alt="Royal Furniture story and philosophy section"
+              loading="lazy"
+            >
+
+            <div class="shot-label">
+              <strong>03</strong>
+              Story & brand presentation
+            </div>
+
           </div>
+
         </div>
+
+
+        <!-- IMAGES 05 + 06 -->
 
         <div class="shot-grid">
-          <div class="shot">
-            <img src="assets/sales/05-spaces.jpg" alt="Royal Furniture spaces section" loading="lazy">
-            <div class="shot-label"><strong>04</strong> Living, dining & bedroom spaces</div>
-          </div>
 
           <div class="shot">
-            <img src="assets/sales/06-customize.jpg" alt="Royal Furniture customization and product manager interface" loading="lazy">
-            <div class="shot-label"><strong>05</strong> Customize website & products</div>
+
+            <img
+              src="assets/05-spaces.jpg"
+              alt="Royal Furniture spaces section"
+              loading="lazy"
+            >
+
+            <div class="shot-label">
+              <strong>04</strong>
+              Living, dining & bedroom spaces
+            </div>
+
           </div>
+
+
+          <div class="shot">
+
+            <img
+              src="assets/06-customize.jpg"
+              alt="Royal Furniture customization and product manager interface"
+              loading="lazy"
+            >
+
+            <div class="shot-label">
+              <strong>05</strong>
+              Customize website & products
+            </div>
+
+          </div>
+
         </div>
+
 
       </div>
+
     </div>
+
   </section>
 
 
   <!-- INCLUDED -->
+
   <section class="included" id="included">
+
     <div class="container">
 
       <div class="section-head">
-        <span class="eyebrow">What's included</span>
-        <h2>A ready-made foundation for your next furniture website.</h2>
+
+        <span class="eyebrow">
+          What's included
+        </span>
+
+        <h2>
+          A ready-made foundation for your next furniture website.
+        </h2>
+
         <p>
           Get the template files and the core pages shown in the demo.
         </p>
+
       </div>
+
 
       <div class="included-grid">
 
         <div class="included-item">
           <h3>Furniture Homepage</h3>
-          <p>Modern homepage structure for furniture stores and showrooms.</p>
+          <p>
+            Modern homepage structure for furniture stores and showrooms.
+          </p>
         </div>
 
         <div class="included-item">
           <h3>Customization Page</h3>
-          <p>Dedicated customization interface included with the demo.</p>
+          <p>
+            Dedicated customization interface included with the demo.
+          </p>
         </div>
 
         <div class="included-item">
           <h3>Responsive Layout</h3>
-          <p>Layouts designed for desktop and mobile viewing.</p>
+          <p>
+            Layouts designed for desktop and mobile viewing.
+          </p>
         </div>
 
         <div class="included-item">
           <h3>Editable Content</h3>
-          <p>Customize the content, products, images and branding for your project.</p>
+          <p>
+            Customize the content, products, images and branding for your project.
+          </p>
         </div>
 
         <div class="included-item">
           <h3>Clean HTML Structure</h3>
-          <p>Simple front-end structure that can be adapted to your needs.</p>
+          <p>
+            Simple front-end structure that can be adapted to your needs.
+          </p>
         </div>
 
         <div class="included-item">
           <h3>Live Demo</h3>
-          <p>Preview the actual design before purchasing.</p>
+          <p>
+            Preview the actual design before purchasing.
+          </p>
         </div>
 
       </div>
+
     </div>
+
   </section>
 
 
   <!-- BUY -->
+
   <section id="buy">
+
     <div class="container">
 
       <div class="section-head">
-        <span class="eyebrow">Get Royal Furniture</span>
-        <h2>Start with the design. Make it yours.</h2>
+
+        <span class="eyebrow">
+          Get Royal Furniture
+        </span>
+
+        <h2>
+          Start with the design. Make it yours.
+        </h2>
+
         <p>
           Replace the demo content with your own brand, products and imagery.
         </p>
+
       </div>
+
 
       <div class="price-card">
 
         <div>
-          <span class="eyebrow">Royal Furniture Template</span>
 
-          <!-- Replace with your final selling price -->
-          <div class="price">$29</div>
+          <span class="eyebrow">
+            Royal Furniture Template
+          </span>
+
+          <div class="price">
+            $29
+          </div>
 
           <div class="price-note">
             One-time purchase · Digital product
           </div>
+
         </div>
 
-        <!-- Replace this with your real payment / checkout URL -->
-        <a class="btn btn-primary"
-           href="#"
-           onclick="alert('Checkout link will be connected here.'); return false;">
+
+        <!-- PAYMENT LINK WILL BE ADDED LATER -->
+
+        <a
+          class="btn btn-primary"
+          href="#"
+          onclick="alert('Checkout link will be connected here.'); return false;"
+        >
           Buy Now
         </a>
 
       </div>
 
     </div>
+
   </section>
 
 
   <!-- FAQ -->
+
   <section id="faq">
+
     <div class="container">
 
       <div class="section-head">
-        <span class="eyebrow">FAQ</span>
-        <h2>Before you buy.</h2>
+
+        <span class="eyebrow">
+          FAQ
+        </span>
+
+        <h2>
+          Before you buy.
+        </h2>
+
       </div>
+
 
       <div class="faq">
 
         <details>
-          <summary>Is this a complete furniture store?</summary>
+
+          <summary>
+            Is this a complete furniture store?
+          </summary>
+
           <p>
             Royal Furniture is sold as a website template. The buyer
             customizes the branding, products, images and business information
             for their own project.
           </p>
+
         </details>
 
+
         <details>
-          <summary>Can I replace the furniture images?</summary>
+
+          <summary>
+            Can I replace the furniture images?
+          </summary>
+
           <p>
             Yes. The customization page lets you replace product image URLs
             and update the product content for your own brand.
           </p>
+
         </details>
 
+
         <details>
-          <summary>Is the website responsive?</summary>
+
+          <summary>
+            Is the website responsive?
+          </summary>
+
           <p>
             Yes. The layout is designed to adapt to desktop and mobile screens.
           </p>
+
         </details>
 
+
         <details>
-          <summary>Can I use my own brand name?</summary>
+
+          <summary>
+            Can I use my own brand name?
+          </summary>
+
           <p>
             Yes. Replace the demo branding and content with your own business
             identity.
           </p>
+
         </details>
 
       </div>
+
     </div>
+
   </section>
 
 
   <!-- FINAL CTA -->
+
   <section class="final-cta">
+
     <div class="container">
 
-      <h2>Build your furniture brand on a stronger foundation.</h2>
+      <h2>
+        Build your furniture brand on a stronger foundation.
+      </h2>
 
       <p>
         Explore the live demo, see the customization experience,
         and make Royal Furniture your own.
       </p>
 
-      <div class="buttons" style="justify-content:center;">
-        <a class="btn btn-primary" href="#buy">Buy Template</a>
+      <div
+        class="buttons"
+        style="justify-content:center;"
+      >
 
-        <a class="btn btn-secondary"
-           href="https://furniture-showcase-theta.vercel.app/"
-           target="_blank">
+        <a class="btn btn-primary" href="#buy">
+          Buy Template
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="https://furniture-showcase-theta.vercel.app/"
+          target="_blank"
+          rel="noopener"
+        >
           View Live Demo
         </a>
+
       </div>
 
     </div>
+
   </section>
 
 
+  <!-- FOOTER -->
+
   <footer>
+
     <div class="container">
       © 2026 Royal Furniture. Digital website template.
     </div>
+
   </footer>
 
+
 </body>
-  </html>
+</html>
