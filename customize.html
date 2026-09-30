@@ -185,8 +185,36 @@ input[type="color"]{
   height:230px;
   object-fit:cover;
   border-radius:15px;
-  margin-bottom:20px;
+  margin-bottom:15px;
   background:#ddd;
+}
+
+.upload-box{
+  border:1px dashed #c8beb0;
+  background:#f2eee7;
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:20px;
+}
+
+.upload-title{
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.upload-description{
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:10px;
+}
+
+.upload-box input[type="file"]{
+  margin:0;
+  padding:10px;
+  background:white;
+  border:1px solid #ddd5ca;
+  cursor:pointer;
 }
 
 .preview{
@@ -201,6 +229,7 @@ input[type="color"]{
   padding:55px;
   display:flex;
   align-items:center;
+
   background:
     linear-gradient(
       90deg,
@@ -390,7 +419,7 @@ button{
   <p class="intro">
     Customize your furniture website without touching the code.
     Change your brand, colors, hero content and products,
-    then save your settings.
+    upload your own photos, then save your settings.
   </p>
 
 
@@ -431,9 +460,7 @@ button{
     <label>
       Hero Description
 
-      <textarea
-        id="description"
-      >Beautiful furniture designed to bring warmth, character and effortless elegance into your home.</textarea>
+      <textarea id="description">Beautiful furniture designed to bring warmth, character and effortless elegance into your home.</textarea>
 
     </label>
 
@@ -461,14 +488,14 @@ button{
   <div class="panel">
 
     <div class="note">
-      Change the product name, price and image URL.
-      The preview updates immediately.
+      Upload a product photo directly from your phone or computer.
+      The image will appear instantly in the preview.
+      You can also use an Image URL if you prefer.
     </div>
 
     <div class="products">
 
-
-      <!-- 1 -->
+      <!-- PRODUCT 1 -->
 
       <div class="product">
 
@@ -480,6 +507,25 @@ button{
 
         <h3>Product 01</h3>
 
+        <div class="upload-box">
+
+          <div class="upload-title">
+            📷 Upload Product Photo
+          </div>
+
+          <div class="upload-description">
+            Choose an image from your phone or computer.
+          </div>
+
+          <input
+            id="file1"
+            type="file"
+            accept="image/*"
+            onchange="uploadProductImage(this,1)"
+          >
+
+        </div>
+
         <label>
           Product Name
 
@@ -487,6 +533,7 @@ button{
             id="productName1"
             value="Cloud Sofa"
           >
+
         </label>
 
         <label>
@@ -496,6 +543,7 @@ button{
             id="productPrice1"
             value="$1,290"
           >
+
         </label>
 
         <label>
@@ -505,12 +553,13 @@ button{
             id="productImage1"
             value="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
           >
+
         </label>
 
       </div>
 
 
-      <!-- 2 -->
+      <!-- PRODUCT 2 -->
 
       <div class="product">
 
@@ -522,6 +571,25 @@ button{
 
         <h3>Product 02</h3>
 
+        <div class="upload-box">
+
+          <div class="upload-title">
+            📷 Upload Product Photo
+          </div>
+
+          <div class="upload-description">
+            Choose an image from your phone or computer.
+          </div>
+
+          <input
+            id="file2"
+            type="file"
+            accept="image/*"
+            onchange="uploadProductImage(this,2)"
+          >
+
+        </div>
+
         <label>
           Product Name
 
@@ -529,6 +597,7 @@ button{
             id="productName2"
             value="Velvet Armchair"
           >
+
         </label>
 
         <label>
@@ -538,6 +607,7 @@ button{
             id="productPrice2"
             value="$590"
           >
+
         </label>
 
         <label>
@@ -547,12 +617,13 @@ button{
             id="productImage2"
             value="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80"
           >
+
         </label>
 
       </div>
 
 
-      <!-- 3 -->
+      <!-- PRODUCT 3 -->
 
       <div class="product">
 
@@ -564,6 +635,25 @@ button{
 
         <h3>Product 03</h3>
 
+        <div class="upload-box">
+
+          <div class="upload-title">
+            📷 Upload Product Photo
+          </div>
+
+          <div class="upload-description">
+            Choose an image from your phone or computer.
+          </div>
+
+          <input
+            id="file3"
+            type="file"
+            accept="image/*"
+            onchange="uploadProductImage(this,3)"
+          >
+
+        </div>
+
         <label>
           Product Name
 
@@ -571,6 +661,7 @@ button{
             id="productName3"
             value="Oak Coffee Table"
           >
+
         </label>
 
         <label>
@@ -580,6 +671,7 @@ button{
             id="productPrice3"
             value="$420"
           >
+
         </label>
 
         <label>
@@ -589,12 +681,13 @@ button{
             id="productImage3"
             value="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=80"
           >
+
         </label>
 
       </div>
 
 
-      <!-- 4 -->
+      <!-- PRODUCT 4 -->
 
       <div class="product">
 
@@ -606,6 +699,25 @@ button{
 
         <h3>Product 04</h3>
 
+        <div class="upload-box">
+
+          <div class="upload-title">
+            📷 Upload Product Photo
+          </div>
+
+          <div class="upload-description">
+            Choose an image from your phone or computer.
+          </div>
+
+          <input
+            id="file4"
+            type="file"
+            accept="image/*"
+            onchange="uploadProductImage(this,4)"
+          >
+
+        </div>
+
         <label>
           Product Name
 
@@ -613,6 +725,7 @@ button{
             id="productName4"
             value="Linen Bed"
           >
+
         </label>
 
         <label>
@@ -622,6 +735,7 @@ button{
             id="productPrice4"
             value="$1,090"
           >
+
         </label>
 
         <label>
@@ -631,12 +745,13 @@ button{
             id="productImage4"
             value="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80"
           >
+
         </label>
 
       </div>
 
 
-      <!-- 5 -->
+      <!-- PRODUCT 5 -->
 
       <div class="product">
 
@@ -648,6 +763,25 @@ button{
 
         <h3>Product 05</h3>
 
+        <div class="upload-box">
+
+          <div class="upload-title">
+            📷 Upload Product Photo
+          </div>
+
+          <div class="upload-description">
+            Choose an image from your phone or computer.
+          </div>
+
+          <input
+            id="file5"
+            type="file"
+            accept="image/*"
+            onchange="uploadProductImage(this,5)"
+          >
+
+        </div>
+
         <label>
           Product Name
 
@@ -655,6 +789,7 @@ button{
             id="productName5"
             value="Milo Dining Chair"
           >
+
         </label>
 
         <label>
@@ -664,6 +799,7 @@ button{
             id="productPrice5"
             value="$420"
           >
+
         </label>
 
         <label>
@@ -673,12 +809,13 @@ button{
             id="productImage5"
             value="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80"
           >
+
         </label>
 
       </div>
 
 
-      <!-- 6 -->
+      <!-- PRODUCT 6 -->
 
       <div class="product">
 
@@ -690,6 +827,25 @@ button{
 
         <h3>Product 06</h3>
 
+        <div class="upload-box">
+
+          <div class="upload-title">
+            📷 Upload Product Photo
+          </div>
+
+          <div class="upload-description">
+            Choose an image from your phone or computer.
+          </div>
+
+          <input
+            id="file6"
+            type="file"
+            accept="image/*"
+            onchange="uploadProductImage(this,6)"
+          >
+
+        </div>
+
         <label>
           Product Name
 
@@ -697,6 +853,7 @@ button{
             id="productName6"
             value="Vale Side Table"
           >
+
         </label>
 
         <label>
@@ -706,6 +863,7 @@ button{
             id="productPrice6"
             value="$560"
           >
+
         </label>
 
         <label>
@@ -715,6 +873,7 @@ button{
             id="productImage6"
             value="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
           >
+
         </label>
 
       </div>
@@ -724,7 +883,7 @@ button{
   </div>
 
 
-  <!-- PREVIEW -->
+  <!-- LIVE PREVIEW -->
 
   <div class="section-title">
     Live Preview
@@ -761,7 +920,6 @@ button{
       class="preview-products"
       id="previewProducts"
     >
-
     </div>
 
   </div>
@@ -769,7 +927,10 @@ button{
 
   <!-- ACTIONS -->
 
-  <div class="panel" style="margin-top:25px">
+  <div
+    class="panel"
+    style="margin-top:25px"
+  >
 
     <div class="actions">
 
@@ -803,32 +964,55 @@ button{
 
 <script>
 
-const brand = document.getElementById("brand");
-const headline = document.getElementById("headline");
-const description = document.getElementById("description");
-const accent = document.getElementById("accent");
+const fallbackImage =
+"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80";
 
-const previewBrand = document.getElementById("previewBrand");
-const previewHeadline = document.getElementById("previewHeadline");
-const previewDescription = document.getElementById("previewDescription");
 
-const headerLogo = document.getElementById("headerLogo");
-const previewProducts = document.getElementById("previewProducts");
-const statusBox = document.getElementById("status");
+const brand =
+document.getElementById("brand");
 
+const headline =
+document.getElementById("headline");
+
+const description =
+document.getElementById("description");
+
+const accent =
+document.getElementById("accent");
+
+const previewBrand =
+document.getElementById("previewBrand");
+
+const previewHeadline =
+document.getElementById("previewHeadline");
+
+const previewDescription =
+document.getElementById("previewDescription");
+
+const previewProducts =
+document.getElementById("previewProducts");
+
+const headerLogo =
+document.getElementById("headerLogo");
+
+const statusBox =
+document.getElementById("status");
+
+
+/* =========================
+   UPDATE MAIN PREVIEW
+========================= */
 
 function updatePreview(){
 
-  previewBrand.textContent = brand.value;
+  previewBrand.textContent =
+    brand.value;
 
   previewHeadline.textContent =
     headline.value;
 
   previewDescription.textContent =
     description.value;
-
-  previewBrand.style.color =
-    accent.value;
 
   document.documentElement.style.setProperty(
     "--accent",
@@ -842,6 +1026,10 @@ function updatePreview(){
 
 }
 
+
+/* =========================
+   PRODUCTS PREVIEW
+========================= */
 
 function updateProductsPreview(){
 
@@ -870,23 +1058,48 @@ function updateProductsPreview(){
     card.className =
       "preview-product";
 
-    card.innerHTML = `
 
-      <img
-        src="${image}"
-        alt="${name}"
-        onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80'"
-      >
+    const img =
+      document.createElement("img");
 
-      <div class="preview-product-info">
+    img.src =
+      image || fallbackImage;
 
-        <strong>${name}</strong>
+    img.alt =
+      name;
 
-        <span>${price}</span>
+    img.onerror =
+      function(){
+        this.src = fallbackImage;
+      };
 
-      </div>
 
-    `;
+    const info =
+      document.createElement("div");
+
+    info.className =
+      "preview-product-info";
+
+
+    const productName =
+      document.createElement("strong");
+
+    productName.textContent =
+      name;
+
+
+    const productPrice =
+      document.createElement("span");
+
+    productPrice.textContent =
+      price;
+
+
+    info.appendChild(productName);
+    info.appendChild(productPrice);
+
+    card.appendChild(img);
+    card.appendChild(info);
 
     previewProducts.appendChild(card);
 
@@ -894,6 +1107,102 @@ function updateProductsPreview(){
 
 }
 
+
+/* =========================
+   UPLOAD IMAGE
+========================= */
+
+function uploadProductImage(
+  input,
+  number
+){
+
+  const file =
+    input.files[0];
+
+  if(!file){
+    return;
+  }
+
+
+  if(!file.type.startsWith("image/")){
+
+    alert(
+      "Please choose an image file."
+    );
+
+    input.value = "";
+
+    return;
+  }
+
+
+  /*
+    Maximum original file size:
+    5 MB
+  */
+
+  if(file.size > 5 * 1024 * 1024){
+
+    alert(
+      "Please choose an image smaller than 5 MB."
+    );
+
+    input.value = "";
+
+    return;
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload =
+    function(event){
+
+      const imageData =
+        event.target.result;
+
+
+      /*
+        Put the uploaded image
+        into the Image URL field.
+      */
+
+      document.getElementById(
+        "productImage" + number
+      ).value =
+        imageData;
+
+
+      /*
+        Update product image.
+      */
+
+      document.getElementById(
+        "imagePreview" + number
+      ).src =
+        imageData;
+
+
+      /*
+        Update live preview.
+      */
+
+      updateProductsPreview();
+
+    };
+
+
+  reader.readAsDataURL(file);
+
+}
+
+
+/* =========================
+   UPDATE IMAGE PREVIEW
+========================= */
 
 function updateImagePreview(number){
 
@@ -907,24 +1216,35 @@ function updateImagePreview(number){
       "imagePreview" + number
     );
 
-  preview.src = input.value;
+
+  preview.src =
+    input.value ||
+    fallbackImage;
 
 }
 
+
+/* =========================
+   SAVE SETTINGS
+========================= */
 
 function saveSettings(){
 
   const settings = {
 
-    brand:brand.value,
+    brand:
+      brand.value,
 
-    headline:headline.value,
+    headline:
+      headline.value,
 
-    description:description.value,
+    description:
+      description.value,
 
-    accent:accent.value,
+    accent:
+      accent.value,
 
-    products:[]
+    products: []
 
   };
 
@@ -953,17 +1273,36 @@ function saveSettings(){
   }
 
 
-  localStorage.setItem(
-    "royalFurnitureSettings",
-    JSON.stringify(settings)
-  );
+  try{
+
+    localStorage.setItem(
+      "royalFurnitureSettings",
+      JSON.stringify(settings)
+    );
 
 
-  statusBox.textContent =
-    "✓ Changes saved successfully on this device.";
+    statusBox.textContent =
+      "✓ Changes saved successfully on this device.";
+
+  }
+
+  catch(error){
+
+    statusBox.textContent =
+      "⚠ Storage is full. Please use smaller images.";
+
+    alert(
+      "The browser storage is full. Try using smaller product images."
+    );
+
+  }
 
 }
 
+
+/* =========================
+   LOAD SETTINGS
+========================= */
 
 function loadSettings(){
 
@@ -988,55 +1327,74 @@ function loadSettings(){
       JSON.parse(saved);
 
 
-    if(settings.brand)
+    if(settings.brand){
+
       brand.value =
         settings.brand;
 
+    }
 
-    if(settings.headline)
+
+    if(settings.headline){
+
       headline.value =
         settings.headline;
 
+    }
 
-    if(settings.description)
+
+    if(settings.description){
+
       description.value =
         settings.description;
 
+    }
 
-    if(settings.accent)
+
+    if(settings.accent){
+
       accent.value =
         settings.accent;
 
+    }
 
-    if(settings.products){
+
+    if(
+      settings.products &&
+      Array.isArray(settings.products)
+    ){
 
       settings.products.forEach(
-        (product,index)=>{
+        function(product,index){
 
-          const i = index + 1;
+          const number =
+            index + 1;
+
 
           if(product.name){
 
             document.getElementById(
-              "productName" + i
+              "productName" + number
             ).value =
               product.name;
 
           }
 
+
           if(product.price){
 
             document.getElementById(
-              "productPrice" + i
+              "productPrice" + number
             ).value =
               product.price;
 
           }
 
+
           if(product.image){
 
             document.getElementById(
-              "productImage" + i
+              "productImage" + number
             ).value =
               product.image;
 
@@ -1047,8 +1405,9 @@ function loadSettings(){
 
     }
 
+  }
 
-  }catch(error){
+  catch(error){
 
     console.log(
       "Could not load saved settings."
@@ -1069,6 +1428,10 @@ function loadSettings(){
 }
 
 
+/* =========================
+   RESET
+========================= */
+
 function resetSettings(){
 
   const confirmReset =
@@ -1076,18 +1439,27 @@ function resetSettings(){
       "Reset all customization settings?"
     );
 
-  if(!confirmReset)
+
+  if(!confirmReset){
+
     return;
+
+  }
 
 
   localStorage.removeItem(
     "royalFurnitureSettings"
   );
 
+
   location.reload();
 
 }
 
+
+/* =========================
+   LIVE INPUT EVENTS
+========================= */
 
 brand.addEventListener(
   "input",
@@ -1112,6 +1484,7 @@ accent.addEventListener(
 
 for(let i = 1; i <= 6; i++){
 
+
   document
     .getElementById(
       "productImage" + i
@@ -1121,6 +1494,7 @@ for(let i = 1; i <= 6; i++){
       function(){
 
         updateImagePreview(i);
+
         updateProductsPreview();
 
       }
@@ -1148,6 +1522,10 @@ for(let i = 1; i <= 6; i++){
 
 }
 
+
+/* =========================
+   START
+========================= */
 
 loadSettings();
 
