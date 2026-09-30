@@ -1,2225 +1,1091 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Royal Furniture — Modern Luxury</title>
-
-<meta name="description"
-content="Royal Furniture — premium modern furniture for elegant interiors.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:"DM Sans",sans-serif;
-background:#f4f0e8;
-color:#171717;
-line-height:1.6;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-img{
-width:100%;
-display:block;
-}
-
-.container{
-width:min(1180px,92%);
-margin:auto;
-}
-
-/* HEADER */
-
-header{
-position:sticky;
-top:0;
-z-index:100;
-background:rgba(244,240,232,.94);
-backdrop-filter:blur(15px);
-border-bottom:1px solid #ddd6ca;
-}
-
-.nav{
-height:78px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.logo{
-font-family:"Playfair Display",serif;
-font-size:28px;
-letter-spacing:-1px;
-}
-
-.logo span{
-font-family:"DM Sans",sans-serif;
-font-size:10px;
-letter-spacing:3px;
-display:block;
-margin-top:-7px;
-color:#8b7760;
-}
-
-.links{
-display:flex;
-gap:32px;
-align-items:center;
-font-size:14px;
-}
-
-.links a:hover{
-color:#8b7760;
-}
-
-.menu{
-display:none;
-font-size:25px;
-}
-
-/* HERO */
-
-.hero{
-min-height:calc(100vh - 78px);
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-gap:60px;
-padding:70px 0;
-}
-
-.eyebrow{
-font-size:11px;
-letter-spacing:3px;
-font-weight:700;
-color:#8b7760;
-margin-bottom:18px;
-}
-
-.hero h1{
-font-family:"Playfair Display",serif;
-font-size:clamp(48px,6vw,82px);
-font-weight:500;
-line-height:.98;
-letter-spacing:-3px;
-max-width:650px;
-}
-
-.hero-text{
-font-size:17px;
-color:#69635b;
-max-width:520px;
-margin:28px 0;
-}
-
-.btn{
-display:inline-block;
-background:#171717;
-color:white;
-padding:15px 25px;
-font-size:13px;
-transition:.25s;
-}
-
-.btn:hover{
-background:#8b7760;
-}
-
-.hero-image{
-height:650px;
-overflow:hidden;
-position:relative;
-}
-
-.hero-image img{
-height:100%;
-object-fit:cover;
-}
-
-.hero-badge{
-position:absolute;
-bottom:25px;
-left:25px;
-background:#f4f0e8;
-padding:20px 25px;
-}
-
-.hero-badge strong{
-display:block;
-font-family:"Playfair Display",serif;
-font-size:25px;
-}
-
-.hero-badge span{
-font-size:10px;
-letter-spacing:2px;
-color:#777;
-}
-
-/* MARQUEE */
-
-.marquee{
-background:#171717;
-color:white;
-padding:17px;
-text-align:center;
-font-size:10px;
-letter-spacing:4px;
-}
-
-/* COLLECTION */
-
-section{
-padding:110px 0;
-}
-
-.section-top{
-display:flex;
-justify-content:space-between;
-align-items:end;
-margin-bottom:45px;
-}
-
-.section-title{
-font-family:"Playfair Display",serif;
-font-size:55px;
-font-weight:500;
-line-height:1;
-}
-
-.filters{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-}
-
-.filter{
-border:1px solid #bdb4a7;
-background:transparent;
-padding:9px 16px;
-cursor:pointer;
-}
-
-.filter.active{
-background:#171717;
-color:white;
-}
-
-/* PRODUCTS */
-
-.products{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:45px 22px;
-}
-
-.product{
-position:relative;
-}
-
-.product-image{
-position:relative;
-overflow:hidden;
-background:#ddd;
-}
-
-.product-image img{
-aspect-ratio:4/5;
-object-fit:cover;
-transition:.5s;
-}
-
-.product:hover .product-image img{
-transform:scale(1.04);
-}
-
-.favorite{
-position:absolute;
-right:15px;
-top:15px;
-width:42px;
-height:42px;
-border:0;
-border-radius:50%;
-background:white;
-font-size:20px;
-cursor:pointer;
-}
-
-.product-info{
-padding-top:17px;
-display:flex;
-justify-content:space-between;
-gap:20px;
-}
-
-.product-name{
-font-size:15px;
-font-weight:600;
-}
-
-.product-category{
-font-size:11px;
-color:#888;
-margin-top:4px;
-text-transform:uppercase;
-letter-spacing:1px;
-}
-
-.price{
-font-size:14px;
-white-space:nowrap;
-}
-
-/* STORY */
-
-.story{
-background:#e8e1d6;
-}
-
-.story-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:100px;
-align-items:center;
-}
-
-.story-image img{
-height:600px;
-object-fit:cover;
-}
-
-.story-copy h2{
-font-family:"Playfair Display",serif;
-font-size:58px;
-font-weight:500;
-line-height:1;
-margin-bottom:25px;
-}
-
-.story-copy p{
-color:#655f57;
-font-size:17px;
-line-height:1.8;
-max-width:520px;
-}
-
-/* QUOTE */
-
-.quote{
-background:#171717;
-color:white;
-text-align:center;
-padding:130px 20px;
-}
-
-.quote p{
-font-family:"Playfair Display",serif;
-font-size:clamp(35px,5vw,65px);
-max-width:900px;
-margin:auto;
-line-height:1.1;
-}
-
-/* CATEGORIES */
-
-.categories{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.category{
-position:relative;
-height:430px;
-overflow:hidden;
-}
-
-.category img{
-height:100%;
-object-fit:cover;
-transition:.5s;
-}
-
-.category:hover img{
-transform:scale(1.05);
-}
-
-.category-overlay{
-position:absolute;
-inset:0;
-display:flex;
-align-items:end;
-padding:30px;
-background:linear-gradient(transparent,rgba(0,0,0,.65));
-color:white;
-}
-
-.category-overlay h3{
-font-family:"Playfair Display",serif;
-font-size:35px;
-font-weight:500;
-}
-
-/* NEWSLETTER */
-
-.newsletter{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:80px;
-align-items:end;
-}
-
-.newsletter h2{
-font-family:"Playfair Display",serif;
-font-size:58px;
-font-weight:500;
-line-height:1;
-}
-
-.form{
-display:flex;
-border-bottom:1px solid #777;
-}
-
-.form input{
-flex:1;
-border:0;
-background:transparent;
-padding:15px 0;
-font:inherit;
-outline:none;
-}
-
-.form button{
-border:0;
-background:#171717;
-color:white;
-padding:14px 22px;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-border-top:1px solid #d4cdc1;
-padding:30px 0;
-font-size:13px;
-display:flex;
-justify-content:space-between;
-}
-
-footer a{
-color:#777;
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-.links{
-display:none;
-}
-
-.menu{
-display:block;
-}
-
-.hero{
-grid-template-columns:1fr;
-padding:45px 0 70px;
-}
-
-.hero-image{
-height:520px;
-order:-1;
-}
-
-.hero h1{
-font-size:54px;
-}
-
-.products{
-grid-template-columns:repeat(2,1fr);
-}
-
-.story-grid{
-grid-template-columns:1fr;
-gap:50px;
-}
-
-.story-image img{
-height:500px;
-}
-
-.categories{
-grid-template-columns:1fr;
-}
-
-.category{
-height:380px;
-}
-
-.newsletter{
-grid-template-columns:1fr;
-gap:40px;
-}
-
-}
-
-@media(max-width:560px){
-
-.container{
-width:88%;
-}
-
-section{
-padding:75px 0;
-}
-
-.hero h1{
-font-size:47px;
-letter-spacing:-2px;
-}
-
-.hero-image{
-height:430px;
-}
-
-.products{
-grid-template-columns:1fr;
-}
-
-.section-top{
-display:block;
-}
-
-.filters{
-margin-top:25px;
-}
-
-.section-title{
-font-size:45px;
-}
-
-.story-copy h2,
-.newsletter h2{
-font-size:45px;
-}
-
-footer{
-display:block;
-}
-
-footer div{
-margin-bottom:10px;
-}
-
-}
-
-/* CUSTOMIZER LINK */
-
-.customize-link{
-position:fixed;
-right:20px;
-bottom:20px;
-z-index:90;
-background:#8b7760;
-color:white;
-padding:13px 18px;
-font-size:12px;
-box-shadow:0 8px 30px rgba(0,0,0,.2);
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Royal Furniture — Modern Luxury</title>
+
+  <meta
+    name="description"
+    content="Royal Furniture — refined furniture for timeless modern spaces."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --ink: #181714;
+      --paper: #f5f1e9;
+      --soft: #e9e1d4;
+      --muted: #766f65;
+      --line: #ddd5c8;
+      --gold: #b18b55;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 241, 233, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.7px;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: -5px;
+      color: var(--gold);
+      font-family: "DM Sans", sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .mobile-menu {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 70px;
+      align-items: center;
+      padding: 55px 0;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 650px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 6vw, 84px);
+      font-weight: 500;
+      line-height: 0.96;
+      letter-spacing: -3px;
+    }
+
+    .hero-text {
+      max-width: 500px;
+      margin: 25px 0 30px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 15px 22px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 12px;
+      transition: 0.3s ease;
+    }
+
+    .button:hover {
+      background: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .button span {
+      font-size: 17px;
+    }
+
+    .hero-image {
+      position: relative;
+      height: 650px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.025);
+    }
+
+    .image-label {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      padding: 16px 19px;
+      background: var(--paper);
+    }
+
+    .image-label strong {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .image-label small {
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       MARQUEE
+    ========================= */
+
+    .marquee {
+      padding: 15px;
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 9px;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 42px;
+    }
+
+    .section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(42px, 5vw, 62px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -2.5px;
+    }
+
+    .section-description {
+      max-width: 410px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      position: relative;
+    }
+
+    .product-image {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: #e8e1d6;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .product:hover .product-image img {
+      transform: scale(1.035);
+    }
+
+    .favorite {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--white);
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 2;
+    }
+
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 2px;
+    }
+
+    .product-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .product-category {
+      margin-top: 3px;
+      color: #8b847a;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .product-price {
+      white-space: nowrap;
+      font-size: 12px;
+    }
+
+    /* =========================
+       STORY
+    ========================= */
+
+    .story-section {
+      background: var(--soft);
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .story-image {
+      height: 610px;
+      overflow: hidden;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story h2 {
+      margin-bottom: 25px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(48px, 5vw, 70px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -2.5px;
+    }
+
+    .story p {
+      max-width: 500px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* =========================
+       QUOTE
+    ========================= */
+
+    .quote {
+      padding: 125px 20px;
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .quote p {
+      max-width: 920px;
+      margin: auto;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 5vw, 66px);
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    /* =========================
+       SPACES
+    ========================= */
+
+    .spaces {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr 0.9fr;
+      grid-template-rows: 260px 260px;
+      gap: 16px;
+    }
+
+    .space {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .space:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .space img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .space:hover img {
+      transform: scale(1.04);
+    }
+
+    .space-name {
+      position: absolute;
+      left: 18px;
+      bottom: 17px;
+      color: white;
+      font-family: "Playfair Display", serif;
+      font-size: 29px;
+      font-weight: 500;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 100px 0;
+    }
+
+    .cta-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      padding: 65px;
+      background: #171612;
+      color: var(--white);
+    }
+
+    .cta h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(42px, 5vw, 62px);
+      font-weight: 500;
+      line-height: 0.98;
+    }
+
+    .cta p {
+      max-width: 440px;
+      margin-top: 15px;
+      color: #c8c0b4;
+    }
+
+    .cta .button {
+      background: #c4a06b;
+      color: #171612;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 45px 0 75px;
+      }
+
+      .hero-image {
+        order: -1;
+        height: 520px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .story-image {
+        height: 500px;
+      }
+
+      .spaces {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px 220px;
+      }
+
+      .space:first-child {
+        grid-column: 1 / 3;
+        grid-row: auto;
+      }
+
+      .cta-box {
+        display: block;
+        padding: 45px;
+      }
+
+      .cta .button {
+        margin-top: 28px;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      .container {
+        width: 88%;
+      }
+
+      .hero h1 {
+        font-size: 50px;
+        letter-spacing: -2px;
+      }
+
+      .hero-image {
+        height: 430px;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-description {
+        margin-top: 18px;
+      }
+
+      .products {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .product-info {
+        display: block;
+      }
+
+      .product-price {
+        display: block;
+        margin-top: 5px;
+      }
+
+      .spaces {
+        display: block;
+      }
+
+      .space {
+        height: 300px;
+        margin-bottom: 12px;
+      }
+
+      .cta-box {
+        padding: 34px 26px;
+      }
+
+      footer {
+        display: block;
+      }
+
+      footer div + div {
+        margin-top: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
 
-<div class="container nav">
+      <a href="#" class="brand">
+        Royal Furniture
+        <span>MODERN LUXURY</span>
+      </a>
 
-<a class="logo" href="#">
-Royal Furniture
-<span>MODERN LUXURY</span>
-</a>
+      <nav class="nav-links">
+        <a href="#collection">Collection</a>
+        <a href="#story">Our Story</a>
+        <a href="#spaces">Spaces</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<nav class="links">
-<a href="#collection">Collection</a>
-<a href="#story">Our Story</a>
-<a href="#categories">Spaces</a>
-<a href="#contact">Contact</a>
-</nav>
+      <button class="mobile-menu" aria-label="Open menu">
+        ☰
+      </button>
 
-<div class="menu">☰</div>
+    </div>
+  </header>
 
-</div>
 
-</header>
+  <main>
 
+    <!-- HERO -->
+    <section class="container hero">
 
-<main>
+      <div class="hero-content">
 
-<!-- HERO -->
+        <div class="eyebrow">
+          The art of living
+        </div>
 
-<section class="hero container">
+        <h1>
+          Modern furniture for timeless spaces.
+        </h1>
 
-<div>
+        <p class="hero-text">
+          Thoughtful forms, warm materials and enduring comfort —
+          curated for homes with character.
+        </p>
 
-<div class="eyebrow">
-THE ART OF LIVING
-</div>
+        <a href="#collection" class="button">
+          Explore collection
+          <span>→</span>
+        </a>
 
-<h1>
-Furniture with a sense of place.
-</h1>
+      </div>
 
-<p class="hero-text">
-Discover refined furniture designed around comfort,
-character and timeless modern interiors.
-</p>
+      <div class="hero-image">
 
-<a href="#collection" class="btn">
-Explore Collection
-</a>
+        <img
+          src="assets/01-hero.jpg"
+          alt="Royal Furniture collection"
+        >
 
-</div>
+        <div class="image-label">
+          <strong>01 / 06</strong>
+          <small>CURATED COLLECTION</small>
+        </div>
 
-<div class="hero-image">
+      </div>
 
-<img
-src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85"
-alt="Luxury modern sofa">
+    </section>
 
-<div class="hero-badge">
-<strong>01 / 06</strong>
-<span>CURATED COLLECTION</span>
-</div>
 
-</div>
+    <!-- BRAND STRIP -->
+    <div class="marquee">
+      Timeless design · Premium materials · Modern living
+    </div>
 
-</section>
 
+    <!-- COLLECTION -->
+    <section id="collection" class="container section">
 
-<div class="marquee">
-TIMELESS DESIGN · PREMIUM MATERIALS · MODERN LIVING ·
-TIMELESS DESIGN · PREMIUM MATERIALS ·
-</div>
+      <div class="section-heading">
 
+        <div>
+          <div class="eyebrow">
+            The collection
+          </div>
 
-<!-- COLLECTION -->
+          <h2>
+            Designed to belong.
+          </h2>
+        </div>
 
-<section id="collection">
+        <p class="section-description">
+          A focused edit of furniture for living, dining
+          and bedroom spaces.
+        </p>
 
-<div class="container">
+      </div>
 
-<div class="section-top">
 
-<div>
+      <div class="products">
 
-<div class="eyebrow">
-THE COLLECTION
-</div>
+        <article class="product">
 
-<h2 class="section-title">
-Designed to belong.
-</h2>
+          <div class="product-image">
+            <img
+              src="assets/02-collection.jpg"
+              alt="Luna Modular Sofa"
+            >
+          </div>
 
-</div>
+          <button class="favorite" aria-label="Add to favorites">
+            ♡
+          </button>
 
-<div class="filters">
+          <div class="product-info">
 
-<button class="filter active" data-filter="all">
-All
-</button>
+            <div>
+              <div class="product-name">
+                Luna Modular Sofa
+              </div>
 
-<button class="filter" data-filter="living">
-Living
-</button>
+              <div class="product-category">
+                Living
+              </div>
+            </div>
 
-<button class="filter" data-filter="dining">
-Dining
-</button>
+            <div class="product-price">
+              $2,450
+            </div>
 
-<button class="filter" data-filter="bedroom">
-Bedroom
-</button>
+          </div>
 
-</div>
+        </article>
 
-</div>
 
+        <article class="product">
 
-<div class="products">
+          <div class="product-image">
+            <img
+              src="assets/03-product-mobile.jpg"
+              alt="Aria Lounge Chair"
+            >
+          </div>
 
+          <button class="favorite" aria-label="Add to favorites">
+            ♡
+          </button>
 
-<article class="product" data-category="living">
+          <div class="product-info">
 
-<div class="product-image">
+            <div>
+              <div class="product-name">
+                Aria Lounge Chair
+              </div>
 
-<img
-src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
-alt="Luna Sofa">
+              <div class="product-category">
+                Living
+              </div>
+            </div>
 
-<button class="favorite">♡</button>
+            <div class="product-price">
+              $890
+            </div>
 
-</div>
+          </div>
 
-<div class="product-info">
+        </article>
 
-<div>
-<div class="product-name">Luna Modular Sofa</div>
-<div class="product-category">Living Room</div>
-</div>
 
-<div class="price">$2,450</div>
+        <article class="product">
 
-</div>
+          <div class="product-image">
+            <img
+              src="assets/04-story.jpg"
+              alt="Noir Dining Table"
+            >
+          </div>
 
-</article>
+          <button class="favorite" aria-label="Add to favorites">
+            ♡
+          </button>
 
+          <div class="product-info">
 
-<article class="product" data-category="living">
+            <div>
+              <div class="product-name">
+                Noir Dining Table
+              </div>
 
-<div class="product-image">
+              <div class="product-category">
+                Dining
+              </div>
+            </div>
 
-<img
-src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=900&q=85"
-alt="Aria Lounge Chair">
+            <div class="product-price">
+              $1,680
+            </div>
 
-<button class="favorite">♡</button>
+          </div>
 
-</div>
+        </article>
 
-<div class="product-info">
 
-<div>
-<div class="product-name">Aria Lounge Chair</div>
-<div class="product-category">Living Room</div>
-</div>
+        <article class="product">
 
-<div class="price">$890</div>
+          <div class="product-image">
+            <img
+              src="assets/05-spaces.jpg"
+              alt="Siena Upholstered Bed"
+            >
+          </div>
 
-</div>
+          <button class="favorite" aria-label="Add to favorites">
+            ♡
+          </button>
 
-</article>
+          <div class="product-info">
 
+            <div>
+              <div class="product-name">
+                Siena Upholstered Bed
+              </div>
 
-<article class="product" data-category="dining">
+              <div class="product-category">
+                Bedroom
+              </div>
+            </div>
 
-<div class="product-image">
+            <div class="product-price">
+              $1,920
+            </div>
 
-<img
-src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85"
-alt="Noir Dining Table">
+          </div>
 
-<button class="favorite">♡</button>
+        </article>
 
-</div>
+      </div>
 
-<div class="product-info">
+    </section>
 
-<div>
-<div class="product-name">Noir Dining Table</div>
-<div class="product-category">Dining</div>
-</div>
 
-<div class="price">$1,680</div>
+    <!-- STORY -->
+    <section id="story" class="story-section">
 
-</div>
+      <div class="container story">
 
-</article>
+        <div class="story-image">
 
+          <img
+            src="assets/04-story.jpg"
+            alt="Elegant Royal Furniture interior"
+          >
 
-<article class="product" data-category="bedroom">
+        </div>
 
-<div class="product-image">
+        <div>
 
-<img
-src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85"
-alt="Siena Bed">
+          <div class="eyebrow">
+            Our philosophy
+          </div>
 
-<button class="favorite">♡</button>
+          <h2>
+            Less noise.<br>
+            More character.
+          </h2>
 
-</div>
+          <p>
+            Royal Furniture brings together warm textures,
+            confident forms and thoughtful proportions.
+            Every piece is selected to make a room feel
+            considered without feeling over-designed.
+          </p>
 
-<div class="product-info">
+          <a href="#spaces" class="button">
+            Explore spaces
+            <span>→</span>
+          </a>
 
-<div>
-<div class="product-name">Siena Upholstered Bed</div>
-<div class="product-category">Bedroom</div>
-</div>
+        </div>
 
-<div class="price">$1,920</div>
+      </div>
 
-</div>
+    </section>
 
-</article>
 
+    <!-- QUOTE -->
+    <section class="quote">
 
-<article class="product" data-category="dining">
+      <p>
+        “The best rooms don't shout.
+        They simply feel right.”
+      </p>
 
-<div class="product-image">
+    </section>
 
-<img
-src="https://images.unsplash.com/photo-1604578762246-41134e37f9cc?auto=format&fit=crop&w=900&q=85"
-alt="Milo Dining Chair">
 
-<button class="favorite">♡</button>
+    <!-- SPACES -->
+    <section id="spaces" class="container section">
 
-</div>
+      <div class="section-heading">
 
-<div class="product-info">
+        <div>
+          <div class="eyebrow">
+            Explore your space
+          </div>
 
-<div>
-<div class="product-name">Milo Dining Chair</div>
-<div class="product-category">Dining</div>
-</div>
+          <h2>
+            Made for every room.
+          </h2>
+        </div>
 
-<div class="price">$420</div>
+      </div>
 
-</div>
 
-</article>
+      <div class="spaces">
 
+        <div class="space">
 
-<article class="product" data-category="living">
+          <img
+            src="assets/05-spaces.jpg"
+            alt="Living room"
+          >
 
-<div class="product-image">
+          <div class="space-name">
+            Living
+          </div>
 
-<img
-src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=85"
-alt="Vale Side Table">
+        </div>
 
-<button class="favorite">♡</button>
 
-</div>
+        <div class="space">
 
-<div class="product-info">
+          <img
+            src="assets/02-collection.jpg"
+            alt="Dining room"
+          >
 
-<div>
-<div class="product-name">Vale Side Table</div>
-<div class="product-category">Living Room</div>
-</div>
+          <div class="space-name">
+            Dining
+          </div>
 
-<div class="price">$560</div>
+        </div>
 
-</div>
 
-</article>
+        <div class="space">
 
+          <img
+            src="assets/06-customize.jpg"
+            alt="Bedroom"
+          >
 
-</div>
+          <div class="space-name">
+            Bedroom
+          </div>
 
-</div>
+        </div>
 
-</section>
 
+        <div class="space">
 
-<!-- STORY -->
+          <img
+            src="assets/03-product-mobile.jpg"
+            alt="Home office"
+          >
 
-<section id="story" class="story">
+          <div class="space-name">
+            Office
+          </div>
 
-<div class="container story-grid">
+        </div>
 
-<div class="story-image">
+      </div>
 
-<img
-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85"
-alt="Luxury interior">
+    </section>
 
-</div>
 
-<div class="story-copy">
+    <!-- CTA -->
+    <section id="contact" class="container cta">
 
-<div class="eyebrow">
-OUR PHILOSOPHY
-</div>
+      <div class="cta-box">
 
-<h2>
-Less noise.
-More character.
-</h2>
+        <div>
 
-<p>
-Royal Furniture brings together warm textures,
-confident forms and thoughtful proportions.
-Every piece is selected to create interiors that
-feel considered without feeling over-designed.
-</p>
+          <div class="eyebrow">
+            Royal Furniture
+          </div>
 
-<br>
+          <h2>
+            Create a space<br>
+            that feels like you.
+          </h2>
 
-<a href="#contact" class="btn">
-Discover Our Story
-</a>
+          <p>
+            Discover pieces designed to live beautifully together.
+          </p>
 
-</div>
+        </div>
 
-</div>
+        <a href="#collection" class="button">
+          Shop the collection
+          <span>→</span>
+        </a>
 
-</section>
+      </div>
 
+    </section>
 
-<!-- QUOTE -->
+  </main>
 
-<section class="quote">
 
-<p>
-“The best rooms don't shout.
-They simply feel right.”
-</p>
+  <!-- FOOTER -->
+  <footer class="container">
 
-</section>
+    <div>
+      © <span id="year"></span> Royal Furniture
+    </div>
 
+    <div>
+      Premium Furniture · Modern Living
+    </div>
 
-<!-- CATEGORIES -->
+  </footer>
 
-<section id="categories">
 
-<div class="container">
+  <script>
 
-<div class="eyebrow">
-EXPLORE YOUR SPACE
-</div>
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-<h2 class="section-title">
-Made for every room.
-</h2>
 
-<br><br>
+    // Favorite buttons
+    document.querySelectorAll(".favorite").forEach(function(button) {
 
-<div class="categories">
+      button.addEventListener("click", function() {
 
-<div class="category">
+        if (button.textContent.trim() === "♡") {
+          button.textContent = "♥";
+        } else {
+          button.textContent = "♡";
+        }
 
-<img
-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
-alt="Living room">
+      });
 
-<div class="category-overlay">
-<h3>Living</h3>
-</div>
-
-</div>
-
-
-<div class="category">
-
-<img
-src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=85"
-alt="Dining room">
-
-<div class="category-overlay">
-<h3>Dining</h3>
-</div>
-
-</div>
-
-
-<div class="category">
-
-<img
-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85"
-alt="Bedroom">
-
-<div class="category-overlay">
-<h3>Bedroom</h3>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- NEWSLETTER -->
-
-<section id="contact">
-
-<div class="container newsletter">
-
-<div>
-
-<div class="eyebrow">
-JOIN ROYAL
-</div>
-
-<h2>
-New pieces.
-Considered ideas.
-</h2>
-
-</div>
-
-<form class="form">
-
-<input
-type="email"
-placeholder="Your email address"
-required>
-
-<button type="submit">
-Subscribe
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-<div class="container" style="display:flex;justify-content:space-between;width:100%;">
-
-<div>
-© <span id="year"></span> Royal Furniture
-</div>
-
-<div>
-Premium Furniture · Modern Living
-</div>
-
-</div>
-
-</footer>
-
-
-<a class="customize-link" href="customize.html">
-Customize Template
-</a>
-
-
-<script>
-
-document.getElementById("year").textContent =
-new Date().getFullYear();
-
-
-/* FILTERS */
-
-document.querySelectorAll(".filter").forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-document.querySelectorAll(".filter")
-.forEach(b=>b.classList.remove("active"));
-
-button.classList.add("active");
-
-const filter=button.dataset.filter;
-
-document.querySelectorAll(".product")
-.forEach(product=>{
-
-if(filter==="all" ||
-product.dataset.category===filter){
-
-product.style.display="block";
-
-}else{
-
-product.style.display="none";
-
-}
-
-});
-
-});
-
-});
-
-
-/* FAVORITES */
-
-document.querySelectorAll(".favorite")
-.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-button.textContent =
-button.textContent==="♡" ? "♥" : "♡";
-
-});
-
-});
-
-
-/* NEWSLETTER */
-
-document.querySelector(".form")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-alert("Thank you for joining Royal Furniture.");
-
-this.reset();
-
-});
-
-</script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Royal Furniture — Modern Luxury</title>
-
-<meta name="description"
-content="Royal Furniture — premium modern furniture for elegant interiors.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:"DM Sans",sans-serif;
-background:#f4f0e8;
-color:#171717;
-line-height:1.6;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-img{
-width:100%;
-display:block;
-}
-
-.container{
-width:min(1180px,92%);
-margin:auto;
-}
-
-/* HEADER */
-
-header{
-position:sticky;
-top:0;
-z-index:100;
-background:rgba(244,240,232,.94);
-backdrop-filter:blur(15px);
-border-bottom:1px solid #ddd6ca;
-}
-
-.nav{
-height:78px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.logo{
-font-family:"Playfair Display",serif;
-font-size:28px;
-letter-spacing:-1px;
-}
-
-.logo span{
-font-family:"DM Sans",sans-serif;
-font-size:10px;
-letter-spacing:3px;
-display:block;
-margin-top:-7px;
-color:#8b7760;
-}
-
-.links{
-display:flex;
-gap:32px;
-align-items:center;
-font-size:14px;
-}
-
-.links a:hover{
-color:#8b7760;
-}
-
-.menu{
-display:none;
-font-size:25px;
-}
-
-/* HERO */
-
-.hero{
-min-height:calc(100vh - 78px);
-display:grid;
-grid-template-columns:1fr 1fr;
-align-items:center;
-gap:60px;
-padding:70px 0;
-}
-
-.eyebrow{
-font-size:11px;
-letter-spacing:3px;
-font-weight:700;
-color:#8b7760;
-margin-bottom:18px;
-}
-
-.hero h1{
-font-family:"Playfair Display",serif;
-font-size:clamp(48px,6vw,82px);
-font-weight:500;
-line-height:.98;
-letter-spacing:-3px;
-max-width:650px;
-}
-
-.hero-text{
-font-size:17px;
-color:#69635b;
-max-width:520px;
-margin:28px 0;
-}
-
-.btn{
-display:inline-block;
-background:#171717;
-color:white;
-padding:15px 25px;
-font-size:13px;
-transition:.25s;
-}
-
-.btn:hover{
-background:#8b7760;
-}
-
-.hero-image{
-height:650px;
-overflow:hidden;
-position:relative;
-}
-
-.hero-image img{
-height:100%;
-object-fit:cover;
-}
-
-.hero-badge{
-position:absolute;
-bottom:25px;
-left:25px;
-background:#f4f0e8;
-padding:20px 25px;
-}
-
-.hero-badge strong{
-display:block;
-font-family:"Playfair Display",serif;
-font-size:25px;
-}
-
-.hero-badge span{
-font-size:10px;
-letter-spacing:2px;
-color:#777;
-}
-
-/* MARQUEE */
-
-.marquee{
-background:#171717;
-color:white;
-padding:17px;
-text-align:center;
-font-size:10px;
-letter-spacing:4px;
-}
-
-/* COLLECTION */
-
-section{
-padding:110px 0;
-}
-
-.section-top{
-display:flex;
-justify-content:space-between;
-align-items:end;
-margin-bottom:45px;
-}
-
-.section-title{
-font-family:"Playfair Display",serif;
-font-size:55px;
-font-weight:500;
-line-height:1;
-}
-
-.filters{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-}
-
-.filter{
-border:1px solid #bdb4a7;
-background:transparent;
-padding:9px 16px;
-cursor:pointer;
-}
-
-.filter.active{
-background:#171717;
-color:white;
-}
-
-/* PRODUCTS */
-
-.products{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:45px 22px;
-}
-
-.product{
-position:relative;
-}
-
-.product-image{
-position:relative;
-overflow:hidden;
-background:#ddd;
-}
-
-.product-image img{
-aspect-ratio:4/5;
-object-fit:cover;
-transition:.5s;
-}
-
-.product:hover .product-image img{
-transform:scale(1.04);
-}
-
-.favorite{
-position:absolute;
-right:15px;
-top:15px;
-width:42px;
-height:42px;
-border:0;
-border-radius:50%;
-background:white;
-font-size:20px;
-cursor:pointer;
-}
-
-.product-info{
-padding-top:17px;
-display:flex;
-justify-content:space-between;
-gap:20px;
-}
-
-.product-name{
-font-size:15px;
-font-weight:600;
-}
-
-.product-category{
-font-size:11px;
-color:#888;
-margin-top:4px;
-text-transform:uppercase;
-letter-spacing:1px;
-}
-
-.price{
-font-size:14px;
-white-space:nowrap;
-}
-
-/* STORY */
-
-.story{
-background:#e8e1d6;
-}
-
-.story-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:100px;
-align-items:center;
-}
-
-.story-image img{
-height:600px;
-object-fit:cover;
-}
-
-.story-copy h2{
-font-family:"Playfair Display",serif;
-font-size:58px;
-font-weight:500;
-line-height:1;
-margin-bottom:25px;
-}
-
-.story-copy p{
-color:#655f57;
-font-size:17px;
-line-height:1.8;
-max-width:520px;
-}
-
-/* QUOTE */
-
-.quote{
-background:#171717;
-color:white;
-text-align:center;
-padding:130px 20px;
-}
-
-.quote p{
-font-family:"Playfair Display",serif;
-font-size:clamp(35px,5vw,65px);
-max-width:900px;
-margin:auto;
-line-height:1.1;
-}
-
-/* CATEGORIES */
-
-.categories{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.category{
-position:relative;
-height:430px;
-overflow:hidden;
-}
-
-.category img{
-height:100%;
-object-fit:cover;
-transition:.5s;
-}
-
-.category:hover img{
-transform:scale(1.05);
-}
-
-.category-overlay{
-position:absolute;
-inset:0;
-display:flex;
-align-items:end;
-padding:30px;
-background:linear-gradient(transparent,rgba(0,0,0,.65));
-color:white;
-}
-
-.category-overlay h3{
-font-family:"Playfair Display",serif;
-font-size:35px;
-font-weight:500;
-}
-
-/* NEWSLETTER */
-
-.newsletter{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:80px;
-align-items:end;
-}
-
-.newsletter h2{
-font-family:"Playfair Display",serif;
-font-size:58px;
-font-weight:500;
-line-height:1;
-}
-
-.form{
-display:flex;
-border-bottom:1px solid #777;
-}
-
-.form input{
-flex:1;
-border:0;
-background:transparent;
-padding:15px 0;
-font:inherit;
-outline:none;
-}
-
-.form button{
-border:0;
-background:#171717;
-color:white;
-padding:14px 22px;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-border-top:1px solid #d4cdc1;
-padding:30px 0;
-font-size:13px;
-display:flex;
-justify-content:space-between;
-}
-
-footer a{
-color:#777;
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-.links{
-display:none;
-}
-
-.menu{
-display:block;
-}
-
-.hero{
-grid-template-columns:1fr;
-padding:45px 0 70px;
-}
-
-.hero-image{
-height:520px;
-order:-1;
-}
-
-.hero h1{
-font-size:54px;
-}
-
-.products{
-grid-template-columns:repeat(2,1fr);
-}
-
-.story-grid{
-grid-template-columns:1fr;
-gap:50px;
-}
-
-.story-image img{
-height:500px;
-}
-
-.categories{
-grid-template-columns:1fr;
-}
-
-.category{
-height:380px;
-}
-
-.newsletter{
-grid-template-columns:1fr;
-gap:40px;
-}
-
-}
-
-@media(max-width:560px){
-
-.container{
-width:88%;
-}
-
-section{
-padding:75px 0;
-}
-
-.hero h1{
-font-size:47px;
-letter-spacing:-2px;
-}
-
-.hero-image{
-height:430px;
-}
-
-.products{
-grid-template-columns:1fr;
-}
-
-.section-top{
-display:block;
-}
-
-.filters{
-margin-top:25px;
-}
-
-.section-title{
-font-size:45px;
-}
-
-.story-copy h2,
-.newsletter h2{
-font-size:45px;
-}
-
-footer{
-display:block;
-}
-
-footer div{
-margin-bottom:10px;
-}
-
-}
-
-/* CUSTOMIZER LINK */
-
-.customize-link{
-position:fixed;
-right:20px;
-bottom:20px;
-z-index:90;
-background:#8b7760;
-color:white;
-padding:13px 18px;
-font-size:12px;
-box-shadow:0 8px 30px rgba(0,0,0,.2);
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="container nav">
-
-<a class="logo" href="#">
-Royal Furniture
-<span>MODERN LUXURY</span>
-</a>
-
-<nav class="links">
-<a href="#collection">Collection</a>
-<a href="#story">Our Story</a>
-<a href="#categories">Spaces</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<div class="menu">☰</div>
-
-</div>
-
-</header>
-
-
-<main>
-
-<!-- HERO -->
-
-<section class="hero container">
-
-<div>
-
-<div class="eyebrow">
-THE ART OF LIVING
-</div>
-
-<h1>
-Furniture with a sense of place.
-</h1>
-
-<p class="hero-text">
-Discover refined furniture designed around comfort,
-character and timeless modern interiors.
-</p>
-
-<a href="#collection" class="btn">
-Explore Collection
-</a>
-
-</div>
-
-<div class="hero-image">
-
-<img
-src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=85"
-alt="Luxury modern sofa">
-
-<div class="hero-badge">
-<strong>01 / 06</strong>
-<span>CURATED COLLECTION</span>
-</div>
-
-</div>
-
-</section>
-
-
-<div class="marquee">
-TIMELESS DESIGN · PREMIUM MATERIALS · MODERN LIVING ·
-TIMELESS DESIGN · PREMIUM MATERIALS ·
-</div>
-
-
-<!-- COLLECTION -->
-
-<section id="collection">
-
-<div class="container">
-
-<div class="section-top">
-
-<div>
-
-<div class="eyebrow">
-THE COLLECTION
-</div>
-
-<h2 class="section-title">
-Designed to belong.
-</h2>
-
-</div>
-
-<div class="filters">
-
-<button class="filter active" data-filter="all">
-All
-</button>
-
-<button class="filter" data-filter="living">
-Living
-</button>
-
-<button class="filter" data-filter="dining">
-Dining
-</button>
-
-<button class="filter" data-filter="bedroom">
-Bedroom
-</button>
-
-</div>
-
-</div>
-
-
-<div class="products">
-
-
-<article class="product" data-category="living">
-
-<div class="product-image">
-
-<img
-src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
-alt="Luna Sofa">
-
-<button class="favorite">♡</button>
-
-</div>
-
-<div class="product-info">
-
-<div>
-<div class="product-name">Luna Modular Sofa</div>
-<div class="product-category">Living Room</div>
-</div>
-
-<div class="price">$2,450</div>
-
-</div>
-
-</article>
-
-
-<article class="product" data-category="living">
-
-<div class="product-image">
-
-<img
-src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=900&q=85"
-alt="Aria Lounge Chair">
-
-<button class="favorite">♡</button>
-
-</div>
-
-<div class="product-info">
-
-<div>
-<div class="product-name">Aria Lounge Chair</div>
-<div class="product-category">Living Room</div>
-</div>
-
-<div class="price">$890</div>
-
-</div>
-
-</article>
-
-
-<article class="product" data-category="dining">
-
-<div class="product-image">
-
-<img
-src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85"
-alt="Noir Dining Table">
-
-<button class="favorite">♡</button>
-
-</div>
-
-<div class="product-info">
-
-<div>
-<div class="product-name">Noir Dining Table</div>
-<div class="product-category">Dining</div>
-</div>
-
-<div class="price">$1,680</div>
-
-</div>
-
-</article>
-
-
-<article class="product" data-category="bedroom">
-
-<div class="product-image">
-
-<img
-src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85"
-alt="Siena Bed">
-
-<button class="favorite">♡</button>
-
-</div>
-
-<div class="product-info">
-
-<div>
-<div class="product-name">Siena Upholstered Bed</div>
-<div class="product-category">Bedroom</div>
-</div>
-
-<div class="price">$1,920</div>
-
-</div>
-
-</article>
-
-
-<article class="product" data-category="dining">
-
-<div class="product-image">
-
-<img
-src="https://images.unsplash.com/photo-1604578762246-41134e37f9cc?auto=format&fit=crop&w=900&q=85"
-alt="Milo Dining Chair">
-
-<button class="favorite">♡</button>
-
-</div>
-
-<div class="product-info">
-
-<div>
-<div class="product-name">Milo Dining Chair</div>
-<div class="product-category">Dining</div>
-</div>
-
-<div class="price">$420</div>
-
-</div>
-
-</article>
-
-
-<article class="product" data-category="living">
-
-<div class="product-image">
-
-<img
-src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=85"
-alt="Vale Side Table">
-
-<button class="favorite">♡</button>
-
-</div>
-
-<div class="product-info">
-
-<div>
-<div class="product-name">Vale Side Table</div>
-<div class="product-category">Living Room</div>
-</div>
-
-<div class="price">$560</div>
-
-</div>
-
-</article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- STORY -->
-
-<section id="story" class="story">
-
-<div class="container story-grid">
-
-<div class="story-image">
-
-<img
-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85"
-alt="Luxury interior">
-
-</div>
-
-<div class="story-copy">
-
-<div class="eyebrow">
-OUR PHILOSOPHY
-</div>
-
-<h2>
-Less noise.
-More character.
-</h2>
-
-<p>
-Royal Furniture brings together warm textures,
-confident forms and thoughtful proportions.
-Every piece is selected to create interiors that
-feel considered without feeling over-designed.
-</p>
-
-<br>
-
-<a href="#contact" class="btn">
-Discover Our Story
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- QUOTE -->
-
-<section class="quote">
-
-<p>
-“The best rooms don't shout.
-They simply feel right.”
-</p>
-
-</section>
-
-
-<!-- CATEGORIES -->
-
-<section id="categories">
-
-<div class="container">
-
-<div class="eyebrow">
-EXPLORE YOUR SPACE
-</div>
-
-<h2 class="section-title">
-Made for every room.
-</h2>
-
-<br><br>
-
-<div class="categories">
-
-<div class="category">
-
-<img
-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
-alt="Living room">
-
-<div class="category-overlay">
-<h3>Living</h3>
-</div>
-
-</div>
-
-
-<div class="category">
-
-<img
-src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=85"
-alt="Dining room">
-
-<div class="category-overlay">
-<h3>Dining</h3>
-</div>
-
-</div>
-
-
-<div class="category">
-
-<img
-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85"
-alt="Bedroom">
-
-<div class="category-overlay">
-<h3>Bedroom</h3>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- NEWSLETTER -->
-
-<section id="contact">
-
-<div class="container newsletter">
-
-<div>
-
-<div class="eyebrow">
-JOIN ROYAL
-</div>
-
-<h2>
-New pieces.
-Considered ideas.
-</h2>
-
-</div>
-
-<form class="form">
-
-<input
-type="email"
-placeholder="Your email address"
-required>
-
-<button type="submit">
-Subscribe
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-<div class="container" style="display:flex;justify-content:space-between;width:100%;">
-
-<div>
-© <span id="year"></span> Royal Furniture
-</div>
-
-<div>
-Premium Furniture · Modern Living
-</div>
-
-</div>
-
-</footer>
-
-
-<a class="customize-link" href="customize.html">
-Customize Template
-</a>
-
-
-<script>
-
-document.getElementById("year").textContent =
-new Date().getFullYear();
-
-
-/* FILTERS */
-
-document.querySelectorAll(".filter").forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-document.querySelectorAll(".filter")
-.forEach(b=>b.classList.remove("active"));
-
-button.classList.add("active");
-
-const filter=button.dataset.filter;
-
-document.querySelectorAll(".product")
-.forEach(product=>{
-
-if(filter==="all" ||
-product.dataset.category===filter){
-
-product.style.display="block";
-
-}else{
-
-product.style.display="none";
-
-}
-
-});
-
-});
-
-});
-
-
-/* FAVORITES */
-
-document.querySelectorAll(".favorite")
-.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-button.textContent =
-button.textContent==="♡" ? "♥" : "♡";
-
-});
-
-});
-
-
-/* NEWSLETTER */
-
-document.querySelector(".form")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-alert("Thank you for joining Royal Furniture.");
-
-this.reset();
-
-});
-
-</script>
-<script>
-(function () {
-
-  const brand = localStorage.getItem("rf_brand");
-  const headline = localStorage.getItem("rf_headline");
-  const description = localStorage.getItem("rf_description");
-  const accent = localStorage.getItem("rf_accent");
-
-  if (brand) {
-    document.querySelectorAll(".logo").forEach(el => {
-      el.textContent = brand;
     });
 
-    document.title = brand;
-  }
 
-  if (headline) {
-    const heroTitle = document.querySelector(".hero h1");
-    if (heroTitle) {
-      heroTitle.textContent = headline;
-    }
-  }
+    // Simple mobile menu
+    const mobileMenu =
+      document.querySelector(".mobile-menu");
 
-  if (description) {
-    const heroDescription = document.querySelector(".hero p");
-    if (heroDescription) {
-      heroDescription.textContent = description;
-    }
-  }
+    const navLinks =
+      document.querySelector(".nav-links");
 
-  if (accent) {
-    document.documentElement.style.setProperty(
-      "--accent",
-      accent
-    );
+    mobileMenu.addEventListener("click", function() {
 
-    document.querySelectorAll(".eyebrow, .section-label").forEach(el => {
-      el.style.color = accent;
+      if (navLinks.style.display === "flex") {
+        navLinks.style.display = "";
+      } else {
+        navLinks.style.display = "flex";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "76px";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.padding = "25px";
+        navLinks.style.background = "#f5f1e9";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.borderBottom = "1px solid #ddd5c8";
+      }
+
     });
-  }
 
-})();
-</script>
+  </script>
+
 </body>
-  </html>
+</html>
