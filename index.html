@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Royal Furniture — Timeless Designs</title>
 
   <meta
     name="description"
     content="Royal Furniture — timeless furniture and refined interiors designed for modern living."
-  />
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,16 +17,17 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
+
     :root {
       --cream: #f5f1e9;
       --cream-dark: #ebe4d8;
       --white: #fffdf9;
       --ink: #1b1a17;
       --muted: #716c64;
-      --line: rgba(27, 26, 23, 0.12);
+      --line: rgba(27, 26, 23, .12);
       --brown: #8a684d;
       --dark: #20201d;
       --radius: 24px;
@@ -51,8 +52,8 @@
     }
 
     img {
-      display: block;
       width: 100%;
+      display: block;
       object-fit: cover;
     }
 
@@ -70,9 +71,7 @@
       margin: auto;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* ================= HEADER ================= */
 
     header {
       position: absolute;
@@ -93,7 +92,7 @@
       font-family: "Playfair Display", serif;
       font-size: 25px;
       font-weight: 600;
-      letter-spacing: -0.5px;
+      line-height: 1;
     }
 
     .logo span {
@@ -102,30 +101,50 @@
       font-size: 8px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      margin-top: -3px;
       text-align: center;
+      margin-top: 5px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 34px;
+      gap: 32px;
       font-size: 13px;
     }
 
     .nav-links a {
-      position: relative;
-      transition: opacity 0.3s ease;
+      transition: opacity .3s ease;
     }
 
     .nav-links a:hover {
-      opacity: 0.55;
+      opacity: .55;
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 10px;
+    }
+
+    /* زر تعديل الموقع */
+
+    .customize-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 0 18px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all .3s ease;
+      background: transparent;
+    }
+
+    .customize-btn:hover {
+      background: var(--ink);
+      color: white;
     }
 
     .nav-icon {
@@ -142,14 +161,12 @@
     .menu-btn {
       display: none;
       border: 0;
-      background: none;
+      background: transparent;
       font-size: 25px;
       cursor: pointer;
     }
 
-    /* =========================
-       HERO
-    ========================= */
+    /* ================= HERO ================= */
 
     .hero {
       min-height: 820px;
@@ -162,7 +179,6 @@
     .hero-image {
       position: absolute;
       inset: 0;
-      z-index: 0;
     }
 
     .hero-image img {
@@ -176,17 +192,16 @@
       background:
         linear-gradient(
           90deg,
-          rgba(245,241,233,.92) 0%,
-          rgba(245,241,233,.70) 38%,
-          rgba(245,241,233,.12) 75%
+          rgba(245,241,233,.93) 0%,
+          rgba(245,241,233,.72) 38%,
+          rgba(245,241,233,.10) 78%
         );
-      z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      width: 600px;
+      width: 620px;
       padding-top: 70px;
     }
 
@@ -205,7 +220,6 @@
       line-height: .98;
       letter-spacing: -3px;
       font-weight: 500;
-      max-width: 650px;
     }
 
     .hero-text {
@@ -252,9 +266,7 @@
       background: var(--white);
     }
 
-    /* =========================
-       CATEGORIES
-    ========================= */
+    /* ================= GENERAL ================= */
 
     section {
       padding: 110px 0;
@@ -280,6 +292,8 @@
       color: var(--muted);
       font-size: 14px;
     }
+
+    /* ================= CATEGORIES ================= */
 
     .categories {
       background: var(--white);
@@ -314,7 +328,7 @@
       inset: 0;
       background: linear-gradient(
         to top,
-        rgba(0,0,0,.6),
+        rgba(0,0,0,.62),
         transparent 60%
       );
     }
@@ -346,9 +360,7 @@
       place-items: center;
     }
 
-    /* =========================
-       STORY
-    ========================= */
+    /* ================= STORY ================= */
 
     .story {
       background: var(--cream);
@@ -402,9 +414,7 @@
       font-size: 13px;
     }
 
-    /* =========================
-       PRODUCTS
-    ========================= */
+    /* ================= PRODUCTS ================= */
 
     .products {
       background: var(--white);
@@ -445,7 +455,7 @@
       height: 38px;
       border-radius: 50%;
       border: 0;
-      background: rgba(255,255,255,.88);
+      background: rgba(255,255,255,.9);
       cursor: pointer;
       z-index: 3;
     }
@@ -472,9 +482,7 @@
       font-weight: 600;
     }
 
-    /* =========================
-       SERVICES
-    ========================= */
+    /* ================= SERVICES ================= */
 
     .services {
       background: var(--cream-dark);
@@ -503,7 +511,6 @@
 
     .service h3 {
       font-size: 14px;
-      font-weight: 600;
     }
 
     .service p {
@@ -512,9 +519,7 @@
       margin-top: 5px;
     }
 
-    /* =========================
-       CTA
-    ========================= */
+    /* ================= CTA ================= */
 
     .cta {
       background: var(--dark);
@@ -553,9 +558,7 @@
       color: var(--ink);
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* ================= FOOTER ================= */
 
     footer {
       background: var(--dark);
@@ -573,10 +576,6 @@
 
     .footer-brand {
       max-width: 300px;
-    }
-
-    .footer-brand .logo {
-      font-size: 28px;
     }
 
     .footer-brand p {
@@ -603,7 +602,6 @@
       font-size: 13px;
       color: rgba(255,255,255,.65);
       margin-bottom: 9px;
-      transition: color .2s;
     }
 
     .footer-col a:hover {
@@ -619,11 +617,10 @@
       font-size: 11px;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* ================= MOBILE ================= */
 
     @media (max-width: 1000px) {
+
       .category-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -683,10 +680,6 @@
       .hero h1 {
         font-size: 56px;
         letter-spacing: -2px;
-      }
-
-      .hero-text {
-        font-size: 14px;
       }
 
       .hero-buttons {
@@ -769,6 +762,7 @@
     }
 
     @media (max-width: 430px) {
+
       .category-grid {
         grid-template-columns: 1fr;
       }
@@ -787,16 +781,19 @@
         height: 390px;
       }
     }
+
   </style>
 </head>
 
 <body>
 
   <!-- HEADER -->
+
   <header>
+
     <div class="container nav">
 
-      <a href="#" class="logo">
+      <a href="#home" class="logo">
         Royal
         <span>Furniture</span>
       </a>
@@ -810,32 +807,46 @@
       </nav>
 
       <div class="nav-actions">
+
+        <!-- تعديل الموقع -->
+        <a href="customize.html" class="customize-btn">
+          Customize
+        </a>
+
         <a href="#" class="nav-icon">⌕</a>
         <a href="#" class="nav-icon">♡</a>
         <a href="#" class="nav-icon">🛒</a>
+
       </div>
 
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+      </button>
 
     </div>
+
   </header>
 
 
   <!-- HERO -->
+
   <main>
 
     <section class="hero" id="home">
 
       <div class="hero-image">
+
         <img
           src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=85"
           alt="Luxury modern living room"
-        />
+        >
+
       </div>
 
       <div class="hero-overlay"></div>
 
       <div class="container">
+
         <div class="hero-content">
 
           <div class="eyebrow">
@@ -853,6 +864,7 @@
           </p>
 
           <div class="hero-buttons">
+
             <a href="#shop" class="btn btn-dark">
               Explore Collection
             </a>
@@ -860,15 +872,18 @@
             <a href="#about" class="btn btn-light">
               Our Story
             </a>
+
           </div>
 
         </div>
+
       </div>
 
     </section>
 
 
     <!-- CATEGORIES -->
+
     <section class="categories" id="shop">
 
       <div class="container">
@@ -889,63 +904,77 @@
         <div class="category-grid">
 
           <a href="#" class="category-card">
+
             <img
               src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
               alt="Sofas"
-            />
+            >
 
             <div class="category-info">
               <h3>Sofas</h3>
               <span class="arrow">↗</span>
             </div>
+
           </a>
 
+
           <a href="#" class="category-card">
+
             <img
               src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80"
               alt="Chairs"
-            />
+            >
 
             <div class="category-info">
               <h3>Chairs</h3>
               <span class="arrow">↗</span>
             </div>
+
           </a>
 
+
           <a href="#" class="category-card">
+
             <img
               src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
               alt="Tables"
-            />
+            >
 
             <div class="category-info">
               <h3>Tables</h3>
               <span class="arrow">↗</span>
             </div>
+
           </a>
 
+
           <a href="#" class="category-card">
+
             <img
               src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
               alt="Beds"
-            />
+            >
 
             <div class="category-info">
               <h3>Beds</h3>
               <span class="arrow">↗</span>
             </div>
+
           </a>
 
+
           <a href="#" class="category-card">
+
             <img
               src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=900&q=80"
               alt="Storage"
-            />
+            >
 
             <div class="category-info">
               <h3>Storage</h3>
               <span class="arrow">↗</span>
             </div>
+
           </a>
 
         </div>
@@ -956,6 +985,7 @@
 
 
     <!-- STORY -->
+
     <section class="story" id="about">
 
       <div class="container">
@@ -963,11 +993,14 @@
         <div class="story-grid">
 
           <div class="story-image">
+
             <img
               src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
               alt="Elegant interior"
-            />
+            >
+
           </div>
+
 
           <div class="story-content">
 
@@ -1005,10 +1038,12 @@
 
             </div>
 
-            <div style="margin-top:30px;">
+            <div style="margin-top:30px">
+
               <a href="#" class="btn btn-dark">
                 Discover Our Story
               </a>
+
             </div>
 
           </div>
@@ -1021,6 +1056,7 @@
 
 
     <!-- PRODUCTS -->
+
     <section class="products" id="inspiration">
 
       <div class="container">
@@ -1038,11 +1074,14 @@
 
         </div>
 
+
         <div class="products-grid">
+
 
           <article class="product-card">
 
             <div class="product-image">
+
               <button class="favorite" onclick="favorite(this)">
                 ♡
               </button>
@@ -1050,13 +1089,22 @@
               <img
                 src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=85"
                 alt="Cloud Sofa"
-              />
+              >
+
             </div>
 
             <div class="product-info">
+
               <h3>Cloud Sofa</h3>
-              <p>Soft Linen Collection</p>
-              <div class="price">$1,290</div>
+
+              <p>
+                Soft Linen Collection
+              </p>
+
+              <div class="price">
+                $1,290
+              </div>
+
             </div>
 
           </article>
@@ -1065,6 +1113,7 @@
           <article class="product-card">
 
             <div class="product-image">
+
               <button class="favorite" onclick="favorite(this)">
                 ♡
               </button>
@@ -1072,13 +1121,22 @@
               <img
                 src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=85"
                 alt="Velvet Armchair"
-              />
+              >
+
             </div>
 
             <div class="product-info">
+
               <h3>Velvet Armchair</h3>
-              <p>Signature Collection</p>
-              <div class="price">$590</div>
+
+              <p>
+                Signature Collection
+              </p>
+
+              <div class="price">
+                $590
+              </div>
+
             </div>
 
           </article>
@@ -1087,6 +1145,7 @@
           <article class="product-card">
 
             <div class="product-image">
+
               <button class="favorite" onclick="favorite(this)">
                 ♡
               </button>
@@ -1094,13 +1153,22 @@
               <img
                 src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1000&q=85"
                 alt="Oak Coffee Table"
-              />
+              >
+
             </div>
 
             <div class="product-info">
+
               <h3>Oak Coffee Table</h3>
-              <p>Natural Oak</p>
-              <div class="price">$420</div>
+
+              <p>
+                Natural Oak
+              </p>
+
+              <div class="price">
+                $420
+              </div>
+
             </div>
 
           </article>
@@ -1109,6 +1177,7 @@
           <article class="product-card">
 
             <div class="product-image">
+
               <button class="favorite" onclick="favorite(this)">
                 ♡
               </button>
@@ -1116,16 +1185,26 @@
               <img
                 src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85"
                 alt="Linen Bed"
-              />
+              >
+
             </div>
 
             <div class="product-info">
+
               <h3>Linen Bed</h3>
-              <p>Natural Linen</p>
-              <div class="price">$1,090</div>
+
+              <p>
+                Natural Linen
+              </p>
+
+              <div class="price">
+                $1,090
+              </div>
+
             </div>
 
           </article>
+
 
         </div>
 
@@ -1135,6 +1214,7 @@
 
 
     <!-- SERVICES -->
+
     <section class="services">
 
       <div class="container">
@@ -1173,6 +1253,7 @@
 
 
     <!-- CTA -->
+
     <section class="cta" id="contact">
 
       <div class="container">
@@ -1203,6 +1284,7 @@
 
 
   <!-- FOOTER -->
+
   <footer>
 
     <div class="container">
@@ -1227,24 +1309,35 @@
         <div class="footer-links">
 
           <div class="footer-col">
+
             <h4>Explore</h4>
+
             <a href="#shop">Shop</a>
             <a href="#about">About</a>
             <a href="#inspiration">Inspiration</a>
+
           </div>
 
+
           <div class="footer-col">
+
             <h4>Help</h4>
+
             <a href="#">Shipping</a>
             <a href="#">Returns</a>
             <a href="#">Contact</a>
+
           </div>
 
+
           <div class="footer-col">
+
             <h4>Follow</h4>
+
             <a href="#">Instagram</a>
             <a href="#">Pinterest</a>
             <a href="#">Facebook</a>
+
           </div>
 
         </div>
@@ -1272,11 +1365,13 @@
   <script>
 
     function favorite(button) {
+
       if (button.textContent.trim() === "♡") {
         button.textContent = "♥";
       } else {
         button.textContent = "♡";
       }
+
     }
 
     function toggleMenu() {
