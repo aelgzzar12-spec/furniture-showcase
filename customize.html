@@ -3,178 +3,355 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Customize — Royal Furniture</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+  rel="stylesheet"
+>
+
 <style>
-*{box-sizing:border-box}
+
+:root{
+  --cream:#f5f1e9;
+  --white:#fffdf9;
+  --ink:#1b1a17;
+  --muted:#716c64;
+  --line:rgba(27,26,23,.12);
+  --accent:#8a684d;
+  --dark:#20201d;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f0e8;
-  color:#171717;
+  font-family:"DM Sans",sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.6;
 }
 
 header{
-  padding:20px 6%;
-  background:#171717;
+  background:var(--dark);
   color:white;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-family:Georgia,serif;
-  font-size:25px;
-}
-
-header a{
-  color:white;
-  text-decoration:none;
+  padding:22px 0;
 }
 
 .container{
-  width:min(1200px,90%);
+  width:min(1180px,calc(100% - 32px));
   margin:auto;
-  padding:55px 0;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  font-weight:600;
+}
+
+.logo span{
+  display:block;
+  font-family:"DM Sans",sans-serif;
+  font-size:8px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-align:center;
+  margin-top:3px;
+}
+
+.back{
+  color:white;
+  text-decoration:none;
+  font-size:13px;
+  border:1px solid rgba(255,255,255,.35);
+  padding:10px 17px;
+  border-radius:999px;
+}
+
+main{
+  padding:65px 0 100px;
+}
+
+.eyebrow{
+  color:var(--accent);
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:600;
 }
 
 h1{
-  font-family:Georgia,serif;
-  font-size:55px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(48px,7vw,78px);
   font-weight:500;
-  margin-bottom:15px;
+  line-height:1;
+  letter-spacing:-2px;
+  margin:12px 0 20px;
 }
 
 .intro{
-  color:#666;
-  max-width:700px;
-  line-height:1.7;
+  max-width:650px;
+  color:var(--muted);
+  font-size:15px;
 }
 
 .section-title{
-  margin-top:55px;
-  margin-bottom:20px;
-  font-family:Georgia,serif;
-  font-size:32px;
+  font-family:"Playfair Display",serif;
+  font-size:38px;
   font-weight:500;
+  margin:65px 0 22px;
 }
 
 .panel{
-  background:white;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:24px;
   padding:30px;
-  margin-bottom:30px;
+  box-shadow:0 15px 45px rgba(0,0,0,.04);
 }
 
 label{
   display:block;
-  margin-bottom:20px;
-  font-weight:bold;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:22px;
 }
 
-input,textarea{
+input,
+textarea{
+  display:block;
   width:100%;
   margin-top:8px;
-  padding:13px;
-  border:1px solid #ccc;
+  padding:14px 15px;
+  border:1px solid #d8d2c8;
+  border-radius:12px;
+  background:white;
+  color:var(--ink);
   font:inherit;
+  outline:none;
+}
+
+input:focus,
+textarea:focus{
+  border-color:var(--accent);
 }
 
 textarea{
-  min-height:120px;
+  min-height:130px;
   resize:vertical;
 }
 
 input[type="color"]{
-  height:50px;
-  padding:3px;
-}
-
-button{
-  border:0;
-  padding:14px 22px;
-  background:#171717;
-  color:white;
+  height:52px;
+  padding:4px;
   cursor:pointer;
-  margin-right:8px;
-}
-
-button.reset{
-  background:#888;
 }
 
 .products{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:25px;
+  gap:22px;
 }
 
 .product{
-  border:1px solid #ddd;
-  padding:22px;
-  background:#fafafa;
+  background:#faf8f3;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:20px;
 }
 
 .product h3{
-  font-family:Georgia,serif;
-  font-size:24px;
-  margin-top:0;
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  font-weight:500;
+  margin-bottom:20px;
 }
 
 .product-image{
   width:100%;
-  height:180px;
+  height:230px;
   object-fit:cover;
-  display:block;
+  border-radius:15px;
   margin-bottom:20px;
   background:#ddd;
 }
 
 .preview{
-  background:#e8e1d6;
-  padding:30px;
-  margin-top:30px;
+  background:var(--white);
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid var(--line);
 }
 
-.preview small{
+.preview-hero{
+  min-height:430px;
+  padding:55px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(245,241,233,.96),
+      rgba(245,241,233,.68),
+      rgba(245,241,233,.12)
+    ),
+    url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85")
+    center/cover;
+}
+
+.preview-content{
+  max-width:600px;
+}
+
+.preview-brand{
+  color:var(--accent);
+  font-size:11px;
   letter-spacing:3px;
-  color:#8b7760;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:18px;
 }
 
 .preview h2{
-  font-family:Georgia,serif;
-  font-size:45px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(45px,6vw,70px);
   font-weight:500;
+  line-height:1;
+  letter-spacing:-2px;
 }
 
 .preview p{
-  line-height:1.7;
-  color:#666;
+  max-width:450px;
+  color:var(--muted);
+  margin-top:22px;
 }
 
-.notice{
-  background:#eee7dc;
-  padding:18px;
+.preview-products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  padding:25px;
+}
+
+.preview-product{
+  background:#f6f3ed;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.preview-product img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+}
+
+.preview-product-info{
+  padding:14px;
+}
+
+.preview-product-info strong{
+  font-family:"Playfair Display",serif;
+  font-size:18px;
+  font-weight:500;
+}
+
+.preview-product-info span{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:4px;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
   margin-top:25px;
-  line-height:1.6;
-  color:#555;
+}
+
+button{
+  border:0;
+  border-radius:999px;
+  padding:15px 25px;
+  font:inherit;
+  cursor:pointer;
+}
+
+.save{
+  background:var(--ink);
+  color:white;
+}
+
+.reset{
+  background:#ddd6cb;
+  color:var(--ink);
+}
+
+.status{
+  margin-top:15px;
+  color:#5f765c;
+  font-size:13px;
+  min-height:20px;
+}
+
+.note{
+  background:#eee7dc;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:25px;
+  color:#615b52;
+  font-size:13px;
 }
 
 @media(max-width:750px){
+
+  main{
+    padding-top:45px;
+  }
 
   .products{
     grid-template-columns:1fr;
   }
 
-  h1{
-    font-size:43px;
+  .preview-hero{
+    min-height:500px;
+    padding:30px;
   }
 
-  header{
-    gap:20px;
+  .preview-products{
+    grid-template-columns:1fr;
   }
+
+  .preview-product img{
+    height:240px;
+  }
+
+  .panel{
+    padding:20px;
+  }
+
+  .actions{
+    flex-direction:column;
+  }
+
+  button{
+    width:100%;
+  }
+
 }
+
 </style>
 </head>
 
@@ -182,25 +359,42 @@ button.reset{
 
 <header>
 
-  <div class="logo">Royal Furniture</div>
+  <div class="container nav">
 
-  <a href="index.html">← View Website</a>
+    <div class="logo" id="headerLogo">
+      Royal
+      <span>Furniture</span>
+    </div>
+
+    <a href="index.html" class="back">
+      ← View Website
+    </a>
+
+  </div>
 
 </header>
 
-<main class="container">
 
-  <small>ROYAL FURNITURE TEMPLATE</small>
+<main>
 
-  <h1>Customize your website.</h1>
+<div class="container">
+
+  <div class="eyebrow">
+    ROYAL FURNITURE TEMPLATE
+  </div>
+
+  <h1>
+    Make it yours.
+  </h1>
 
   <p class="intro">
-    Personalize your furniture website without editing the code.
-    Change your brand, hero section and product information.
+    Customize your furniture website without touching the code.
+    Change your brand, colors, hero content and products,
+    then save your settings.
   </p>
 
 
-  <!-- BRAND SETTINGS -->
+  <!-- BRAND -->
 
   <div class="section-title">
     Brand & Website
@@ -210,26 +404,49 @@ button.reset{
 
     <label>
       Brand Name
-      <input id="brand" type="text" value="Royal Furniture">
+
+      <input
+        id="brand"
+        type="text"
+        value="Royal Furniture"
+        placeholder="Your brand name"
+      >
+
     </label>
+
 
     <label>
       Hero Headline
+
       <input
         id="headline"
         type="text"
-        value="Furniture with a sense of place."
+        value="Timeless Designs for Modern Spaces."
+        placeholder="Your main headline"
       >
+
     </label>
+
 
     <label>
       Hero Description
-      <textarea id="description">Discover refined furniture designed around comfort, character and timeless modern interiors.</textarea>
+
+      <textarea
+        id="description"
+      >Beautiful furniture designed to bring warmth, character and effortless elegance into your home.</textarea>
+
     </label>
+
 
     <label>
       Accent Color
-      <input id="accent" type="color" value="#8b7760">
+
+      <input
+        id="accent"
+        type="color"
+        value="#8a684d"
+      >
+
     </label>
 
   </div>
@@ -243,15 +460,15 @@ button.reset{
 
   <div class="panel">
 
-    <div class="notice">
-      Edit the product name, price and image URL below.
-      Your changes will be saved in this browser.
+    <div class="note">
+      Change the product name, price and image URL.
+      The preview updates immediately.
     </div>
 
     <div class="products">
 
 
-      <!-- PRODUCT 1 -->
+      <!-- 1 -->
 
       <div class="product">
 
@@ -259,34 +476,33 @@ button.reset{
           id="imagePreview1"
           class="product-image"
           src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
-          alt=""
         >
 
-        <h3>Product 1</h3>
+        <h3>Product 01</h3>
 
         <label>
           Product Name
+
           <input
             id="productName1"
-            type="text"
-            value="Luna Modular Sofa"
+            value="Cloud Sofa"
           >
         </label>
 
         <label>
           Price
+
           <input
             id="productPrice1"
-            type="text"
-            value="$2,450"
+            value="$1,290"
           >
         </label>
 
         <label>
           Image URL
+
           <input
             id="productImage1"
-            type="url"
             value="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
           >
         </label>
@@ -294,7 +510,7 @@ button.reset{
       </div>
 
 
-      <!-- PRODUCT 2 -->
+      <!-- 2 -->
 
       <div class="product">
 
@@ -302,34 +518,33 @@ button.reset{
           id="imagePreview2"
           class="product-image"
           src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80"
-          alt=""
         >
 
-        <h3>Product 2</h3>
+        <h3>Product 02</h3>
 
         <label>
           Product Name
+
           <input
             id="productName2"
-            type="text"
-            value="Aria Lounge Chair"
+            value="Velvet Armchair"
           >
         </label>
 
         <label>
           Price
+
           <input
             id="productPrice2"
-            type="text"
-            value="$890"
+            value="$590"
           >
         </label>
 
         <label>
           Image URL
+
           <input
             id="productImage2"
-            type="url"
             value="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80"
           >
         </label>
@@ -337,210 +552,249 @@ button.reset{
       </div>
 
 
-      <!-- PRODUCT 3 -->
+      <!-- 3 -->
 
       <div class="product">
 
         <img
           id="imagePreview3"
           class="product-image"
-          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80"
-          alt=""
+          src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=80"
         >
 
-        <h3>Product 3</h3>
+        <h3>Product 03</h3>
 
         <label>
           Product Name
+
           <input
             id="productName3"
-            type="text"
-            value="Noir Dining Table"
+            value="Oak Coffee Table"
           >
         </label>
 
         <label>
           Price
+
           <input
             id="productPrice3"
-            type="text"
-            value="$1,680"
+            value="$420"
           >
         </label>
 
         <label>
           Image URL
+
           <input
             id="productImage3"
-            type="url"
-            value="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80"
+            value="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=80"
           >
         </label>
 
       </div>
 
 
-      <!-- PRODUCT 4 -->
+      <!-- 4 -->
 
       <div class="product">
 
-       <h3>Product 4</h3>
+        <img
+          id="imagePreview4"
+          class="product-image"
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80"
+        >
 
-<label>
-  Product Name
-  <input
-    id="productName4"
-    type="text"
-    value="Siena Upholstered Bed"
-  >
-</label>
+        <h3>Product 04</h3>
 
-<label>
-  Price
-  <input
-    id="productPrice4"
-    type="text"
-    value="$1,920"
-  >
-</label>
+        <label>
+          Product Name
 
-<label>
-  Image URL
-  <input
-    id="productImage4"
-    type="url"
-    value="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
-  >
-</label>
+          <input
+            id="productName4"
+            value="Linen Bed"
+          >
+        </label>
 
-</div>
+        <label>
+          Price
 
+          <input
+            id="productPrice4"
+            value="$1,090"
+          >
+        </label>
 
-<!-- PRODUCT 5 -->
+        <label>
+          Image URL
 
-<div class="product">
+          <input
+            id="productImage4"
+            value="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80"
+          >
+        </label>
 
-<img
-  id="imagePreview5"
-  class="product-image"
-  src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80"
-  alt=""
->
-
-<h3>Product 5</h3>
-
-<label>
-  Product Name
-  <input
-    id="productName5"
-    type="text"
-    value="Milo Dining Chair"
-  >
-</label>
-
-<label>
-  Price
-  <input
-    id="productPrice5"
-    type="text"
-    value="$420"
-  >
-</label>
-
-<label>
-  Image URL
-  <input
-    id="productImage5"
-    type="url"
-    value="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80"
-  >
-</label>
-
-</div>
+      </div>
 
 
-<!-- PRODUCT 6 -->
+      <!-- 5 -->
 
-<div class="product">
+      <div class="product">
 
-<img
-  id="imagePreview6"
-  class="product-image"
-  src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
-  alt=""
->
+        <img
+          id="imagePreview5"
+          class="product-image"
+          src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80"
+        >
 
-<h3>Product 6</h3>
+        <h3>Product 05</h3>
 
-<label>
-  Product Name
-  <input
-    id="productName6"
-    type="text"
-    value="Vale Side Table"
-  >
-</label>
+        <label>
+          Product Name
 
-<label>
-  Price
-  <input
-    id="productPrice6"
-    type="text"
-    value="$560"
-  >
-</label>
+          <input
+            id="productName5"
+            value="Milo Dining Chair"
+          >
+        </label>
 
-<label>
-  Image URL
-  <input
-    id="productImage6"
-    type="url"
-    value="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
-  >
-</label>
+        <label>
+          Price
 
-</div>
+          <input
+            id="productPrice5"
+            value="$420"
+          >
+        </label>
 
-</div>
+        <label>
+          Image URL
 
-</div>
+          <input
+            id="productImage5"
+            value="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80"
+          >
+        </label>
+
+      </div>
 
 
-<!-- LIVE PREVIEW -->
+      <!-- 6 -->
 
-<div class="section-title">
-  Live Preview
-</div>
+      <div class="product">
 
-<div class="preview">
+        <img
+          id="imagePreview6"
+          class="product-image"
+          src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
+        >
 
-<small>LIVE PREVIEW</small>
+        <h3>Product 06</h3>
 
-<h2 id="previewBrand">
-  Royal Furniture
-</h2>
+        <label>
+          Product Name
 
-<h3 id="previewHeadline">
-  Furniture with a sense of place.
-</h3>
+          <input
+            id="productName6"
+            value="Vale Side Table"
+          >
+        </label>
 
-<p id="previewDescription">
-  Discover refined furniture designed around comfort,
-  character and timeless modern interiors.
-</p>
+        <label>
+          Price
 
-</div>
+          <input
+            id="productPrice6"
+            value="$560"
+          >
+        </label>
+
+        <label>
+          Image URL
+
+          <input
+            id="productImage6"
+            value="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
+          >
+        </label>
+
+      </div>
+
+    </div>
+
+  </div>
 
 
-<div class="panel">
+  <!-- PREVIEW -->
 
-<button onclick="saveSettings()">
-  Save Changes
-</button>
+  <div class="section-title">
+    Live Preview
+  </div>
 
-<button class="reset" onclick="resetSettings()">
-  Reset
-</button>
+  <div class="preview">
+
+    <div class="preview-hero">
+
+      <div class="preview-content">
+
+        <div
+          class="preview-brand"
+          id="previewBrand"
+        >
+          Royal Furniture
+        </div>
+
+        <h2 id="previewHeadline">
+          Timeless Designs for Modern Spaces.
+        </h2>
+
+        <p id="previewDescription">
+          Beautiful furniture designed to bring warmth,
+          character and effortless elegance into your home.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="preview-products"
+      id="previewProducts"
+    >
+
+    </div>
+
+  </div>
+
+
+  <!-- ACTIONS -->
+
+  <div class="panel" style="margin-top:25px">
+
+    <div class="actions">
+
+      <button
+        class="save"
+        onclick="saveSettings()"
+      >
+        Save Changes
+      </button>
+
+      <button
+        class="reset"
+        onclick="resetSettings()"
+      >
+        Reset
+      </button>
+
+    </div>
+
+    <div
+      class="status"
+      id="status"
+    ></div>
+
+  </div>
 
 </div>
 
@@ -558,130 +812,339 @@ const previewBrand = document.getElementById("previewBrand");
 const previewHeadline = document.getElementById("previewHeadline");
 const previewDescription = document.getElementById("previewDescription");
 
+const headerLogo = document.getElementById("headerLogo");
+const previewProducts = document.getElementById("previewProducts");
+const statusBox = document.getElementById("status");
+
 
 function updatePreview(){
 
   previewBrand.textContent = brand.value;
-  previewHeadline.textContent = headline.value;
-  previewDescription.textContent = description.value;
-  previewBrand.style.color = accent.value;
+
+  previewHeadline.textContent =
+    headline.value;
+
+  previewDescription.textContent =
+    description.value;
+
+  previewBrand.style.color =
+    accent.value;
+
+  document.documentElement.style.setProperty(
+    "--accent",
+    accent.value
+  );
+
+  headerLogo.childNodes[0].textContent =
+    brand.value.split(" ")[0] + " ";
+
+  updateProductsPreview();
+
+}
+
+
+function updateProductsPreview(){
+
+  previewProducts.innerHTML = "";
+
+  for(let i = 1; i <= 6; i++){
+
+    const name =
+      document.getElementById(
+        "productName" + i
+      ).value;
+
+    const price =
+      document.getElementById(
+        "productPrice" + i
+      ).value;
+
+    const image =
+      document.getElementById(
+        "productImage" + i
+      ).value;
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "preview-product";
+
+    card.innerHTML = `
+
+      <img
+        src="${image}"
+        alt="${name}"
+        onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80'"
+      >
+
+      <div class="preview-product-info">
+
+        <strong>${name}</strong>
+
+        <span>${price}</span>
+
+      </div>
+
+    `;
+
+    previewProducts.appendChild(card);
+
+  }
 
 }
 
 
 function updateImagePreview(number){
 
-  const input = document.getElementById("productImage" + number);
-  const preview = document.getElementById("imagePreview" + number);
+  const input =
+    document.getElementById(
+      "productImage" + number
+    );
+
+  const preview =
+    document.getElementById(
+      "imagePreview" + number
+    );
 
   preview.src = input.value;
 
 }
 
 
-brand.addEventListener("input", updatePreview);
-headline.addEventListener("input", updatePreview);
-description.addEventListener("input", updatePreview);
-accent.addEventListener("input", updatePreview);
-
-
-for(let i = 1; i <= 6; i++){
-
-  document
-    .getElementById("productImage" + i)
-    .addEventListener("input", function(){
-
-      updateImagePreview(i);
-
-    });
-
-}
-
-
 function saveSettings(){
 
-  localStorage.setItem("rf_brand", brand.value);
-  localStorage.setItem("rf_headline", headline.value);
-  localStorage.setItem("rf_description", description.value);
-  localStorage.setItem("rf_accent", accent.value);
+  const settings = {
+
+    brand:brand.value,
+
+    headline:headline.value,
+
+    description:description.value,
+
+    accent:accent.value,
+
+    products:[]
+
+  };
 
 
   for(let i = 1; i <= 6; i++){
 
-    localStorage.setItem(
-      "rf_product_name_" + i,
-      document.getElementById("productName" + i).value
-    );
+    settings.products.push({
 
-    localStorage.setItem(
-      "rf_product_price_" + i,
-      document.getElementById("productPrice" + i).value
-    );
+      name:
+        document.getElementById(
+          "productName" + i
+        ).value,
 
-    localStorage.setItem(
-      "rf_product_image_" + i,
-      document.getElementById("productImage" + i).value
-    );
+      price:
+        document.getElementById(
+          "productPrice" + i
+        ).value,
+
+      image:
+        document.getElementById(
+          "productImage" + i
+        ).value
+
+    });
 
   }
 
-  alert("Changes saved successfully.");
 
-}
+  localStorage.setItem(
+    "royalFurnitureSettings",
+    JSON.stringify(settings)
+  );
 
 
-function resetSettings(){
-
-  localStorage.clear();
-  location.reload();
+  statusBox.textContent =
+    "✓ Changes saved successfully on this device.";
 
 }
 
 
 function loadSettings(){
 
-  brand.value =
-    localStorage.getItem("rf_brand") || brand.value;
+  const saved =
+    localStorage.getItem(
+      "royalFurnitureSettings"
+    );
 
-  headline.value =
-    localStorage.getItem("rf_headline") || headline.value;
 
-  description.value =
-    localStorage.getItem("rf_description") || description.value;
+  if(!saved){
 
-  accent.value =
-    localStorage.getItem("rf_accent") || accent.value;
+    updatePreview();
+
+    return;
+
+  }
+
+
+  try{
+
+    const settings =
+      JSON.parse(saved);
+
+
+    if(settings.brand)
+      brand.value =
+        settings.brand;
+
+
+    if(settings.headline)
+      headline.value =
+        settings.headline;
+
+
+    if(settings.description)
+      description.value =
+        settings.description;
+
+
+    if(settings.accent)
+      accent.value =
+        settings.accent;
+
+
+    if(settings.products){
+
+      settings.products.forEach(
+        (product,index)=>{
+
+          const i = index + 1;
+
+          if(product.name){
+
+            document.getElementById(
+              "productName" + i
+            ).value =
+              product.name;
+
+          }
+
+          if(product.price){
+
+            document.getElementById(
+              "productPrice" + i
+            ).value =
+              product.price;
+
+          }
+
+          if(product.image){
+
+            document.getElementById(
+              "productImage" + i
+            ).value =
+              product.image;
+
+          }
+
+        }
+      );
+
+    }
+
+
+  }catch(error){
+
+    console.log(
+      "Could not load saved settings."
+    );
+
+  }
 
 
   for(let i = 1; i <= 6; i++){
-
-    const name =
-      localStorage.getItem("rf_product_name_" + i);
-
-    const price =
-      localStorage.getItem("rf_product_price_" + i);
-
-    const image =
-      localStorage.getItem("rf_product_image_" + i);
-
-
-    if(name){
-      document.getElementById("productName" + i).value = name;
-    }
-
-    if(price){
-      document.getElementById("productPrice" + i).value = price;
-    }
-
-    if(image){
-      document.getElementById("productImage" + i).value = image;
-    }
 
     updateImagePreview(i);
 
   }
 
+
   updatePreview();
+
+}
+
+
+function resetSettings(){
+
+  const confirmReset =
+    confirm(
+      "Reset all customization settings?"
+    );
+
+  if(!confirmReset)
+    return;
+
+
+  localStorage.removeItem(
+    "royalFurnitureSettings"
+  );
+
+  location.reload();
+
+}
+
+
+brand.addEventListener(
+  "input",
+  updatePreview
+);
+
+headline.addEventListener(
+  "input",
+  updatePreview
+);
+
+description.addEventListener(
+  "input",
+  updatePreview
+);
+
+accent.addEventListener(
+  "input",
+  updatePreview
+);
+
+
+for(let i = 1; i <= 6; i++){
+
+  document
+    .getElementById(
+      "productImage" + i
+    )
+    .addEventListener(
+      "input",
+      function(){
+
+        updateImagePreview(i);
+        updateProductsPreview();
+
+      }
+    );
+
+
+  document
+    .getElementById(
+      "productName" + i
+    )
+    .addEventListener(
+      "input",
+      updateProductsPreview
+    );
+
+
+  document
+    .getElementById(
+      "productPrice" + i
+    )
+    .addEventListener(
+      "input",
+      updateProductsPreview
+    );
 
 }
 
