@@ -264,7 +264,9 @@
     ========================== */
 
     .hero {
-      min-height: 100vh;
+      min-height: 720px;
+      height: 82vh;
+      max-height: 820px;
       position: relative;
       display: flex;
       align-items: center;
@@ -350,7 +352,7 @@
       z-index: 3;
       width: min(var(--container), calc(100% - 40px));
       margin: auto;
-      padding-top: 70px;
+      padding-top: 55px;
     }
 
     .hero-eyebrow {
@@ -363,7 +365,7 @@
     .hero h1 {
       max-width: 850px;
       font-family: "Playfair Display", serif;
-      font-size: clamp(52px, 7vw, 100px);
+      font-size: clamp(48px, 6.5vw, 88px);
       line-height: .98;
       font-weight: 600;
       letter-spacing: -2px;
@@ -371,16 +373,16 @@
 
     .hero-text {
       max-width: 570px;
-      margin-top: 28px;
+      margin-top: 25px;
       color: rgba(255,255,255,.86);
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.8;
     }
 
     .hero-buttons {
       display: flex;
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 30px;
       flex-wrap: wrap;
     }
 
@@ -416,7 +418,7 @@
     }
 
     /* =========================
-       GENERAL SECTIONS
+       SECTIONS
     ========================== */
 
     section {
@@ -608,11 +610,6 @@
       background: rgba(255,255,255,.9);
       cursor: pointer;
       font-size: 21px;
-      transition: .25s;
-    }
-
-    .favorite-btn:hover {
-      transform: scale(1.08);
     }
 
     .product-info {
@@ -784,7 +781,7 @@
     }
 
     /* =========================
-       RESPONSIVE
+       TABLET
     ========================== */
 
     @media (max-width: 1000px) {
@@ -823,6 +820,10 @@
       }
     }
 
+    /* =========================
+       MOBILE
+    ========================== */
+
     @media (max-width: 720px) {
 
       .container,
@@ -844,19 +845,26 @@
       }
 
       .hero {
-        min-height: 760px;
+        min-height: 620px;
+        height: 78vh;
+        max-height: 700px;
       }
 
       .hero-content {
-        padding-top: 80px;
+        padding-top: 55px;
       }
 
       .hero h1 {
-        font-size: clamp(46px, 14vw, 70px);
+        font-size: clamp(44px, 13vw, 68px);
       }
 
       .hero-text {
         font-size: 15px;
+        margin-top: 20px;
+      }
+
+      .hero-buttons {
+        margin-top: 25px;
       }
 
       section {
@@ -943,11 +951,10 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header>
+
     <nav class="nav">
 
       <a href="#home" class="logo">
@@ -964,7 +971,7 @@
 
       <div class="nav-actions">
 
-        <!-- CUSTOMIZE IS KEPT -->
+        <!-- CUSTOMIZE محفوظ -->
         <a href="customize.html" class="customize-btn">
           Customize
         </a>
@@ -993,11 +1000,10 @@
       </div>
 
     </nav>
+
   </header>
 
-  <!-- =========================
-       MOBILE SIDEBAR
-  ========================== -->
+  <!-- MOBILE SIDEBAR -->
 
   <div
     class="mobile-menu-overlay"
@@ -1030,7 +1036,6 @@
     <a href="#inspiration" onclick="closeMenu()">Inspiration</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
 
-    <!-- CUSTOMIZE ALSO EXISTS INSIDE MOBILE MENU -->
     <a
       href="customize.html"
       class="mobile-customize"
@@ -1041,9 +1046,7 @@
 
   </aside>
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- HERO -->
 
   <main>
 
@@ -1091,9 +1094,7 @@
 
     </section>
 
-    <!-- =========================
-         CATEGORIES
-    ========================== -->
+    <!-- CATEGORIES -->
 
     <section class="categories" id="inspiration">
 
@@ -1102,6 +1103,7 @@
         <div class="section-head">
 
           <div>
+
             <div class="eyebrow">
               Explore
             </div>
@@ -1109,6 +1111,7 @@
             <h2 class="section-title">
               Designed for every room.
             </h2>
+
           </div>
 
           <p class="section-description">
@@ -1166,9 +1169,7 @@
 
     </section>
 
-    <!-- =========================
-         STORY
-    ========================== -->
+    <!-- STORY -->
 
     <section class="story" id="about">
 
@@ -1219,9 +1220,7 @@
 
     </section>
 
-    <!-- =========================
-         PRODUCTS
-    ========================== -->
+    <!-- PRODUCTS -->
 
     <section class="products" id="shop">
 
@@ -1230,6 +1229,7 @@
         <div class="section-head">
 
           <div>
+
             <div class="eyebrow">
               Collection
             </div>
@@ -1237,6 +1237,7 @@
             <h2 class="section-title">
               Featured pieces.
             </h2>
+
           </div>
 
           <p class="section-description">
@@ -1255,9 +1256,7 @@
 
     </section>
 
-    <!-- =========================
-         SERVICES
-    ========================== -->
+    <!-- SERVICES -->
 
     <section class="services">
 
@@ -1266,6 +1265,7 @@
         <div class="section-head">
 
           <div>
+
             <div class="eyebrow">
               Why Royal
             </div>
@@ -1273,6 +1273,7 @@
             <h2 class="section-title">
               Made for better spaces.
             </h2>
+
           </div>
 
           <p class="section-description">
@@ -1340,9 +1341,7 @@
 
     </section>
 
-    <!-- =========================
-         CTA
-    ========================== -->
+    <!-- CTA -->
 
     <section class="cta" id="contact">
 
@@ -1352,7 +1351,10 @@
 
           <div class="cta-content">
 
-            <div class="eyebrow" style="color:#d6b89a;">
+            <div
+              class="eyebrow"
+              style="color:#d6b89a;"
+            >
               Create your space
             </div>
 
@@ -1379,9 +1381,7 @@
 
   </main>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1434,7 +1434,10 @@
       </div>
 
       <div class="footer-bottom">
-        © <span id="year"></span> Royal Furniture. All rights reserved.
+
+        © <span id="year"></span>
+        Royal Furniture. All rights reserved.
+
       </div>
 
     </div>
@@ -1458,7 +1461,10 @@
       const isOpen =
         menu.classList.toggle("active");
 
-      overlay.classList.toggle("active", isOpen);
+      overlay.classList.toggle(
+        "active",
+        isOpen
+      );
 
       document.body.classList.toggle(
         "menu-open",
@@ -1478,7 +1484,9 @@
 
       overlay.classList.remove("active");
 
-      document.body.classList.remove("menu-open");
+      document.body.classList.remove(
+        "menu-open"
+      );
     }
 
     /* =========================
@@ -1487,7 +1495,9 @@
 
     function favorite(button) {
 
-      if (button.textContent.trim() === "♡") {
+      if (
+        button.textContent.trim() === "♡"
+      ) {
 
         button.textContent = "♥";
 
@@ -1646,8 +1656,6 @@
 
       }
 
-      /* Brand */
-
       if (settings.brand) {
 
         document
@@ -1664,8 +1672,6 @@
           " — Timeless Designs";
 
       }
-
-      /* Hero */
 
       if (settings.headline) {
 
@@ -1695,8 +1701,6 @@
 
       }
 
-      /* Accent */
-
       if (settings.accent) {
 
         document.documentElement.style.setProperty(
@@ -1710,8 +1714,6 @@
         );
 
       }
-
-      /* Products */
 
       if (
         Array.isArray(settings.products) &&
@@ -1732,20 +1734,16 @@
 
     }
 
-    /* =========================
-       YEAR
-    ========================== */
+    /* YEAR */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    /* =========================
-       START
-    ========================== */
+    /* START */
 
     loadCustomization();
 
   </script>
 
 </body>
-</html>
+  </html>
