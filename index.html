@@ -29,6 +29,7 @@
       --muted: #716c64;
       --line: rgba(27, 26, 23, .12);
       --brown: #8a684d;
+      --accent: #8a684d;
       --dark: #20201d;
       --radius: 24px;
       --container: 1240px;
@@ -125,8 +126,6 @@
       align-items: center;
       gap: 10px;
     }
-
-    /* زر تعديل الموقع */
 
     .customize-btn {
       display: inline-flex;
@@ -808,7 +807,6 @@
 
       <div class="nav-actions">
 
-        <!-- تعديل الموقع -->
         <a href="customize.html" class="customize-btn">
           Customize
         </a>
@@ -917,7 +915,6 @@
 
           </a>
 
-
           <a href="#" class="category-card">
 
             <img
@@ -931,7 +928,6 @@
             </div>
 
           </a>
-
 
           <a href="#" class="category-card">
 
@@ -947,7 +943,6 @@
 
           </a>
 
-
           <a href="#" class="category-card">
 
             <img
@@ -961,7 +956,6 @@
             </div>
 
           </a>
-
 
           <a href="#" class="category-card">
 
@@ -1000,7 +994,6 @@
             >
 
           </div>
-
 
           <div class="story-content">
 
@@ -1074,137 +1067,9 @@
 
         </div>
 
+        <div class="products-grid" id="productsGrid">
 
-        <div class="products-grid">
-
-
-          <article class="product-card">
-
-            <div class="product-image">
-
-              <button class="favorite" onclick="favorite(this)">
-                ♡
-              </button>
-
-              <img
-                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=85"
-                alt="Cloud Sofa"
-              >
-
-            </div>
-
-            <div class="product-info">
-
-              <h3>Cloud Sofa</h3>
-
-              <p>
-                Soft Linen Collection
-              </p>
-
-              <div class="price">
-                $1,290
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <article class="product-card">
-
-            <div class="product-image">
-
-              <button class="favorite" onclick="favorite(this)">
-                ♡
-              </button>
-
-              <img
-                src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=85"
-                alt="Velvet Armchair"
-              >
-
-            </div>
-
-            <div class="product-info">
-
-              <h3>Velvet Armchair</h3>
-
-              <p>
-                Signature Collection
-              </p>
-
-              <div class="price">
-                $590
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <article class="product-card">
-
-            <div class="product-image">
-
-              <button class="favorite" onclick="favorite(this)">
-                ♡
-              </button>
-
-              <img
-                src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1000&q=85"
-                alt="Oak Coffee Table"
-              >
-
-            </div>
-
-            <div class="product-info">
-
-              <h3>Oak Coffee Table</h3>
-
-              <p>
-                Natural Oak
-              </p>
-
-              <div class="price">
-                $420
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <article class="product-card">
-
-            <div class="product-image">
-
-              <button class="favorite" onclick="favorite(this)">
-                ♡
-              </button>
-
-              <img
-                src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85"
-                alt="Linen Bed"
-              >
-
-            </div>
-
-            <div class="product-info">
-
-              <h3>Linen Bed</h3>
-
-              <p>
-                Natural Linen
-              </p>
-
-              <div class="price">
-                $1,090
-              </div>
-
-            </div>
-
-          </article>
-
+          <!-- Products are loaded from customization settings -->
 
         </div>
 
@@ -1305,7 +1170,6 @@
 
         </div>
 
-
         <div class="footer-links">
 
           <div class="footer-col">
@@ -1318,7 +1182,6 @@
 
           </div>
 
-
           <div class="footer-col">
 
             <h4>Help</h4>
@@ -1328,7 +1191,6 @@
             <a href="#">Contact</a>
 
           </div>
-
 
           <div class="footer-col">
 
@@ -1344,10 +1206,9 @@
 
       </div>
 
-
       <div class="footer-bottom">
 
-        <span>
+        <span id="copyright">
           © <span id="year"></span> Royal Furniture
         </span>
 
@@ -1364,6 +1225,8 @@
 
   <script>
 
+    /* ================= FAVORITES ================= */
+
     function favorite(button) {
 
       if (button.textContent.trim() === "♡") {
@@ -1374,12 +1237,420 @@
 
     }
 
+
+    /* ================= MOBILE MENU ================= */
+
     function toggleMenu() {
       alert("Mobile menu — connect your navigation links here.");
     }
 
-    document.getElementById("year").textContent =
+
+    /* ================= DEFAULT PRODUCTS ================= */
+
+    const defaultProducts = [
+
+      {
+        name: "Cloud Sofa",
+        price: "$1,290",
+        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=85"
+      },
+
+      {
+        name: "Velvet Armchair",
+        price: "$590",
+        image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=85"
+      },
+
+      {
+        name: "Oak Coffee Table",
+        price: "$420",
+        image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1000&q=85"
+      },
+
+      {
+        name: "Linen Bed",
+        price: "$1,090",
+        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85"
+      },
+
+      {
+        name: "Milo Dining Chair",
+        price: "$420",
+        image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1000&q=85"
+      },
+
+      {
+        name: "Vale Side Table",
+        price: "$560",
+        image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1000&q=85"
+      }
+
+    ];
+
+
+    /* ================= LOAD PRODUCTS ================= */
+
+    function renderProducts(products) {
+
+      const grid =
+        document.getElementById("productsGrid");
+
+      if (!grid) {
+        return;
+      }
+
+      grid.innerHTML = "";
+
+
+      products.forEach(function(product) {
+
+        const card =
+          document.createElement("article");
+
+        card.className =
+          "product-card";
+
+
+        const imageBox =
+          document.createElement("div");
+
+        imageBox.className =
+          "product-image";
+
+
+        const favoriteButton =
+          document.createElement("button");
+
+        favoriteButton.className =
+          "favorite";
+
+        favoriteButton.type =
+          "button";
+
+        favoriteButton.textContent =
+          "♡";
+
+        favoriteButton.setAttribute(
+          "aria-label",
+          "Add to favorites"
+        );
+
+        favoriteButton.onclick =
+          function() {
+            favorite(this);
+          };
+
+
+        const image =
+          document.createElement("img");
+
+        image.src =
+          product.image || defaultProducts[0].image;
+
+        image.alt =
+          product.name || "Furniture";
+
+
+        image.onerror =
+          function() {
+
+            this.onerror = null;
+
+            this.src =
+              defaultProducts[0].image;
+
+          };
+
+
+        imageBox.appendChild(
+          favoriteButton
+        );
+
+        imageBox.appendChild(
+          image
+        );
+
+
+        const info =
+          document.createElement("div");
+
+        info.className =
+          "product-info";
+
+
+        const name =
+          document.createElement("h3");
+
+        name.textContent =
+          product.name || "Furniture";
+
+
+        const description =
+          document.createElement("p");
+
+        description.textContent =
+          "Featured Collection";
+
+
+        const price =
+          document.createElement("div");
+
+        price.className =
+          "price";
+
+        price.textContent =
+          product.price || "";
+
+
+        info.appendChild(name);
+
+        info.appendChild(description);
+
+        info.appendChild(price);
+
+
+        card.appendChild(imageBox);
+
+        card.appendChild(info);
+
+
+        grid.appendChild(card);
+
+      });
+
+    }
+
+
+    /* ================= CUSTOMIZATION ================= */
+
+    function loadCustomization() {
+
+      let products =
+        defaultProducts;
+
+
+      const saved =
+        localStorage.getItem(
+          "royalFurnitureSettings"
+        );
+
+
+      if (!saved) {
+
+        renderProducts(
+          products
+        );
+
+        return;
+
+      }
+
+
+      try {
+
+        const settings =
+          JSON.parse(saved);
+
+
+        /* BRAND */
+
+        if (settings.brand) {
+
+          const brand =
+            settings.brand.trim();
+
+
+          document
+            .querySelectorAll(".logo")
+            .forEach(function(logo) {
+
+              logo.innerHTML = "";
+
+
+              const words =
+                brand.split(/\s+/);
+
+
+              const main =
+                document.createTextNode(
+                  words.shift() + " "
+                );
+
+
+              const sub =
+                document.createElement("span");
+
+
+              sub.textContent =
+                words.join(" ") ||
+                "Furniture";
+
+
+              logo.appendChild(main);
+
+              logo.appendChild(sub);
+
+            });
+
+
+          const heroBrand =
+            document.querySelector(
+              ".hero .eyebrow"
+            );
+
+
+          if (heroBrand) {
+
+            heroBrand.textContent =
+              brand;
+
+          }
+
+
+          document.title =
+            brand +
+            " — Timeless Designs";
+
+
+          const meta =
+            document.querySelector(
+              'meta[name="description"]'
+            );
+
+
+          if (meta) {
+
+            meta.setAttribute(
+              "content",
+              brand +
+              " — timeless furniture and refined interiors designed for modern living."
+            );
+
+          }
+
+
+          const copyright =
+            document.getElementById(
+              "copyright"
+            );
+
+
+          if (copyright) {
+
+            copyright.innerHTML =
+              "© " +
+              new Date().getFullYear() +
+              " " +
+              brand;
+
+          }
+
+        }
+
+
+        /* HERO HEADLINE */
+
+        if (settings.headline) {
+
+          const heroHeadline =
+            document.querySelector(
+              ".hero h1"
+            );
+
+
+          if (heroHeadline) {
+
+            heroHeadline.textContent =
+              settings.headline;
+
+          }
+
+        }
+
+
+        /* HERO DESCRIPTION */
+
+        if (settings.description) {
+
+          const heroDescription =
+            document.querySelector(
+              ".hero-text"
+            );
+
+
+          if (heroDescription) {
+
+            heroDescription.textContent =
+              settings.description;
+
+          }
+
+        }
+
+
+        /* ACCENT COLOR */
+
+        if (settings.accent) {
+
+          document.documentElement
+            .style
+            .setProperty(
+              "--brown",
+              settings.accent
+            );
+
+
+          document.documentElement
+            .style
+            .setProperty(
+              "--accent",
+              settings.accent
+            );
+
+        }
+
+
+        /* PRODUCTS */
+
+        if (
+          Array.isArray(settings.products) &&
+          settings.products.length
+        ) {
+
+          products =
+            settings.products;
+
+        }
+
+
+      } catch (error) {
+
+        console.log(
+          "Could not load customization settings.",
+          error
+        );
+
+      }
+
+
+      renderProducts(
+        products
+      );
+
+    }
+
+
+    /* ================= YEAR ================= */
+
+    document.getElementById(
+      "year"
+    ).textContent =
       new Date().getFullYear();
+
+
+    /* ================= START ================= */
+
+    loadCustomization();
 
   </script>
 
