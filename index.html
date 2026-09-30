@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="description" content="Royal Furniture — premium furniture for modern living.">
 <title>Royal Furniture</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@500;600&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
   --cream:#f5f1e9;
   --paper:#fffdf9;
@@ -37,6 +36,11 @@ body{
   background:var(--cream);
   color:var(--text);
   line-height:1.6;
+  overflow-x:hidden;
+}
+
+body.no-scroll{
+  overflow:hidden;
 }
 
 a{
@@ -44,15 +48,19 @@ a{
   color:inherit;
 }
 
-button{
+button,
+input{
   font-family:inherit;
-  border:0;
+}
+
+button{
   cursor:pointer;
+  border:0;
 }
 
 
 /* =========================
-   SIDE NAVIGATION
+   SIDE NAV
 ========================= */
 
 .side-nav{
@@ -120,19 +128,17 @@ button{
 
 .side-bottom{
   margin-top:auto;
-  display:grid;
-  gap:18px;
 }
 
 .side-bottom button{
   background:transparent;
-  color:white;
+  color:#fff;
   font-size:20px;
 }
 
 
 /* =========================
-   TOP BAR
+   MAIN / TOP BAR
 ========================= */
 
 .main{
@@ -141,7 +147,7 @@ button{
 
 .topbar{
   position:absolute;
-  z-index:20;
+  z-index:40;
   top:0;
   left:115px;
   right:0;
@@ -154,6 +160,7 @@ button{
   margin:auto;
   display:flex;
   justify-content:center;
+  align-items:center;
   position:relative;
 }
 
@@ -171,13 +178,66 @@ button{
   position:absolute;
   right:0;
   display:flex;
-  gap:17px;
+  align-items:center;
+  gap:16px;
 }
 
-.top-actions button{
+.action-button{
+  position:relative;
   background:transparent;
   color:#fff;
-  font-size:21px;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  font-size:20px;
+}
+
+.badge{
+  position:absolute;
+  right:-5px;
+  top:-5px;
+  min-width:16px;
+  height:16px;
+  padding:0 4px;
+  border-radius:20px;
+  background:var(--gold);
+  color:#fff;
+  font-size:9px;
+  display:grid;
+  place-items:center;
+}
+
+
+/* MOBILE BRAND */
+
+.mobile-brand{
+  display:none;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  color:#fff;
+  font-family:"Playfair Display",serif;
+  font-size:20px;
+  line-height:1;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.mobile-brand small{
+  display:block;
+  font-family:"DM Sans",sans-serif;
+  font-size:6px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-top:4px;
+}
+
+.mobile-menu-button{
+  display:none;
+  background:transparent;
+  color:#fff;
+  font-size:25px;
 }
 
 
@@ -191,7 +251,7 @@ button{
   max-height:790px;
   position:relative;
   overflow:hidden;
-  color:white;
+  color:#fff;
 }
 
 .hero-background{
@@ -206,8 +266,7 @@ button{
   content:"";
   position:absolute;
   inset:0;
-  background:
-  linear-gradient(
+  background:linear-gradient(
     90deg,
     rgba(15,13,11,.82),
     rgba(15,13,11,.40) 50%,
@@ -391,7 +450,7 @@ button{
 
 
 /* =========================
-   GENERAL SECTIONS
+   SECTIONS
 ========================= */
 
 .section{
@@ -498,6 +557,10 @@ button{
   gap:17px;
 }
 
+.product-card{
+  min-width:0;
+}
+
 .product-image{
   height:270px;
   background:#e9e4db;
@@ -523,8 +586,9 @@ button{
   width:34px;
   height:34px;
   border-radius:50%;
-  background:white;
+  background:rgba(255,255,255,.94);
   font-size:18px;
+  color:#222;
 }
 
 .favorite.active{
@@ -598,7 +662,7 @@ button{
 
 .spaces{
   background:#25241f;
-  color:white;
+  color:#fff;
 }
 
 .spaces .section-intro{
@@ -726,7 +790,7 @@ button{
 }
 
 .footer a:hover{
-  color:white;
+  color:#fff;
 }
 
 .copyright{
@@ -741,12 +805,12 @@ button{
 
 
 /* =========================
-   CUSTOMIZE BUTTON
+   CUSTOMIZE
 ========================= */
 
 .customize-float{
   position:fixed;
-  z-index:40;
+  z-index:50;
   right:0;
   top:52%;
   background:#171715;
@@ -763,14 +827,196 @@ button{
 
 
 /* =========================
+   SEARCH OVERLAY
+========================= */
+
+.search-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(12,12,11,.94);
+  z-index:300;
+  display:none;
+  align-items:flex-start;
+  justify-content:center;
+  padding-top:120px;
+}
+
+.search-overlay.open{
+  display:flex;
+}
+
+.search-box{
+  width:min(700px,calc(100% - 35px));
+  position:relative;
+}
+
+.search-close{
+  position:absolute;
+  right:0;
+  top:-50px;
+  color:#fff;
+  background:transparent;
+  font-size:30px;
+}
+
+.search-input{
+  width:100%;
+  background:transparent;
+  border:0;
+  border-bottom:1px solid #777;
+  color:#fff;
+  padding:15px 5px;
+  font-size:25px;
+  outline:none;
+}
+
+.search-results{
+  margin-top:18px;
+  max-height:60vh;
+  overflow:auto;
+}
+
+.search-result{
+  padding:15px 5px;
+  border-bottom:1px solid #444;
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.search-result span{
+  color:#aaa;
+}
+
+
+/* =========================
+   CART / WISHLIST DRAWER
+========================= */
+
+.drawer{
+  position:fixed;
+  z-index:310;
+  right:0;
+  top:0;
+  width:min(390px,88vw);
+  height:100vh;
+  background:#fffdf9;
+  transform:translateX(100%);
+  transition:.3s;
+  box-shadow:-10px 0 40px rgba(0,0,0,.15);
+  padding:25px;
+  overflow:auto;
+}
+
+.drawer.open{
+  transform:translateX(0);
+}
+
+.drawer-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--line);
+}
+
+.drawer-head h3{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  font-weight:500;
+}
+
+.drawer-close{
+  background:transparent;
+  font-size:28px;
+}
+
+.drawer-item{
+  display:flex;
+  gap:12px;
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.drawer-item img{
+  width:75px;
+  height:75px;
+  object-fit:cover;
+}
+
+.drawer-item-info{
+  flex:1;
+}
+
+.drawer-item-info strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+}
+
+.drawer-item-info span{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
+
+.drawer-item button{
+  background:transparent;
+  color:#999;
+  font-size:12px;
+  margin-top:7px;
+}
+
+.drawer-total{
+  padding:20px 0;
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+
+.empty{
+  color:var(--muted);
+  text-align:center;
+  padding:40px 10px;
+  font-size:13px;
+}
+
+.drawer-action{
+  width:100%;
+  padding:14px;
+  background:#171715;
+  color:white;
+  font-size:12px;
+}
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+.drawer-overlay{
+  position:fixed;
+  inset:0;
+  z-index:305;
+  background:rgba(0,0,0,.5);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+
+.drawer-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+/* =========================
    MOBILE MENU
 ========================= */
 
 .mobile-menu{
-  display:none;
-}
-
-.mobile-overlay{
   display:none;
 }
 
@@ -826,6 +1072,7 @@ button{
   .topbar-inner{
     width:calc(100% - 28px);
     justify-content:flex-start;
+    min-height:35px;
   }
 
   .top-links{
@@ -834,13 +1081,21 @@ button{
 
   .mobile-menu-button{
     display:block;
-    background:transparent;
-    color:white;
-    font-size:25px;
+  }
+
+  .mobile-brand{
+    display:block;
   }
 
   .top-actions{
     right:0;
+    gap:5px;
+  }
+
+  .action-button{
+    width:28px;
+    height:28px;
+    font-size:18px;
   }
 
   .hero{
@@ -932,26 +1187,23 @@ button{
     grid-template-columns:1fr 1fr;
   }
 
-  .footer-brand{
-    grid-column:span 2;
-  }
-
   .customize-float{
     display:none;
   }
 
-  /* DRAWER */
+
+  /* MOBILE DRAWER */
 
   .mobile-menu{
     display:flex;
     position:fixed;
-    z-index:90;
+    z-index:320;
     right:0;
     top:0;
     width:min(310px,82vw);
     height:100vh;
     background:#171715;
-    color:white;
+    color:#fff;
     transform:translateX(100%);
     transition:.3s;
     padding:25px;
@@ -964,7 +1216,7 @@ button{
 
   .mobile-close{
     background:transparent;
-    color:white;
+    color:#fff;
     font-size:28px;
     align-self:flex-end;
   }
@@ -992,22 +1244,6 @@ button{
     padding:13px;
     text-align:center;
     font-size:12px;
-  }
-
-  .mobile-overlay{
-    display:block;
-    position:fixed;
-    z-index:80;
-    inset:0;
-    background:rgba(0,0,0,.55);
-    opacity:0;
-    pointer-events:none;
-    transition:.3s;
-  }
-
-  .mobile-overlay.open{
-    opacity:1;
-    pointer-events:auto;
   }
 
 }
@@ -1046,21 +1282,15 @@ button{
     grid-template-columns:1fr;
   }
 
-  .footer-brand{
-    grid-column:auto;
-  }
-
 }
-
 </style>
 </head>
-
 
 <body>
 
 
 <!-- =========================
-     DESKTOP SIDE MENU
+     DESKTOP SIDE NAV
 ========================= -->
 
 <aside class="side-nav">
@@ -1104,21 +1334,18 @@ button{
 
   </nav>
 
-  <div class="side-bottom">
-    <button>♡</button>
-    <button>♙</button>
-  </div>
-
 </aside>
 
 
 <!-- =========================
-     MOBILE DRAWER
+     MOBILE MENU
 ========================= -->
 
 <div class="mobile-menu" id="mobileMenu">
 
-  <button class="mobile-close" onclick="closeMenu()">×</button>
+  <button class="mobile-close" onclick="closeMobileMenu()">
+    ×
+  </button>
 
   <div class="mobile-logo">
     Royal Furniture
@@ -1126,41 +1353,43 @@ button{
 
   <nav class="mobile-links">
 
-    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#home" onclick="closeMobileMenu()">Home</a>
 
-    <a href="#shop" onclick="closeMenu()">Shop</a>
+    <a href="#shop" onclick="closeMobileMenu()">Shop</a>
 
-    <a href="#collections" onclick="closeMenu()">Collections</a>
+    <a href="#collections" onclick="closeMobileMenu()">Collections</a>
 
-    <a href="#story" onclick="closeMenu()">About</a>
+    <a href="#story" onclick="closeMobileMenu()">About</a>
 
-    <a href="#spaces" onclick="closeMenu()">Inspiration</a>
+    <a href="#spaces" onclick="closeMobileMenu()">Inspiration</a>
 
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
 
   </nav>
 
-  <a href="customize.html" class="mobile-customize">
+  <a
+    href="customize.html"
+    class="mobile-customize">
+
     Customize Website
+
   </a>
 
 </div>
 
+
+<!-- DRAWER OVERLAY -->
+
 <div
-  class="mobile-overlay"
-  id="mobileOverlay"
-  onclick="closeMenu()">
+  class="drawer-overlay"
+  id="drawerOverlay"
+  onclick="closeAllDrawers()">
 </div>
 
 
 <!-- =========================
-     MAIN
+     TOP BAR
 ========================= -->
-
-<div class="main">
-
-
-<!-- TOP BAR -->
 
 <header class="topbar">
 
@@ -1168,9 +1397,16 @@ button{
 
     <button
       class="mobile-menu-button"
-      onclick="openMenu()">
+      onclick="openMobileMenu()">
       ☰
     </button>
+
+
+    <a href="#home" class="mobile-brand">
+      Royal
+      <small>Furniture</small>
+    </a>
+
 
     <nav class="top-links">
 
@@ -1188,18 +1424,54 @@ button{
 
     </nav>
 
+
     <div class="top-actions">
 
-      <button onclick="showMessage('Search will be added soon.')">
+      <!-- SEARCH -->
+
+      <button
+        class="action-button"
+        onclick="openSearch()"
+        aria-label="Search">
+
         ⌕
+
       </button>
 
-      <button onclick="showMessage('Favorites are saved on this device.')">
+
+      <!-- WISHLIST -->
+
+      <button
+        class="action-button"
+        onclick="openWishlist()"
+        aria-label="Wishlist">
+
         ♡
+
+        <span
+          class="badge"
+          id="wishlistCount">
+          0
+        </span>
+
       </button>
 
-      <button onclick="showMessage('Shopping cart coming soon.')">
+
+      <!-- CART -->
+
+      <button
+        class="action-button"
+        onclick="openCart()"
+        aria-label="Cart">
+
         🛒
+
+        <span
+          class="badge"
+          id="cartCount">
+          0
+        </span>
+
       </button>
 
     </div>
@@ -1235,26 +1507,34 @@ button{
         comfort, elegance and timeless design.
       </p>
 
-      <a href="#shop" class="btn">
+      <a
+        href="#shop"
+        class="btn">
+
         Explore Collection
         <span>→</span>
+
       </a>
 
     </div>
 
   </div>
 
+
   <div class="hero-bottom">
 
     <div class="hero-numbers">
+
       <strong>01</strong>
       <span>—</span>
       <span>02</span>
       <span>—</span>
       <span>03</span>
+
     </div>
 
   </div>
+
 
   <div class="watch-video">
 
@@ -1357,8 +1637,12 @@ button{
           to elegant bedrooms.
         </p>
 
-        <a href="#shop" class="btn">
+        <a
+          href="#shop"
+          class="btn">
+
           View All Collections →
+
         </a>
 
       </div>
@@ -1366,20 +1650,15 @@ button{
 
       <div class="collection-grid">
 
-
         <a href="#shop" class="collection-card">
 
           <img
             src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85"
             alt="Living Room">
 
-          <h3>
-            Living Room
-          </h3>
+          <h3>Living Room</h3>
 
-          <p>
-            12 Products →
-          </p>
+          <p>12 Products →</p>
 
         </a>
 
@@ -1390,13 +1669,9 @@ button{
             src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85"
             alt="Bedroom">
 
-          <h3>
-            Bedroom
-          </h3>
+          <h3>Bedroom</h3>
 
-          <p>
-            10 Products →
-          </p>
+          <p>10 Products →</p>
 
         </a>
 
@@ -1407,13 +1682,9 @@ button{
             src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=85"
             alt="Dining Room">
 
-          <h3>
-            Dining Room
-          </h3>
+          <h3>Dining Room</h3>
 
-          <p>
-            8 Products →
-          </p>
+          <p>8 Products →</p>
 
         </a>
 
@@ -1424,16 +1695,11 @@ button{
             src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85"
             alt="Office">
 
-          <h3>
-            Office
-          </h3>
+          <h3>Office</h3>
 
-          <p>
-            6 Products →
-          </p>
+          <p>6 Products →</p>
 
         </a>
-
 
       </div>
 
@@ -1495,7 +1761,7 @@ button{
 
       <img
         src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=88"
-        alt="Royal Furniture interior">
+        alt="Royal Furniture">
 
     </div>
 
@@ -1577,13 +1843,9 @@ button{
 
         <div class="space-label">
 
-          <strong>
-            Living
-          </strong>
+          <strong>Living</strong>
 
-          <small>
-            Warm & inviting
-          </small>
+          <small>Warm & inviting</small>
 
         </div>
 
@@ -1598,13 +1860,9 @@ button{
 
         <div class="space-label">
 
-          <strong>
-            Bedroom
-          </strong>
+          <strong>Bedroom</strong>
 
-          <small>
-            Calm & refined
-          </small>
+          <small>Calm & refined</small>
 
         </div>
 
@@ -1619,13 +1877,9 @@ button{
 
         <div class="space-label">
 
-          <strong>
-            Dining
-          </strong>
+          <strong>Dining</strong>
 
-          <small>
-            Gather beautifully
-          </small>
+          <small>Gather beautifully</small>
 
         </div>
 
@@ -1682,7 +1936,6 @@ button{
 
   <div class="container footer-grid">
 
-
     <div>
 
       <div class="logo">
@@ -1700,9 +1953,7 @@ button{
 
     <div>
 
-      <h4>
-        Explore
-      </h4>
+      <h4>Explore</h4>
 
       <a href="#shop">Shop</a>
 
@@ -1723,9 +1974,7 @@ button{
 
     <div>
 
-      <h4>
-        Support
-      </h4>
+      <h4>Support</h4>
 
       <a href="customize.html">
         Customize Website
@@ -1748,9 +1997,7 @@ button{
 
     <div>
 
-      <h4>
-        Contact
-      </h4>
+      <h4>Contact</h4>
 
       <p>
         hello@royalfurniture.com
@@ -1761,7 +2008,6 @@ button{
       </p>
 
     </div>
-
 
   </div>
 
@@ -1782,10 +2028,110 @@ button{
 
 </footer>
 
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div
+  class="search-overlay"
+  id="searchOverlay">
+
+  <div class="search-box">
+
+    <button
+      class="search-close"
+      onclick="closeSearch()">
+      ×
+    </button>
+
+    <input
+      type="search"
+      id="searchInput"
+      class="search-input"
+      placeholder="Search furniture..."
+      oninput="searchProducts()">
+
+    <div
+      class="search-results"
+      id="searchResults">
+    </div>
+
+  </div>
+
 </div>
 
 
-<!-- CUSTOMIZE BUTTON -->
+<!-- =========================
+     CART DRAWER
+========================= -->
+
+<div
+  class="drawer"
+  id="cartDrawer">
+
+  <div class="drawer-head">
+
+    <h3>
+      Your Cart
+    </h3>
+
+    <button
+      class="drawer-close"
+      onclick="closeAllDrawers()">
+      ×
+    </button>
+
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div
+    class="drawer-total"
+    id="cartTotal">
+  </div>
+
+  <button
+    class="drawer-action"
+    onclick="checkoutMessage()">
+
+    Continue to Checkout
+
+  </button>
+
+</div>
+
+
+<!-- =========================
+     WISHLIST DRAWER
+========================= -->
+
+<div
+  class="drawer"
+  id="wishlistDrawer">
+
+  <div class="drawer-head">
+
+    <h3>
+      Favorites
+    </h3>
+
+    <button
+      class="drawer-close"
+      onclick="closeAllDrawers()">
+      ×
+    </button>
+
+  </div>
+
+  <div id="wishlistItems"></div>
+
+</div>
+
+
+<!-- =========================
+     CUSTOMIZE
+========================= -->
 
 <a
   href="customize.html"
@@ -1798,29 +2144,15 @@ button{
 </a>
 
 
-<!-- MESSAGE -->
-
-<div
-  id="messageBox"
-  style="
-  position:fixed;
-  z-index:200;
-  left:50%;
-  bottom:22px;
-  transform:translate(-50%,20px);
-  opacity:0;
-  background:#171715;
-  color:#fff;
-  padding:11px 18px;
-  border-radius:4px;
-  font-size:12px;
-  transition:.25s;
-  pointer-events:none;
-  ">
-</div>
-
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
+
+const fallbackImage =
+"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85";
+
 
 /* =========================
    DEFAULT PRODUCTS
@@ -1829,42 +2161,65 @@ button{
 const defaultProducts = [
 
   {
+    id:"modern-sofa",
     name:"Modern Sofa",
     price:"$1,299",
     image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
   },
 
   {
+    id:"accent-chair",
     name:"Accent Chair",
     price:"$499",
     image:"https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=85"
   },
 
   {
+    id:"dining-table",
     name:"Dining Table",
     price:"$899",
     image:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=900&q=85"
   },
 
   {
+    id:"bed-frame",
     name:"Bed Frame",
     price:"$1,099",
     image:"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85"
   },
 
   {
+    id:"milo-chair",
     name:"Milo Chair",
     price:"$420",
     image:"https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=85"
   },
 
   {
+    id:"vale-table",
     name:"Vale Side Table",
     price:"$560",
     image:"https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=85"
   }
 
 ];
+
+
+/* =========================
+   DATA
+========================= */
+
+let products = [...defaultProducts];
+
+let cart =
+  JSON.parse(
+    localStorage.getItem("royalCart") || "[]"
+  );
+
+let wishlist =
+  JSON.parse(
+    localStorage.getItem("royalWishlist") || "[]"
+  );
 
 
 /* =========================
@@ -1884,17 +2239,71 @@ function escapeHTML(value){
 
 
 /* =========================
-   PRODUCTS
+   SAVE DATA
 ========================= */
 
-function renderProducts(products){
+function saveData(){
+
+  localStorage.setItem(
+    "royalCart",
+    JSON.stringify(cart)
+  );
+
+  localStorage.setItem(
+    "royalWishlist",
+    JSON.stringify(wishlist)
+  );
+
+}
+
+
+/* =========================
+   PRODUCT ID
+========================= */
+
+function getProductId(product,index){
+
+  if(product.id){
+    return String(product.id);
+  }
+
+  return (
+    String(product.name || "product")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g,"-")
+      .replace(/^-|-$/g,"")
+    + "-" +
+    index
+  );
+
+}
+
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+function renderProducts(list){
 
   const grid =
-    document.getElementById("productsGrid");
+    document.getElementById(
+      "productsGrid"
+    );
 
   grid.innerHTML = "";
 
-  products.forEach(function(product){
+
+  list.forEach(function(product,index){
+
+    const id =
+      getProductId(product,index);
+
+    product.id = id;
+
+
+    const isFavorite =
+      wishlist.includes(id);
+
 
     const card =
       document.createElement("article");
@@ -1902,26 +2311,24 @@ function renderProducts(products){
     card.className =
       "product-card";
 
-    const image =
-      product.image ||
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85";
 
     card.innerHTML = `
 
       <div class="product-image">
 
         <img
-          src="${escapeHTML(image)}"
+          src="${escapeHTML(product.image || fallbackImage)}"
           alt="${escapeHTML(product.name || "Furniture")}"
-          onerror="this.style.display='none';"
+          onerror="this.src='${fallbackImage}'"
         >
 
-        <button
-          class="favorite"
-          onclick="toggleFavorite(this)"
-          aria-label="Favorite">
 
-          ♡
+        <button
+          class="favorite ${isFavorite ? "active" : ""}"
+          onclick="toggleWishlist('${escapeHTML(id)}')"
+          aria-label="Add to favorites">
+
+          ${isFavorite ? "♥" : "♡"}
 
         </button>
 
@@ -1942,11 +2349,149 @@ function renderProducts(products){
           ★★★★★
         </div>
 
+        <button
+          onclick="addToCart('${escapeHTML(id)}')"
+          style="
+            margin-top:10px;
+            background:#171715;
+            color:white;
+            padding:9px 13px;
+            font-size:10px;
+          ">
+
+          Add to Cart
+
+        </button>
+
       </div>
 
     `;
 
+
     grid.appendChild(card);
+
+  });
+
+
+  updateBadges();
+
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+function toggleWishlist(id){
+
+  const index =
+    wishlist.indexOf(id);
+
+
+  if(index === -1){
+
+    wishlist.push(id);
+
+  }else{
+
+    wishlist.splice(index,1);
+
+  }
+
+
+  saveData();
+
+  renderProducts(products);
+
+  updateWishlistDrawer();
+
+  updateBadges();
+
+}
+
+
+function openWishlist(){
+
+  closeAllDrawers();
+
+  document
+    .getElementById("wishlistDrawer")
+    .classList.add("open");
+
+  document
+    .getElementById("drawerOverlay")
+    .classList.add("open");
+
+  updateWishlistDrawer();
+
+}
+
+
+function updateWishlistDrawer(){
+
+  const box =
+    document.getElementById(
+      "wishlistItems"
+    );
+
+  const items =
+    products.filter(function(product){
+
+      return wishlist.includes(
+        String(product.id)
+      );
+
+    });
+
+
+  if(!items.length){
+
+    box.innerHTML = `
+      <div class="empty">
+        Your favorites list is empty.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  box.innerHTML = "";
+
+
+  items.forEach(function(product){
+
+    box.innerHTML += `
+
+      <div class="drawer-item">
+
+        <img
+          src="${escapeHTML(product.image || fallbackImage)}"
+          alt="${escapeHTML(product.name)}">
+
+        <div class="drawer-item-info">
+
+          <strong>
+            ${escapeHTML(product.name)}
+          </strong>
+
+          <span>
+            ${escapeHTML(product.price)}
+          </span>
+
+          <button
+            onclick="toggleWishlist('${escapeHTML(product.id)}')">
+
+            Remove from favorites
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
 
   });
 
@@ -1954,22 +2499,340 @@ function renderProducts(products){
 
 
 /* =========================
-   FAVORITE
+   CART
 ========================= */
 
-function toggleFavorite(button){
+function addToCart(id){
 
-  button.classList.toggle("active");
+  const product =
+    products.find(function(item){
 
-  if(button.classList.contains("active")){
+      return String(item.id) === String(id);
 
-    button.textContent = "♥";
+    });
 
-  }else{
 
-    button.textContent = "♡";
+  if(!product){
+    return;
+  }
+
+
+  cart.push({
+
+    id:product.id,
+
+    name:product.name,
+
+    price:product.price,
+
+    image:product.image
+
+  });
+
+
+  saveData();
+
+  updateBadges();
+
+  updateCartDrawer();
+
+  showMessage(
+    product.name + " added to cart."
+  );
+
+}
+
+
+function removeFromCart(index){
+
+  cart.splice(index,1);
+
+  saveData();
+
+  updateBadges();
+
+  updateCartDrawer();
+
+}
+
+
+function openCart(){
+
+  closeAllDrawers();
+
+  document
+    .getElementById("cartDrawer")
+    .classList.add("open");
+
+  document
+    .getElementById("drawerOverlay")
+    .classList.add("open");
+
+  updateCartDrawer();
+
+}
+
+
+function updateCartDrawer(){
+
+  const box =
+    document.getElementById(
+      "cartItems"
+    );
+
+  const total =
+    document.getElementById(
+      "cartTotal"
+    );
+
+
+  if(!cart.length){
+
+    box.innerHTML = `
+      <div class="empty">
+        Your cart is empty.
+      </div>
+    `;
+
+    total.innerHTML = "";
+
+    return;
 
   }
+
+
+  box.innerHTML = "";
+
+
+  cart.forEach(function(item,index){
+
+    box.innerHTML += `
+
+      <div class="drawer-item">
+
+        <img
+          src="${escapeHTML(item.image || fallbackImage)}"
+          alt="${escapeHTML(item.name)}">
+
+        <div class="drawer-item-info">
+
+          <strong>
+            ${escapeHTML(item.name)}
+          </strong>
+
+          <span>
+            ${escapeHTML(item.price)}
+          </span>
+
+          <button
+            onclick="removeFromCart(${index})">
+
+            Remove
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+
+  total.innerHTML = `
+
+    <strong>
+      ${cart.length}
+      ${cart.length === 1 ? "item" : "items"}
+    </strong>
+
+    <strong>
+      Cart
+    </strong>
+
+  `;
+
+}
+
+
+/* =========================
+   BADGES
+========================= */
+
+function updateBadges(){
+
+  document.getElementById(
+    "cartCount"
+  ).textContent =
+    cart.length;
+
+
+  document.getElementById(
+    "wishlistCount"
+  ).textContent =
+    wishlist.length;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function openSearch(){
+
+  document
+    .getElementById("searchOverlay")
+    .classList.add("open");
+
+  document
+    .getElementById("searchInput")
+    .value = "";
+
+  document
+    .getElementById("searchResults")
+    .innerHTML = `
+      <div class="empty" style="color:#aaa">
+        Search for a furniture product.
+      </div>
+    `;
+
+  setTimeout(function(){
+
+    document
+      .getElementById("searchInput")
+      .focus();
+
+  },100);
+
+}
+
+
+function closeSearch(){
+
+  document
+    .getElementById("searchOverlay")
+    .classList.remove("open");
+
+}
+
+
+function searchProducts(){
+
+  const query =
+    document
+      .getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const results =
+    document.getElementById(
+      "searchResults"
+    );
+
+
+  if(!query){
+
+    results.innerHTML = `
+      <div class="empty" style="color:#aaa">
+        Search for a furniture product.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  const matches =
+    products.filter(function(product){
+
+      return String(
+        product.name || ""
+      ).toLowerCase().includes(query);
+
+    });
+
+
+  if(!matches.length){
+
+    results.innerHTML = `
+      <div class="empty" style="color:#aaa">
+        No products found.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  results.innerHTML = "";
+
+
+  matches.forEach(function(product){
+
+    results.innerHTML += `
+
+      <button
+        class="search-result"
+        onclick="goToProduct('${escapeHTML(product.id)}')">
+
+        <strong>
+          ${escapeHTML(product.name)}
+        </strong>
+
+        <span>
+          ${escapeHTML(product.price)}
+        </span>
+
+      </button>
+
+    `;
+
+  });
+
+}
+
+
+function goToProduct(id){
+
+  closeSearch();
+
+  const element =
+    document.querySelector(
+      ".product-card"
+    );
+
+  document
+    .getElementById("shop")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   DRAWERS
+========================= */
+
+function closeAllDrawers(){
+
+  document
+    .getElementById("cartDrawer")
+    .classList.remove("open");
+
+  document
+    .getElementById("wishlistDrawer")
+    .classList.remove("open");
+
+  document
+    .getElementById("drawerOverlay")
+    .classList.remove("open");
 
 }
 
@@ -1978,32 +2841,41 @@ function toggleFavorite(button){
    MOBILE MENU
 ========================= */
 
-function openMenu(){
+function openMobileMenu(){
 
   document
     .getElementById("mobileMenu")
     .classList.add("open");
 
-  document
-    .getElementById("mobileOverlay")
-    .classList.add("open");
-
-  document.body.style.overflow = "hidden";
+  document.body.classList.add(
+    "no-scroll"
+  );
 
 }
 
 
-function closeMenu(){
+function closeMobileMenu(){
 
   document
     .getElementById("mobileMenu")
     .classList.remove("open");
 
-  document
-    .getElementById("mobileOverlay")
-    .classList.remove("open");
+  document.body.classList.remove(
+    "no-scroll"
+  );
 
-  document.body.style.overflow = "";
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function checkoutMessage(){
+
+  showMessage(
+    "Checkout is ready for the next update."
+  );
 
 }
 
@@ -2015,21 +2887,40 @@ function closeMenu(){
 function showMessage(message){
 
   const box =
-    document.getElementById("messageBox");
+    document.getElementById(
+      "messageBox"
+    );
 
-  box.textContent = message;
 
-  box.style.opacity = "1";
+  if(!box){
+
+    createMessageBox();
+
+    return showMessage(message);
+
+  }
+
+
+  box.textContent =
+    message;
+
+  box.style.opacity =
+    "1";
 
   box.style.transform =
     "translate(-50%,0)";
 
-  clearTimeout(window.messageTimer);
+
+  clearTimeout(
+    window.messageTimer
+  );
+
 
   window.messageTimer =
     setTimeout(function(){
 
-      box.style.opacity = "0";
+      box.style.opacity =
+        "0";
 
       box.style.transform =
         "translate(-50%,20px)";
@@ -2039,13 +2930,43 @@ function showMessage(message){
 }
 
 
+function createMessageBox(){
+
+  const box =
+    document.createElement("div");
+
+  box.id =
+    "messageBox";
+
+  box.style.cssText = `
+    position:fixed;
+    z-index:500;
+    left:50%;
+    bottom:22px;
+    transform:translate(-50%,20px);
+    opacity:0;
+    background:#171715;
+    color:#fff;
+    padding:11px 18px;
+    border-radius:4px;
+    font-size:12px;
+    transition:.25s;
+    pointer-events:none;
+  `;
+
+  document.body.appendChild(box);
+
+}
+
+
 /* =========================
-   CUSTOMIZE CONNECTION
+   CUSTOMIZATION
 ========================= */
 
 function loadCustomization(){
 
   let settings = null;
+
 
   try{
 
@@ -2065,14 +2986,14 @@ function loadCustomization(){
 
   if(!settings){
 
-    renderProducts(defaultProducts);
+    renderProducts(products);
 
     return;
 
   }
 
 
-  /* ACCENT COLOR */
+  /* ACCENT */
 
   if(settings.accent){
 
@@ -2096,7 +3017,7 @@ function loadCustomization(){
   }
 
 
-  /* HERO */
+  /* HERO HEADLINE */
 
   if(settings.headline){
 
@@ -2105,17 +3026,25 @@ function loadCustomization(){
         .trim()
         .split(" ");
 
-    const middle =
+
+    const cut =
       Math.max(
         1,
         Math.floor(words.length * .6)
       );
 
+
     const first =
-      words.slice(0,middle).join(" ");
+      words
+        .slice(0,cut)
+        .join(" ");
+
 
     const second =
-      words.slice(middle).join(" ");
+      words
+        .slice(cut)
+        .join(" ");
+
 
     document.getElementById(
       "heroTitle"
@@ -2127,6 +3056,8 @@ function loadCustomization(){
 
   }
 
+
+  /* DESCRIPTION */
 
   if(settings.description){
 
@@ -2142,20 +3073,43 @@ function loadCustomization(){
 
   if(
     Array.isArray(settings.products) &&
-    settings.products.length > 0
+    settings.products.length
   ){
 
-    renderProducts(
-      settings.products
-    );
+    products =
+      settings.products.map(
+        function(product,index){
 
-  }else{
+          return {
 
-    renderProducts(
-      defaultProducts
-    );
+            id:
+              product.id ||
+              getProductId(
+                product,
+                index
+              ),
+
+            name:
+              product.name ||
+              "Product",
+
+            price:
+              product.price ||
+              "",
+
+            image:
+              product.image ||
+              fallbackImage
+
+          };
+
+        }
+      );
 
   }
+
+
+  renderProducts(products);
 
 }
 
@@ -2164,14 +3118,19 @@ function loadCustomization(){
    YEAR
 ========================= */
 
-document.getElementById("year")
-  .textContent =
+document.getElementById(
+  "year"
+).textContent =
   new Date().getFullYear();
 
 
-/* START */
+/* =========================
+   START
+========================= */
 
 loadCustomization();
+
+updateBadges();
 
 </script>
 
